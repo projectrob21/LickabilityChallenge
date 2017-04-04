@@ -12,7 +12,7 @@ import CoreData
 class HomeViewController: UIViewController {
     
     let store = DataStore.shared
-    var primaryView: PrimaryCollectionView!
+    var primaryCollectionView: PrimaryCollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,9 +20,9 @@ class HomeViewController: UIViewController {
         
         DispatchQueue.main.async {
             print("There are currently \(self.store.pictures.count) pictures in the DataStore")
-            self.primaryView = PrimaryCollectionView()
-            self.view.addSubview(self.primaryView)
-            self.primaryView.snp.makeConstraints {
+            self.primaryCollectionView = PrimaryCollectionView()
+            self.view.addSubview(self.primaryCollectionView)
+            self.primaryCollectionView.snp.makeConstraints {
                 $0.edges.equalToSuperview()
             }
         }
@@ -42,11 +42,3 @@ class HomeViewController: UIViewController {
     
     
 }
-
-/*
- albumId: 1,
- id: 1,
- title: "accusamus beatae ad facilis cum similique qui sunt",
- url: "http://placehold.it/600/92c952",
- thumbnailUrl: "http://placehold.it/150/92c952"
- */

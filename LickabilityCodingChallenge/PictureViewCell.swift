@@ -16,36 +16,23 @@ class PictureViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-      
         configure()
         constrain()
-        
-        
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        
     }
     
     func configure() {
         imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        
-        titleLabel = UILabel()
     }
     
     func constrain() {
         self.contentView.addSubview(imageView)
         imageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
-        }
-        
-        self.contentView.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints {
-            $0.bottom.width.equalToSuperview()
-            $0.height.equalToSuperview().dividedBy(4)
         }
     }
     
