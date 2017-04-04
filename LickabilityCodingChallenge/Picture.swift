@@ -87,8 +87,9 @@ extension Picture {
         var urlData: Data
         do {
             urlData = try Data(contentsOf: thumbnailURL)
-        } catch {
+        } catch let error as Error {
             // *** could assign customized image
+            print("error: \(error.localizedDescription)")
             throw SerializationError.invaled("image", url)
         }
         
