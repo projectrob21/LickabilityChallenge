@@ -12,7 +12,7 @@ import CoreData
 class HomeViewController: UIViewController {
     
     let store = DataStore.shared
-    var primaryView: PrimaryView!
+    var primaryView: PrimaryCollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +20,7 @@ class HomeViewController: UIViewController {
         
         DispatchQueue.main.async {
             print("There are currently \(self.store.pictures.count) pictures in the DataStore")
-            self.primaryView = PrimaryView()
+            self.primaryView = PrimaryCollectionView()
             self.view.addSubview(self.primaryView)
             self.primaryView.snp.makeConstraints {
                 $0.edges.equalToSuperview()

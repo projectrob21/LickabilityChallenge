@@ -1,5 +1,5 @@
 //
-//  PictureViewCell.swift
+//  PrimaryView.swift
 //  LickabilityCodingChallenge
 //
 //  Created by Robert Deans on 4/4/17.
@@ -8,45 +8,53 @@
 
 import Foundation
 import UIKit
+import SnapKit
 
-class PictureViewCell: UICollectionViewCell {
+class PictureDetailView: UIView {
     
+    var picture: Picture!
     var imageView: UIImageView!
     var titleLabel: UILabel!
+        
     
+    required init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder) }
     override init(frame: CGRect) {
-        super.init(frame: frame)
-      
-        configure()
-        constrain()
-        
-        
-        
+        super.init(frame: .zero)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    convenience init(picture: Picture) {
+        self.init(frame: CGRect.zero)
+        self.picture = picture
+
+        configure()
+        constrain()
         
     }
     
     func configure() {
         imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.download(from: picture.imageURL, contentMode: .scaleAspectFit)
         
         titleLabel = UILabel()
+        titleLabel.text = picture.title
+        
     }
     
     func constrain() {
-        self.contentView.addSubview(imageView)
+        addSubview(imageView)
         imageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
         
-        self.contentView.addSubview(titleLabel)
+        addSubview(titleLabel)
         titleLabel.snp.makeConstraints {
             $0.bottom.width.equalToSuperview()
             $0.height.equalToSuperview().dividedBy(4)
         }
     }
+    
+    
+    
+    
     
 }

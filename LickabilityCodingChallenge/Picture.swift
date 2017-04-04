@@ -15,8 +15,8 @@ struct Picture {
     let albumID: Int
     let picID: Int
     let title: String
-    let urlString: String
-    var thumbnailURL: URL?
+    let imageURL: String
+    var thumbnailURL: String
     var image: UIImage?
     
     init?(json: [String:Any]) {
@@ -24,14 +24,14 @@ struct Picture {
         
         guard let picID = json["id"] as? Int else { print("error: picID"); return nil }
         guard let title = json["title"] as? String else { print("error: title"); return nil }
-        
-        guard let url = json["url"] as? String else { print("error: url"); return nil }
-        
+        guard let imageURL = json["url"] as? String else { print("error: url"); return nil }
+        guard let thumbnailURL = json["thumbnailUrl"] as? String else { print("error: thumbnailUrl"); return nil }
         
         self.albumID = albumID
         self.picID = picID
         self.title = title
-        self.urlString = url
+        self.imageURL = imageURL
+        self.thumbnailURL = thumbnailURL
         
         /*
         // *** Allows http in plist Allow Arbitrary Loads ***
@@ -80,31 +80,31 @@ extension Picture {
         }
         
         // Create url
-        guard let thumbnailURL = URL(string: url) else {
-            throw SerializationError.invaled("thumbnailURL", url)
+        guard let thumbnailURL = altJSON["thumbnailUrl"] as? String else {
+            throw SerializationError.missing("thumbUrl")
         }
         
         
-        var urlData: Data
-        do {
-            urlData = try Data(contentsOf: thumbnailURL)
-        } catch let error {
-            // *** could assign customized image
-            print("error: \(error.localizedDescription)")
-            throw SerializationError.invaled("image", url)
-        }
-        
-        guard let image = UIImage(data: urlData) else {
-            throw SerializationError.invaled("image", url)
-        }
+//        var urlData: Data
+//        do {
+//            urlData = try Data(contentsOf: thumbnailURL)
+//        } catch let error {
+//            // *** could assign customized image
+//            print("error: \(error.localizedDescription)")
+//            throw SerializationError.invaled("image", url)
+//        }
+//        
+//        guard let image = UIImage(data: urlData) else {
+//            throw SerializationError.invaled("image", url)
+//        }
         
         
         // Initialize remaining properties
         self.albumID = albumID
         self.picID = picID
         self.title = title
-        self.urlString = url
-        self.image = image
+        self.imageURL = url
+        self.thumbnailURL = thumbnailURL
         
     }
 }

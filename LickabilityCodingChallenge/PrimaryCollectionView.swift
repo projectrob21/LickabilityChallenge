@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SnapKit
 
-class PrimaryView: UIView {
+class PrimaryCollectionView: UIView {
     
     let store = DataStore.shared
     
@@ -46,7 +46,7 @@ class PrimaryView: UIView {
     
 }
 
-extension PrimaryView: UICollectionViewDelegate, UICollectionViewDataSource {
+extension PrimaryCollectionView: UICollectionViewDelegate, UICollectionViewDataSource {
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -59,7 +59,7 @@ extension PrimaryView: UICollectionViewDelegate, UICollectionViewDataSource {
         
         let picture = store.pictures[indexPath.row]
         
-        cell.imageView.download(from: picture.urlString, contentMode: .center)
+        cell.imageView.download(from: picture.thumbnailURL, contentMode: .center)
 
         cell.titleLabel.text = picture.title
         
@@ -67,6 +67,15 @@ extension PrimaryView: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let picture = store.pictures[indexPath.row]
+
+        let pictureDetailView = PictureDetailView(picture: picture)
+        addSubview(pictureDetailView)
+        pictureDetailView.snp.makeConstraints {
+            $0.width.height.equalToSuperview().dividedBy(2)
+            $0.centerX.centerY.equalToSuperview()
+        }
+        
         
     }
     
