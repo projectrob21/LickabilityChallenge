@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 // *** Code Review Initializer *** //
 
@@ -14,23 +15,105 @@ struct Picture {
     let albumID: Int
     let picID: Int
     let title: String
-    let url: String
-    let thumbnailURL: String
+    let urlString: String
+    var thumbnailURL: URL?
+    var image: UIImage?
     
     init?(json: [String:Any]) {
-        guard let albumID = json["albumID"] as? Int,
-        let picID = json["id"] as? Int,
-        let title = json["title"] as? String,
-        let url = json["url"] as? String,
-        let thumbnailURL = json["thumbnailURL"] as? String else {
-            print("could not initialize Picture from json"); return nil
-        }
+        guard let albumID = json["albumId"] as? Int else { print("error: albumID"); return nil }
+
+        guard let picID = json["id"] as? Int else { print("error: picID"); return nil }
+        guard let title = json["title"] as? String else { print("error: title"); return nil }
+
+        guard let url = json["url"] as? String else { print("error: url"); return nil }
+
         
         self.albumID = albumID
         self.picID = picID
         self.title = title
-        self.url = url
-        self.thumbnailURL = thumbnailURL
+        self.urlString = url
+        
+        //*** Allows http in plist Allow Arbitrary Loads ***
+        if let thumbnailURL = URL(string: url) {
+            do {
+                let urlData = try Data(contentsOf: thumbnailURL)
+                self.image = UIImage(data: urlData)
+            } catch {
+                print("error: initializing image")
+                self.image = nil
+                // *** could assign customized image
+            }
+        }
     }
 
+}
+
+// *** https://developer.apple.com/swift/blog/?id=37 for Error handling
+
+extension Picture {
+    
+    enum SerializationError: Error {
+        case missing(String)
+        case invaled(String, Any)
+    }
+    
+    init(altJSON: [String:Any]) throws {
+        // Extract albumID
+        guard let albumID = altJSON["albumID"] as? Int else {
+            throw SerializationError.missing("albumID")
+        }
+        
+        // Extract picID
+        guard let picID = altJSON["id"] as? Int else {
+            throw SerializationError.missing("id")
+        }
+        
+        // Extract title
+        guard let title = altJSON["title"] as? String else {
+            throw SerializationError.missing("title")
+        }
+        
+        // Extract url string
+        guard let url = altJSON["url"] as? String else {
+            throw SerializationError.missing("url")
+        }
+        
+        // Create url
+        guard let thumbnailURL = URL(string: url) else {
+            throw SerializationError.invaled("thumbnailURL", url)
+        }
+        
+        
+        var urlData: Data
+        do {
+            urlData = try Data(contentsOf: thumbnailURL)
+        } catch {
+            // *** could assign customized image
+            throw SerializationError.invaled("image", url)
+        }
+        
+        guard let image = UIImage(data: urlData) else {
+            throw SerializationError.invaled("image", url)
+        }
+        
+        //        if let thumbnailURL = URL(string: url) {
+        //            do {
+        //                let urlData = try Data(contentsOf: thumbnailURL)
+        //                self.image = UIImage(data: urlData)
+        //            } catch {
+        //                print("error initializing image")
+        //                self.image = nil
+        //                // *** could assign customized image
+        //            }
+        //        }
+        
+        // Initialize remaining properties
+        self.albumID = albumID
+        self.picID = picID
+        self.title = title
+        self.urlString = url
+        self.image = image
+        
+    }
+    
 }

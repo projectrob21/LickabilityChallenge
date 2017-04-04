@@ -19,6 +19,7 @@
 		E876223A1E94005600651429 /* PictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87622391E94005600651429 /* PictureView.swift */; };
 		E876223D1E94064500651429 /* photos.json in Resources */ = {isa = PBXBuildFile; fileRef = E876223C1E94064500651429 /* photos.json */; };
 		E876223F1E94065F00651429 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E876223E1E94065F00651429 /* JSONParser.swift */; };
+		E87622421E94111200651429 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87622411E94111200651429 /* DataStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		E87622391E94005600651429 /* PictureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureView.swift; sourceTree = "<group>"; };
 		E876223C1E94064500651429 /* photos.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = photos.json; sourceTree = "<group>"; };
 		E876223E1E94065F00651429 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
+		E87622411E94111200651429 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		F2F370D831F367A981D527F3 /* Pods-LickabilityCodingChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LickabilityCodingChallenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LickabilityCodingChallenge/Pods-LickabilityCodingChallenge.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,6 +136,7 @@
 			children = (
 				E876223C1E94064500651429 /* photos.json */,
 				E876223E1E94065F00651429 /* JSONParser.swift */,
+				E87622411E94111200651429 /* DataStore.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				E87622321E93FFC500651429 /* Album.swift in Sources */,
 				E876223A1E94005600651429 /* PictureView.swift in Sources */,
 				E87622361E94003B00651429 /* PrimaryView.swift in Sources */,
+				E87622421E94111200651429 /* DataStore.swift in Sources */,
 				E87622381E94004F00651429 /* SecondaryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

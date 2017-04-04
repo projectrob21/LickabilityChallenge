@@ -8,27 +8,32 @@
 
 import Foundation
 
-struct JSONParser {
+final class JSONParser {
     
 
-    func getDictionary(from jsonFilename: String, completion: @escaping ([[String : Any]]) -> Void) {
+    static func getDictionary(from jsonFilename: String, completion: @escaping ([[String : Any]]) -> Void) {
         guard let filePath = Bundle.main.path(forResource: jsonFilename, ofType: "json") else { print("error unwrapping json file path"); return }
         
         do {
             let data = try NSData(contentsOfFile: filePath, options: NSData.ReadingOptions.uncached)
             
             guard let pictureDictionary = try JSONSerialization.jsonObject(with: data as Data, options: []) as? [[String : Any]] else { print("error typecasting json dictionary"); return }
+            
             completion(pictureDictionary)
         } catch {
             print("error reading data from file in json serializer")
         }
     }
     
-    func populatePicturesFromDictionary() {
+    static func populatePicturesFromDictionary() {
         
         getDictionary(from: "photos") { pictureDictionary in
             for pictureNode in pictureDictionary.map({ Picture(json: $0) }) {
                 // *** send pictures to data store ?
+                if let picture = pictureNode {
+                    let store = DataStore.shared
+                    store.pictures.append(picture)
+                }
             }
             
         }

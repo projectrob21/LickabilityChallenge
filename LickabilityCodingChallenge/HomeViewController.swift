@@ -10,14 +10,19 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    let store = DataStore.shared
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        JSONParser.populatePicturesFromDictionary()
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        print("There are currently \(store.pictures.count) pictures in the DataStore")
     }
 
 
