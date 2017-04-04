@@ -10,30 +10,37 @@ import UIKit
 import CoreData
 
 class HomeViewController: UIViewController {
-
+    
     let store = DataStore.shared
-
+    var primaryView: PrimaryView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        JSONParser.populatePicturesFromDictionary()
+        
+        DispatchQueue.main.async {
+            print("There are currently \(self.store.pictures.count) pictures in the DataStore")
+            self.primaryView = PrimaryView()
+            self.view.addSubview(self.primaryView)
+            self.primaryView.snp.makeConstraints {
+                $0.edges.equalToSuperview()
+            }
+        }
         
         
         // Download async in background?
         // Only intialize parts of json?
-        JSONParser.populatePicturesFromDictionary()
-        print("There are currently \(store.pictures.count) pictures in the DataStore")
-
+        
         
         
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
-
+    
+    
 }
 
 /*

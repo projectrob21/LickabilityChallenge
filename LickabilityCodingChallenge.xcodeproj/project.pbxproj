@@ -20,6 +20,8 @@
 		E876223D1E94064500651429 /* photos.json in Resources */ = {isa = PBXBuildFile; fileRef = E876223C1E94064500651429 /* photos.json */; };
 		E876223F1E94065F00651429 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E876223E1E94065F00651429 /* JSONParser.swift */; };
 		E87622421E94111200651429 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87622411E94111200651429 /* DataStore.swift */; };
+		E87622461E942DB900651429 /* PictureViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87622451E942DB900651429 /* PictureViewCell.swift */; };
+		E87622481E94318900651429 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87622471E94318900651429 /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		E876223C1E94064500651429 /* photos.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = photos.json; sourceTree = "<group>"; };
 		E876223E1E94065F00651429 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		E87622411E94111200651429 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		E87622451E942DB900651429 /* PictureViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureViewCell.swift; sourceTree = "<group>"; };
+		E87622471E94318900651429 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		F2F370D831F367A981D527F3 /* Pods-LickabilityCodingChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LickabilityCodingChallenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LickabilityCodingChallenge/Pods-LickabilityCodingChallenge.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +101,7 @@
 				E876223B1E94005D00651429 /* View */,
 				E87622331E93FFF800651429 /* Controllers */,
 				E87622241E93FB8600651429 /* Assets.xcassets */,
+				E87622471E94318900651429 /* Colors.swift */,
 				E87622261E93FB8600651429 /* LaunchScreen.storyboard */,
 				E87622291E93FB8600651429 /* Info.plist */,
 			);
@@ -127,6 +132,7 @@
 				E87622351E94003B00651429 /* PrimaryView.swift */,
 				E87622371E94004F00651429 /* SecondaryView.swift */,
 				E87622391E94005600651429 /* PictureView.swift */,
+				E87622451E942DB900651429 /* PictureViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -266,12 +272,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				E87622301E93FF0B00651429 /* Picture.swift in Sources */,
+				E87622481E94318900651429 /* Colors.swift in Sources */,
 				E87622201E93FB8600651429 /* HomeViewController.swift in Sources */,
 				E876223F1E94065F00651429 /* JSONParser.swift in Sources */,
 				E876221E1E93FB8600651429 /* AppDelegate.swift in Sources */,
 				E87622321E93FFC500651429 /* Album.swift in Sources */,
 				E876223A1E94005600651429 /* PictureView.swift in Sources */,
 				E87622361E94003B00651429 /* PrimaryView.swift in Sources */,
+				E87622461E942DB900651429 /* PictureViewCell.swift in Sources */,
 				E87622421E94111200651429 /* DataStore.swift in Sources */,
 				E87622381E94004F00651429 /* SecondaryView.swift in Sources */,
 			);

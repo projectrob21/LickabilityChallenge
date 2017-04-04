@@ -121,10 +121,12 @@ extension UIImageView {
                     let urlData = try Data(contentsOf: thumbnailURL)
                     DispatchQueue.main.async {
                         self.image = UIImage(data: urlData)
+                        self.layoutSubviews()
                     }
                 } catch {
                     print("error: initializing image")
                     self.image = nil
+                    self.layoutSubviews()
                     // *** could assign customized image
                 }
             }
