@@ -129,10 +129,10 @@
 		E876223B1E94005D00651429 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E87622451E942DB900651429 /* PictureViewCell.swift */,
 				E87622351E94003B00651429 /* PrimaryView.swift */,
 				E87622371E94004F00651429 /* SecondaryView.swift */,
 				E87622391E94005600651429 /* PictureView.swift */,
-				E87622451E942DB900651429 /* PictureViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";

@@ -12,25 +12,41 @@ import UIKit
 class PictureViewCell: UICollectionViewCell {
     
     var imageView: UIImageView!
+    var titleLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+      
+        configure()
+        constrain()
+        
+        
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
     }
     
-    convenience init() {
-        self.init()
+    func configure() {
         imageView = UIImageView()
         imageView.contentMode = .scaleToFill
+        
+        titleLabel = UILabel()
+    }
+    
+    func constrain() {
         self.contentView.addSubview(imageView)
-
         imageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+        
+        self.contentView.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints {
+            $0.bottom.width.equalToSuperview()
+            $0.height.equalToSuperview().dividedBy(4)
+        }
     }
-    
     
 }

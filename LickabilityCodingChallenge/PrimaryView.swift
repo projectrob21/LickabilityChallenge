@@ -19,11 +19,8 @@ class PrimaryView: UIView {
     var collectionView: UICollectionView!
     
     required init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder) }
-    override init(frame: CGRect) { super.init(frame: .zero) }
-    
-    convenience init() {
-        self.init(frame: .zero)
-        
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
         layout.itemSize = CGSize(width: 111, height: 111)
@@ -34,22 +31,23 @@ class PrimaryView: UIView {
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
-
+        collectionView.register(PictureViewCell.self, forCellWithReuseIdentifier: "Cell")
+        
         addSubview(collectionView)
         collectionView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+        
     }
     
-
+    
     
     
     
 }
 
 extension PrimaryView: UICollectionViewDelegate, UICollectionViewDataSource {
-
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print("cells = \(store.pictures.count)")
@@ -57,13 +55,19 @@ extension PrimaryView: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath as IndexPath)
-        cell.backgroundColor = UIColor().generateRandomColor()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! PictureViewCell
+        
+        let picture = store.pictures[indexPath.row]
+        
+        cell.imageView.download(from: picture.urlString, contentMode: .center)
+
+        cell.titleLabel.text = picture.title
+        
         return cell
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
     }
-
+    
 }
