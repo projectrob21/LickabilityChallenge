@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class HomeViewController: UIViewController {
 
@@ -16,13 +17,20 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        
+        // Download async in background?
+        // Only intialize parts of json?
         JSONParser.populatePicturesFromDictionary()
+        print("There are currently \(store.pictures.count) pictures in the DataStore")
+
+        
+        
         
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        print("There are currently \(store.pictures.count) pictures in the DataStore")
     }
 
 

@@ -21,19 +21,20 @@ struct Picture {
     
     init?(json: [String:Any]) {
         guard let albumID = json["albumId"] as? Int else { print("error: albumID"); return nil }
-
+        
         guard let picID = json["id"] as? Int else { print("error: picID"); return nil }
         guard let title = json["title"] as? String else { print("error: title"); return nil }
-
+        
         guard let url = json["url"] as? String else { print("error: url"); return nil }
-
+        
         
         self.albumID = albumID
         self.picID = picID
         self.title = title
         self.urlString = url
         
-        //*** Allows http in plist Allow Arbitrary Loads ***
+        /*
+        // *** Allows http in plist Allow Arbitrary Loads ***
         if let thumbnailURL = URL(string: url) {
             do {
                 let urlData = try Data(contentsOf: thumbnailURL)
@@ -44,12 +45,12 @@ struct Picture {
                 // *** could assign customized image
             }
         }
+        */
     }
-
+    
 }
 
-// *** https://developer.apple.com/swift/blog/?id=37 for Error handling
-
+// MARK: *** https://developer.apple.com/swift/blog/?id=37 for Error handling
 extension Picture {
     
     enum SerializationError: Error {
@@ -87,7 +88,7 @@ extension Picture {
         var urlData: Data
         do {
             urlData = try Data(contentsOf: thumbnailURL)
-        } catch let error as Error {
+        } catch let error {
             // *** could assign customized image
             print("error: \(error.localizedDescription)")
             throw SerializationError.invaled("image", url)
@@ -97,16 +98,6 @@ extension Picture {
             throw SerializationError.invaled("image", url)
         }
         
-        //        if let thumbnailURL = URL(string: url) {
-        //            do {
-        //                let urlData = try Data(contentsOf: thumbnailURL)
-        //                self.image = UIImage(data: urlData)
-        //            } catch {
-        //                print("error initializing image")
-        //                self.image = nil
-        //                // *** could assign customized image
-        //            }
-        //        }
         
         // Initialize remaining properties
         self.albumID = albumID
@@ -115,6 +106,31 @@ extension Picture {
         self.urlString = url
         self.image = image
         
+    }
+}
+
+// MARK
+extension UIImageView {
+    
+    func download(from link: String?, contentMode: UIViewContentMode)
+    {
+        if let link = link {
+            
+            if let thumbnailURL = URL(string: link) {
+                do {
+                    let urlData = try Data(contentsOf: thumbnailURL)
+                    DispatchQueue.main.async {
+                        self.image = UIImage(data: urlData)
+                    }
+                } catch {
+                    print("error: initializing image")
+                    self.image = nil
+                    // *** could assign customized image
+                }
+            }
+            
+            
+        }
     }
     
 }
