@@ -14,10 +14,12 @@ class PrimaryCollectionView: UIView {
     
     let store = DataStore.shared
     var collectionView: UICollectionView!
-
+    var pictureDetailView: PictureDetailView?
+    
     // Add ScrollView behind CollectionView to enhance movements and depth
     
     required init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder) }
+    
     override init(frame: CGRect) {
         super.init(frame: .zero)
         
@@ -32,9 +34,8 @@ class PrimaryCollectionView: UIView {
         layout.minimumInteritemSpacing = spacing / 2
         // The margins used to lay out content in a section
         layout.sectionInset = UIEdgeInsetsMake(spacing, spacing, spacing, spacing)
+        
         collectionView = UICollectionView(frame: self.frame, collectionViewLayout: layout)
-
-        collectionView.backgroundColor = UIColor.white
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(PictureViewCell.self, forCellWithReuseIdentifier: "Cell")
@@ -45,10 +46,7 @@ class PrimaryCollectionView: UIView {
         }
         
     }
-    
-    
-    
-    
+
     
 }
 
@@ -71,57 +69,32 @@ extension PrimaryCollectionView: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let picture = store.pictures[indexPath.row]
+        presentDetailView(for: picture)
+    }
+    
+}
 
-        let pictureDetailView = PictureDetailView(picture: picture)
-        addSubview(pictureDetailView)
-        pictureDetailView.snp.makeConstraints {
-            $0.width.equalToSuperview().multipliedBy(0.8)
-            $0.centerX.centerY.equalToSuperview()
+// MARK: Present DetailView
+extension PrimaryCollectionView {
+    
+    func presentDetailView(for picture: Picture) {
+        pictureDetailView = PictureDetailView(picture: picture)
+        
+        if let pictureDetailView = pictureDetailView {
+            pictureDetailView.dismissButton.addTarget(self, action: #selector(dismissDetailView), for: .touchUpInside)
+            addSubview(pictureDetailView)
+            pictureDetailView.snp.makeConstraints {
+                $0.edges.equalToSuperview()
+            }
         }
         
-        
+    }
+    
+    func dismissDetailView() {
+        if let pictureDetailView = pictureDetailView {
+            pictureDetailView.removeFromSuperview()
+            self.pictureDetailView = nil
+        }
     }
     
 }
-/*
-extension PrimaryCollectionView: UICollectionViewDelegateFlowLayout {
-    func configureLayout(){
-        let height = UIScreen.main.bounds.height
-        let width = UIScreen.main.bounds.width
-        
-        itemSize = CGSize(width: ((width - 12) / 3), height: ((height - 16) / 4))
-        numberOfRows = 4
-        numberOfColumns = 3
-        spacing = 2
-        sectionInsets = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
-        referenceSize = CGSize(width: width, height: 60)
-        
-    }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return spacing
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return spacing
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return sectionInsets
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return itemSize
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return referenceSize
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return referenceSize
-    }
-    
-}
-*/
