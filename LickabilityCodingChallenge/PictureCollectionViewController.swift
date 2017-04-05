@@ -66,11 +66,10 @@ extension PictureCollectionViewController: UICollectionViewDelegate, UICollectio
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! PictureViewCell
         
-        //        cell.backgroundColor = UIColor().generateRandomColor()
         
         let picture = album?.pictures[indexPath.row]
         DispatchQueue.main.async {
-            cell.imageView.download(from: picture?.thumbnailURL, contentMode: .center)
+            cell.imageView.download(from: picture?.thumbnailURL, contentMode: .scaleAspectFit)
         }
         return cell
     }

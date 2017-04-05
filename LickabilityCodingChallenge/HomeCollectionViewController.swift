@@ -76,7 +76,7 @@ extension HomeCollectionViewController: UICollectionViewDelegate, UICollectionVi
         
         let album = store.albums[indexPath.row]
         cell.backgroundColor = UIColor().generateRandomColor()
-        
+        cell.titleLabel.text = "\(album.albumID)"
         //        let picture = store.pictures[indexPath.row]
         //        DispatchQueue.main.async {
         //            cell.imageView.download(from: picture.thumbnailURL, contentMode: .center)
