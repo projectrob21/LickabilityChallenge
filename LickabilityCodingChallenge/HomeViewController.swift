@@ -17,9 +17,9 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         JSONParser.populatePicturesFromDictionary()
-        
+        print("number of pictures in store.pictures = \(store.pictures.count)")
+        print("number of albums in store.albums = \(store.albums.count)")
         DispatchQueue.main.async {
-            print("There are currently \(self.store.pictures.count) pictures in the DataStore")
             self.primaryCollectionView = PrimaryCollectionView()
             self.view.addSubview(self.primaryCollectionView)
             self.primaryCollectionView.snp.makeConstraints {
@@ -30,7 +30,7 @@ class HomeViewController: UIViewController {
         
         // Download async in background?
         // Only intialize parts of json?
-        
+        // How to handle different views
         
         
         

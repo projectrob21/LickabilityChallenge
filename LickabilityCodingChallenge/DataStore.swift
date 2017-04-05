@@ -13,5 +13,6 @@ final class DataStore {
     static let shared = DataStore()
     
     var pictures = [Picture]()
+    var albums = [Album]()
     
 }

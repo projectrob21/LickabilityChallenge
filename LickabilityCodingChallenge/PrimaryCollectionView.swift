@@ -54,16 +54,19 @@ extension PrimaryCollectionView: UICollectionViewDelegate, UICollectionViewDataS
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return store.pictures.count
+        return store.albums.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! PictureViewCell
+
+        let album = store.albums[indexPath.row]
+        cell.backgroundColor = UIColor().generateRandomColor()
         
-        let picture = store.pictures[indexPath.row]
-        DispatchQueue.main.async {
-            cell.imageView.download(from: picture.thumbnailURL, contentMode: .center)
-        }
+//        let picture = store.pictures[indexPath.row]
+//        DispatchQueue.main.async {
+//            cell.imageView.download(from: picture.thumbnailURL, contentMode: .center)
+//        }
         return cell
     }
     

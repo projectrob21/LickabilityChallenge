@@ -34,18 +34,18 @@ struct Picture {
         self.thumbnailURL = thumbnailURL
         
         /*
-        // *** Allows http in plist Allow Arbitrary Loads ***
-        if let thumbnailURL = URL(string: url) {
-            do {
-                let urlData = try Data(contentsOf: thumbnailURL)
-                self.image = UIImage(data: urlData)
-            } catch {
-                print("error: initializing image")
-                self.image = nil
-                // *** could assign customized image
-            }
-        }
-        */
+         // *** Allows http in plist Allow Arbitrary Loads ***
+         if let thumbnailURL = URL(string: url) {
+         do {
+         let urlData = try Data(contentsOf: thumbnailURL)
+         self.image = UIImage(data: urlData)
+         } catch {
+         print("error: initializing image")
+         self.image = nil
+         // *** could assign customized image
+         }
+         }
+         */
     }
     
 }
@@ -85,18 +85,18 @@ extension Picture {
         }
         
         
-//        var urlData: Data
-//        do {
-//            urlData = try Data(contentsOf: thumbnailURL)
-//        } catch let error {
-//            // *** could assign customized image
-//            print("error: \(error.localizedDescription)")
-//            throw SerializationError.invaled("image", url)
-//        }
-//        
-//        guard let image = UIImage(data: urlData) else {
-//            throw SerializationError.invaled("image", url)
-//        }
+        //        var urlData: Data
+        //        do {
+        //            urlData = try Data(contentsOf: thumbnailURL)
+        //        } catch let error {
+        //            // *** could assign customized image
+        //            print("error: \(error.localizedDescription)")
+        //            throw SerializationError.invaled("image", url)
+        //        }
+        //
+        //        guard let image = UIImage(data: urlData) else {
+        //            throw SerializationError.invaled("image", url)
+        //        }
         
         
         // Initialize remaining properties
@@ -135,4 +135,15 @@ extension UIImageView {
         }
     }
     
+}
+
+extension Picture: Equatable {
+    static func == (lhs:Picture, rhs: Picture) -> Bool {
+        return lhs.picID == rhs.picID &&
+        lhs.albumID == rhs.albumID &&
+        lhs.title == rhs.title &&
+        lhs.imageURL == rhs.imageURL &&
+        lhs.thumbnailURL == rhs.thumbnailURL &&
+        lhs.image == rhs.image
+    }
 }
