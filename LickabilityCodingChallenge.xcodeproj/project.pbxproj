@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		DD38DDFA32761DD869C9C01E /* Pods_LickabilityCodingChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E291826D6B334C6644AAB41 /* Pods_LickabilityCodingChallenge.framework */; };
 		E876221E1E93FB8600651429 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E876221D1E93FB8600651429 /* AppDelegate.swift */; };
-		E87622201E93FB8600651429 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E876221F1E93FB8600651429 /* HomeViewController.swift */; };
+		E87622201E93FB8600651429 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E876221F1E93FB8600651429 /* HomeCollectionViewController.swift */; };
 		E87622251E93FB8600651429 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E87622241E93FB8600651429 /* Assets.xcassets */; };
 		E87622281E93FB8600651429 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E87622261E93FB8600651429 /* LaunchScreen.storyboard */; };
 		E87622301E93FF0B00651429 /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E876222F1E93FF0B00651429 /* Picture.swift */; };
@@ -21,6 +21,7 @@
 		E87622421E94111200651429 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87622411E94111200651429 /* DataStore.swift */; };
 		E87622461E942DB900651429 /* PictureViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87622451E942DB900651429 /* PictureViewCell.swift */; };
 		E87622481E94318900651429 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87622471E94318900651429 /* Colors.swift */; };
+		E876224A1E95692D00651429 /* PictureCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87622491E95692C00651429 /* PictureCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +29,7 @@
 		4AD30B9B85D35B81F35BC764 /* Pods-LickabilityCodingChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LickabilityCodingChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-LickabilityCodingChallenge/Pods-LickabilityCodingChallenge.release.xcconfig"; sourceTree = "<group>"; };
 		E876221A1E93FB8600651429 /* LickabilityCodingChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LickabilityCodingChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E876221D1E93FB8600651429 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E876221F1E93FB8600651429 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E876221F1E93FB8600651429 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
 		E87622241E93FB8600651429 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E87622271E93FB8600651429 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E87622291E93FB8600651429 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -41,6 +42,7 @@
 		E87622411E94111200651429 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		E87622451E942DB900651429 /* PictureViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureViewCell.swift; sourceTree = "<group>"; };
 		E87622471E94318900651429 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		E87622491E95692C00651429 /* PictureCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureCollectionViewController.swift; sourceTree = "<group>"; };
 		F2F370D831F367A981D527F3 /* Pods-LickabilityCodingChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LickabilityCodingChallenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LickabilityCodingChallenge/Pods-LickabilityCodingChallenge.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,7 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				E876221D1E93FB8600651429 /* AppDelegate.swift */,
-				E876221F1E93FB8600651429 /* HomeViewController.swift */,
+				E876221F1E93FB8600651429 /* HomeCollectionViewController.swift */,
+				E87622491E95692C00651429 /* PictureCollectionViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -270,11 +273,12 @@
 			files = (
 				E87622301E93FF0B00651429 /* Picture.swift in Sources */,
 				E87622481E94318900651429 /* Colors.swift in Sources */,
-				E87622201E93FB8600651429 /* HomeViewController.swift in Sources */,
+				E87622201E93FB8600651429 /* HomeCollectionViewController.swift in Sources */,
 				E876223F1E94065F00651429 /* JSONParser.swift in Sources */,
 				E876221E1E93FB8600651429 /* AppDelegate.swift in Sources */,
 				E87622321E93FFC500651429 /* Album.swift in Sources */,
 				E876223A1E94005600651429 /* PictureDetailView.swift in Sources */,
+				E876224A1E95692D00651429 /* PictureCollectionViewController.swift in Sources */,
 				E87622361E94003B00651429 /* PrimaryCollectionView.swift in Sources */,
 				E87622461E942DB900651429 /* PictureViewCell.swift in Sources */,
 				E87622421E94111200651429 /* DataStore.swift in Sources */,
