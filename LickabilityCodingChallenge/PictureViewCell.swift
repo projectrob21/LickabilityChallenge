@@ -26,7 +26,8 @@ class PictureViewCell: UICollectionViewCell {
     
     func configure() {
         imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
+        self.layer.cornerRadius = 20
     }
     
     func constrain() {

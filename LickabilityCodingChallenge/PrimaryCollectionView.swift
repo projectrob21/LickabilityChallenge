@@ -13,31 +13,27 @@ import SnapKit
 class PrimaryCollectionView: UIView {
     
     let store = DataStore.shared
-    // ScrollView behind CollectionView to enhance movements and depth
-    
     var collectionView: UICollectionView!
-    
-    
-    var sectionInsets: UIEdgeInsets!
-    var spacing: CGFloat!
-    var itemSize: CGSize!
-    var referenceSize: CGSize!
-    var numberOfRows: CGFloat!
-    var numberOfColumns: CGFloat!
+
+    // Add ScrollView behind CollectionView to enhance movements and depth
     
     required init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder) }
     override init(frame: CGRect) {
         super.init(frame: .zero)
+        
+        let spacing: CGFloat = 20
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 10, right: 10)
+        
+        // default size for cells
         layout.itemSize = CGSize(width: 60, height: 60)
+        // The minimum spacing to use between LINES (up/down) of items in the grid.
+        layout.minimumLineSpacing = spacing
+        // The minimum spacing to use between items in the same ROW (left/right).
+        layout.minimumInteritemSpacing = spacing / 2
+        // The margins used to lay out content in a section
+        layout.sectionInset = UIEdgeInsetsMake(spacing, spacing, spacing, spacing)
         collectionView = UICollectionView(frame: self.frame, collectionViewLayout: layout)
 
-//        configureLayout()
-        
-
-        
-        
         collectionView.backgroundColor = UIColor.white
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -79,7 +75,7 @@ extension PrimaryCollectionView: UICollectionViewDelegate, UICollectionViewDataS
         let pictureDetailView = PictureDetailView(picture: picture)
         addSubview(pictureDetailView)
         pictureDetailView.snp.makeConstraints {
-            $0.width.height.equalToSuperview().dividedBy(2)
+            $0.width.equalToSuperview().multipliedBy(0.8)
             $0.centerX.centerY.equalToSuperview()
         }
         
