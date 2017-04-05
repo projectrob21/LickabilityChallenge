@@ -86,7 +86,7 @@ extension HomeCollectionViewController: UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let album = store.albums[indexPath.row]
-        presentViewController(for: album)
+        presentNewViewController(for: album)
     }
     
 }
@@ -94,21 +94,36 @@ extension HomeCollectionViewController: UICollectionViewDelegate, UICollectionVi
 // MARK: Present DetailView
 extension HomeCollectionViewController {
     
-    func presentViewController(for album: Album) {
+    
+    // *** IS THIS EVEN CORRECT??
+    func presentNewViewController(for album: Album) {
         pictureCollectionVC = PictureCollectionViewController()
         pictureCollectionVC.album = album
         pictureCollectionVC.parentVC = self
+
+        /*
+        pictureCollectionVC.modalPresentationStyle = .fullScreen
+        pictureCollectionVC.modalTransitionStyle = .crossDissolve
+
+        // Presenting VC
+        present(pictureCollectionVC, animated: true)
+        
+        // showing VC
+//        show(pictureCollectionVC, sender: nil)
+//        showDetailViewController(pictureCollectionVC, sender: nil)
+        */
+        
         view.addSubview(pictureCollectionVC.view)
         pictureCollectionVC.view.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
         pictureCollectionVC.didMove(toParentViewController: nil)
         view.layoutIfNeeded()
-        
+ 
     }
     
-    func dismissDetailView() {
-        
+    func dismissPictureVC() {
+        print("dismiss tapped in home VC")
         willMove(toParentViewController: nil)
         pictureCollectionVC.view.removeFromSuperview()
         pictureCollectionVC = nil
