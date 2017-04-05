@@ -28,12 +28,20 @@ class PictureViewCell: UICollectionViewCell {
         imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         self.layer.cornerRadius = 20
+        
+        titleLabel = UILabel()
+        
     }
     
     func constrain() {
         self.contentView.addSubview(imageView)
         imageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
+        }
+        
+        self.contentView.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints {
+            $0.centerX.centerY.equalToSuperview()
         }
     }
     

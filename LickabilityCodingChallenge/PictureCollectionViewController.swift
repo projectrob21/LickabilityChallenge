@@ -37,15 +37,20 @@ class PictureCollectionViewController: UIViewController {
             self.collectionView.dataSource = self
             self.collectionView.register(PictureViewCell.self, forCellWithReuseIdentifier: "Cell")
             
+            let paddingLeadingTop: CGFloat = UIScreen.main.bounds.width * 0.1
+            let paddingTrailingBottom: CGFloat = (paddingLeadingTop * -1)
+            
             self.view.addSubview(self.collectionView)
             self.collectionView.snp.makeConstraints {
-                $0.edges.equalToSuperview()
+                $0.centerX.equalToSuperview()
+                $0.leading.top.equalToSuperview().offset(paddingLeadingTop)
+                $0.trailing.equalToSuperview().offset(paddingTrailingBottom)
+                $0.height.equalTo(self.collectionView.snp.width)
             }
+            
+            // Do any additional setup after loading the view.
         }
-        
-        // Do any additional setup after loading the view.
     }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
