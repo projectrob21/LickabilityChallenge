@@ -109,6 +109,16 @@ extension Picture {
     }
 }
 
+extension Picture: Equatable {
+    static func == (lhs:Picture, rhs: Picture) -> Bool {
+        return lhs.picID == rhs.picID &&
+        lhs.albumID == rhs.albumID &&
+        lhs.title == rhs.title &&
+        lhs.imageURL == rhs.imageURL &&
+        lhs.thumbnailURL == rhs.thumbnailURL &&
+        lhs.image == rhs.image
+    }
+}
 // MARK
 extension UIImageView {
     
@@ -130,20 +140,9 @@ extension UIImageView {
                     // *** could assign customized image
                 }
             }
-            
-            
         }
     }
     
 }
 
-extension Picture: Equatable {
-    static func == (lhs:Picture, rhs: Picture) -> Bool {
-        return lhs.picID == rhs.picID &&
-        lhs.albumID == rhs.albumID &&
-        lhs.title == rhs.title &&
-        lhs.imageURL == rhs.imageURL &&
-        lhs.thumbnailURL == rhs.thumbnailURL &&
-        lhs.image == rhs.image
-    }
-}
+

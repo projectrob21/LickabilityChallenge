@@ -31,22 +31,16 @@ final class JSONParser {
         
         getDictionary(from: "photos") { pictureDictionary in
             
+            // *** REFACTOR FOR LOOPS
+            
             for pictureNode in pictureDictionary.map({ Picture(json: $0) }) {
                 if let picture = pictureNode {
                     store.pictures.append(picture)
-
-                    
-                    
                     
                     let containsAlbum = store.albums.contains(where: { (album) in
-                        if album.albumID == picture.albumID {
-                            return true
-                        } else {
-                            return false
-                        }
+                        if album.albumID == picture.albumID { return true }
+                        return false
                     })
-                 
-                    print("containsAlbum = \(containsAlbum)")
                     
                     if containsAlbum == false {
                         let newAlbum = Album(albumID: picture.albumID, pictures: [picture])
@@ -55,16 +49,11 @@ final class JSONParser {
                         for (index, album) in store.albums.enumerated() {
                             if album.albumID == picture.albumID {
                                 store.albums[index].pictures.append(picture)
-                                print("album \(store.albums[index].albumID) has \(store.albums[index].pictures.count) pictures")
-
+                                
                             }
                         }
                     }
-                    
-                    
-                    
-                    
-                    
+
                 }
             }
             

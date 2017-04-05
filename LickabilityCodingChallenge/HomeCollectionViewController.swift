@@ -105,16 +105,6 @@ extension HomeCollectionViewController {
         pictureCollectionVC.didMove(toParentViewController: nil)
         view.layoutIfNeeded()
         
-//        pictureDetailView = PictureDetailView(picture: picture)
-//        
-//        if let pictureDetailView = pictureDetailView {
-//            pictureDetailView.dismissButton.addTarget(self, action: #selector(dismissDetailView), for: .touchUpInside)
-//            addSubview(pictureDetailView)
-//            pictureDetailView.snp.makeConstraints {
-//                $0.edges.equalToSuperview()
-//            }
-//        }
-        
     }
     
     func dismissDetailView() {
@@ -122,11 +112,7 @@ extension HomeCollectionViewController {
         willMove(toParentViewController: nil)
         pictureCollectionVC.view.removeFromSuperview()
         pictureCollectionVC = nil
-        
-//        if let pictureDetailView = pictureDetailView {
-//            pictureDetailView.removeFromSuperview()
-//            self.pictureDetailView = nil
-//        }
+
     }
     
 }
