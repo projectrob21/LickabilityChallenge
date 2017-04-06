@@ -137,6 +137,7 @@ extension UIImageView {
                     print("error: initializing image")
                     self.image = nil
                     self.layoutSubviews()
+                    // *** ALERT IF CONNECTION IS POOR
                     // *** could assign customized image
                 }
             }

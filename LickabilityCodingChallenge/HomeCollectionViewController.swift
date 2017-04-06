@@ -43,7 +43,8 @@ class HomeCollectionViewController: UIViewController {
             
             self.view.addSubview(self.collectionView)
             self.collectionView.snp.makeConstraints {
-                $0.edges.equalToSuperview()
+                $0.leading.bottom.trailing.equalToSuperview()
+                $0.top.equalToSuperview().offset(UIApplication.shared.statusBarFrame.height)
             }
         }
         

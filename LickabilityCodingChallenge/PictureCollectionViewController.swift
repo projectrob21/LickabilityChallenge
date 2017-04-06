@@ -92,7 +92,8 @@ class PictureCollectionViewController: UIViewController {
         dismissBackgroundButton.addSubview(windowView)
         windowView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.leading.top.equalToSuperview().offset(paddingLeadingTop + UIApplication.shared.statusBarFrame.height)
+            $0.top.equalToSuperview().offset(paddingLeadingTop + UIApplication.shared.statusBarFrame.height)
+            $0.leading.equalToSuperview().offset(paddingLeadingTop)
             $0.trailing.equalToSuperview().offset(paddingTrailingBottom)
             $0.height.equalTo(windowView.snp.width)
         }
