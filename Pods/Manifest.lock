@@ -1,12 +1,15 @@
 PODS:
+  - CHTCollectionViewWaterfallLayout/Swift (0.9.5)
   - SnapKit (3.2.0)
 
 DEPENDENCIES:
+  - CHTCollectionViewWaterfallLayout/Swift
   - SnapKit
 
 SPEC CHECKSUMS:
+  CHTCollectionViewWaterfallLayout: 775ff73f48cfc13859b62d8bceb96e772e4a0318
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
 
-PODFILE CHECKSUM: a73139ee43213da94578935651de0fab5f8323f0
+PODFILE CHECKSUM: 8510143e28637a6164c5dccf01837e4adc2ea39a
 
 COCOAPODS: 1.2.0

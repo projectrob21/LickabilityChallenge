@@ -7,5 +7,6 @@ target 'LickabilityCodingChallenge' do
 
   # Pods for LickabilityCodingChallenge
   pod 'SnapKit'
+  pod 'CHTCollectionViewWaterfallLayout/Swift'
 
 end

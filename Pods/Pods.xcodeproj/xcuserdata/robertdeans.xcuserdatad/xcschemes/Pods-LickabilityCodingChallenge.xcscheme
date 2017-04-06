@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AC93A88BD7935147092E54A0F57DBD4C"
+               BlueprintIdentifier = "C1371C949B574DAD205AB78A69DF47DB"
                BuildableName = "Pods_LickabilityCodingChallenge.framework"
                BlueprintName = "Pods-LickabilityCodingChallenge"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "AC93A88BD7935147092E54A0F57DBD4C"
+            BlueprintIdentifier = "C1371C949B574DAD205AB78A69DF47DB"
             BuildableName = "Pods_LickabilityCodingChallenge.framework"
             BlueprintName = "Pods-LickabilityCodingChallenge"
             ReferencedContainer = "container:Pods.xcodeproj">
