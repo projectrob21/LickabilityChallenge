@@ -23,6 +23,7 @@ class PrimaryCollectionView: UIView {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         
+
         let spacing: CGFloat = 20
         let layout = UICollectionViewFlowLayout()
         

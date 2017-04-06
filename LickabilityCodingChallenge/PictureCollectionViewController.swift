@@ -13,8 +13,12 @@ class PictureCollectionViewController: UIViewController {
     var album: Album?
     var parentVC: HomeCollectionViewController?
     var pictureDetailView: PictureDetailView!
+    
     var collectionView: UICollectionView!
-    var backgroundBlurEffect: UIBlurEffect!
+    var blurEffectView: UIVisualEffectView!
+    var windowView: UIView!
+    var albumTitleView: UIView!
+    var albumLabel: UILabel!
     lazy var dismissBackgroundButton = UIButton()
 
     
@@ -30,9 +34,29 @@ class PictureCollectionViewController: UIViewController {
     
     func configure() {
         view.backgroundColor = UIColor.clear
-        dismissBackgroundButton = UIButton()
-//        backgroundBlurEffect = UIBlurEffect(style: .regular)
         
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.regular)
+        blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        windowView = UIView()
+        windowView.backgroundColor = UIColor.white.withAlphaComponent(0.3)
+        windowView.layer.cornerRadius = 20
+        
+        albumTitleView = UIView()
+        albumTitleView.backgroundColor = UIColor.white.withAlphaComponent(0.3)
+        albumTitleView.layer.cornerRadius = 15
+        
+        albumLabel = UILabel()
+        albumLabel.textColor = UIColor.white
+        albumLabel.font = UIFont(name: "Avenir-Light", size: 20)
+        albumLabel.textAlignment = .center
+        if let albumID = album?.albumID {
+            albumLabel.text = "Album \(albumID)"
+        }
+        
+        dismissBackgroundButton = UIButton()
         dismissBackgroundButton.addTarget(self, action: #selector(dismissPicturePictureCollectionView), for: .touchUpInside)
         
         let spacing: CGFloat = 20
@@ -50,6 +74,7 @@ class PictureCollectionViewController: UIViewController {
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         self.collectionView.register(PictureViewCell.self, forCellWithReuseIdentifier: "Cell")
+        self.collectionView.backgroundColor = UIColor.clear
     }
     
     func constrain() {
@@ -57,10 +82,6 @@ class PictureCollectionViewController: UIViewController {
         let paddingLeadingTop: CGFloat = UIScreen.main.bounds.width * 0.1
         let paddingTrailingBottom: CGFloat = (paddingLeadingTop * -1)
         
-        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.regular)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-        blurEffectView.frame = view.bounds
-        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.addSubview(blurEffectView)
         
         view.addSubview(dismissBackgroundButton)
@@ -68,16 +89,35 @@ class PictureCollectionViewController: UIViewController {
             $0.edges.equalToSuperview()
         }
         
-        dismissBackgroundButton.addSubview(collectionView)
-        collectionView.snp.makeConstraints {
+        dismissBackgroundButton.addSubview(windowView)
+        windowView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.leading.top.equalToSuperview().offset(paddingLeadingTop)
+            $0.leading.top.equalToSuperview().offset(paddingLeadingTop + UIApplication.shared.statusBarFrame.height)
             $0.trailing.equalToSuperview().offset(paddingTrailingBottom)
-            $0.height.equalTo(self.collectionView.snp.width)
+            $0.height.equalTo(windowView.snp.width)
+        }
+        
+        windowView.addSubview(collectionView)
+        collectionView.snp.makeConstraints {
+            $0.edges.equalToSuperview().inset(UIEdgeInsetsMake(2, 2, 2, 2))
+        }
+        
+        view.addSubview(albumTitleView)
+        
+        albumTitleView.addSubview(albumLabel)
+        albumLabel.snp.makeConstraints {
+            $0.centerX.centerY.equalToSuperview()
+        }
+        
+        albumTitleView.snp.remakeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(windowView.snp.bottom).offset(10)
+            $0.leading.equalTo(albumLabel.snp.leading).offset(-20)
+            $0.trailing.equalTo(albumLabel.snp.trailing).offset(20)
+            $0.bottom.equalTo(albumLabel.snp.bottom).offset(5)
         }
     }
     
-  
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

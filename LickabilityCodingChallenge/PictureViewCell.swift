@@ -27,6 +27,7 @@ class PictureViewCell: UICollectionViewCell {
     func configure() {
         imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         self.layer.cornerRadius = 20
         
         titleLabel = UILabel()
