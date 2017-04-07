@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '4B834D0EDD5AD749BD0CA5CE3CFC05A6'
-               BlueprintName = 'Pods-LickabilityCodingChallenge'
+               BlueprintIdentifier = '70BBF9984AC345A847E5D85E225BE786'
+               BlueprintName = 'SDWebImage'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Pods-LickabilityCodingChallenge.framework'>
+               BuildableName = 'SDWebImage.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
