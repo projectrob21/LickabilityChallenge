@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class HomeCollectionViewController: UIViewController {
+class HomeCollectionViewController: UIViewController, CHTCollectionViewDelegateWaterfallLayout {
     
     let store = DataStore.shared
     var collectionView: UICollectionView!
