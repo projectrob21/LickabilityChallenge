@@ -11,7 +11,7 @@ import UIKit
 class PictureCollectionViewController: UIViewController, CHTCollectionViewDelegateWaterfallLayout {
     
     var album: Album?
-    var parentVC: HomeCollectionViewController?
+    var parentVC: AlbumCollectionViewController?
     var pictureDetailView: PictureDetailView!
     
     var collectionView: UICollectionView!
@@ -25,14 +25,23 @@ class PictureCollectionViewController: UIViewController, CHTCollectionViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DispatchQueue.main.async {
-            self.configure()
-            self.constrain()
-        }
+            configure()
+            constrain()
         
     }
     
     func configure() {
+        guard let album = album else { print("error unwrapping album in PicVC"); return }
+        print("configuring")
+        DispatchQueue.main.async {
+            for picture in album.pictures {
+//                picture.imageView.download(from: picture.thumbnailURL, contentMode: .scaleAspectFit)
+                print("async")
+            }
+        }
+        
+        print("setting background")
+        
         view.backgroundColor = UIColor.clear
         
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.regular)
@@ -52,9 +61,8 @@ class PictureCollectionViewController: UIViewController, CHTCollectionViewDelega
         albumLabel.textColor = UIColor.white
         albumLabel.font = UIFont(name: "Avenir-Light", size: 20)
         albumLabel.textAlignment = .center
-        if let albumID = album?.albumID {
-            albumLabel.text = "Album \(albumID)"
-        }
+        albumLabel.text = "Album \(album.albumID)"
+
         
         dismissBackgroundButton = UIButton()
         dismissBackgroundButton.addTarget(self, action: #selector(dismissPicturePictureCollectionView), for: .touchUpInside)
@@ -138,8 +146,15 @@ extension PictureCollectionViewController: UICollectionViewDelegate, UICollectio
         
         
         let picture = album?.pictures[indexPath.row]
-        DispatchQueue.main.async {
-            cell.imageView.download(from: picture?.thumbnailURL, contentMode: .scaleAspectFit)
+        
+        if picture?.image == nil {
+            DispatchQueue.main.async {
+                cell.imageView.download(from: picture?.thumbnailURL, contentMode: .scaleAspectFit)
+                print("dispatch queue downloading image")
+            }
+        } else {
+            cell.imageView.image = picture?.image
+            print("was already downloaded!")
         }
         return cell
     }
@@ -168,7 +183,7 @@ extension PictureCollectionViewController: UICollectionViewDelegate, UICollectio
 
 extension PictureCollectionViewController {
     func presentPictureDetailView(for picture: Picture) {
-        
+        // *** ANIMATE
         pictureDetailView = PictureDetailView(picture: picture)
         
         if let pictureDetailView = pictureDetailView {
@@ -182,7 +197,7 @@ extension PictureCollectionViewController {
     }
     
     func dismissDetailView() {
-        
+        // *** ANIMATE
         if let pictureDetailView = pictureDetailView {
             pictureDetailView.removeFromSuperview()
             self.pictureDetailView = nil

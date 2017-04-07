@@ -112,11 +112,11 @@ extension Picture {
 extension Picture: Equatable {
     static func == (lhs:Picture, rhs: Picture) -> Bool {
         return lhs.picID == rhs.picID &&
-        lhs.albumID == rhs.albumID &&
-        lhs.title == rhs.title &&
-        lhs.imageURL == rhs.imageURL &&
-        lhs.thumbnailURL == rhs.thumbnailURL &&
-        lhs.image == rhs.image
+            lhs.albumID == rhs.albumID &&
+            lhs.title == rhs.title &&
+            lhs.imageURL == rhs.imageURL &&
+            lhs.thumbnailURL == rhs.thumbnailURL &&
+            lhs.image == rhs.image
     }
 }
 // MARK
@@ -124,26 +124,28 @@ extension UIImageView {
     
     func download(from link: String?, contentMode: UIViewContentMode)
     {
+        print("downloading!")
         if let link = link {
             
             if let thumbnailURL = URL(string: link) {
-                do {
-                    let urlData = try Data(contentsOf: thumbnailURL)
-                    DispatchQueue.main.async {
+                DispatchQueue.main.async {
+                    
+                    do {
+                        let urlData = try Data(contentsOf: thumbnailURL)
                         self.image = UIImage(data: urlData)
                         self.layoutSubviews()
+                        
+                    } catch {
+                        print("error: initializing image")
+                        self.image = nil
+                        self.layoutSubviews()
+                        // *** ALERT IF CONNECTION IS POOR
+                        // *** could assign customized image
                     }
-                } catch {
-                    print("error: initializing image")
-                    self.image = nil
-                    self.layoutSubviews()
-                    // *** ALERT IF CONNECTION IS POOR
-                    // *** could assign customized image
                 }
             }
         }
     }
-    
 }
 
 

@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class HomeCollectionViewController: UIViewController, CHTCollectionViewDelegateWaterfallLayout {
+class AlbumCollectionViewController: UIViewController, CHTCollectionViewDelegateWaterfallLayout {
     
     let store = DataStore.shared
     var collectionView: UICollectionView!
@@ -26,16 +26,18 @@ class HomeCollectionViewController: UIViewController, CHTCollectionViewDelegateW
         DispatchQueue.main.async {
             
             let spacing: CGFloat = 20
-
+            
             let layout = CHTCollectionViewWaterfallLayout()
             layout.minimumInteritemSpacing = spacing
             layout.minimumColumnSpacing = spacing
             layout.columnCount = 4
             layout.sectionInset = UIEdgeInsetsMake(spacing, spacing, spacing, spacing)
-
+            
             
             
             self.collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+            self.collectionView.setCollectionViewLayout(layout, animated: true)
+
             self.collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
             self.collectionView.alwaysBounceVertical = true
             self.collectionView.delegate = self
@@ -66,7 +68,7 @@ class HomeCollectionViewController: UIViewController, CHTCollectionViewDelegateW
 }
 
 
-extension HomeCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension AlbumCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -74,21 +76,37 @@ extension HomeCollectionViewController: UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! PictureViewCell
         
-        let album = store.albums[indexPath.row]
-        cell.backgroundColor = UIColor().generateRandomColor()
-        cell.titleLabel.text = "\(album.albumID)"
-        //        let picture = store.pictures[indexPath.row]
-        //        DispatchQueue.main.async {
-        //            cell.imageView.download(from: picture.thumbnailURL, contentMode: .center)
-        //        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! PictureViewCell
+
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 5, options: [], animations: {
+
+            let album = self.store.albums[indexPath.row]
+            cell.backgroundColor = UIColor().generateRandomColor()
+            cell.titleLabel.text = "\(album.albumID)"
+            //        let picture = store.pictures[indexPath.row]
+            //        DispatchQueue.main.async {
+            //            cell.imageView.download(from: picture.thumbnailURL, contentMode: .center)
+            //        }
+        }, completion: nil)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let album = store.albums[indexPath.row]
-        presentNewViewController(for: album)
+        let cell = collectionView.cellForItem(at: indexPath)
+        
+        UIView.animate(withDuration: 0.1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 5, options: [], animations: {
+                        cell!.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+                        
+        }, completion: { finished in
+            UIView.animate(withDuration: 0.15, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 5, options: .curveEaseInOut, animations: {
+                    cell!.transform = CGAffineTransform(scaleX: 1, y: 1)
+                let album = self.store.albums[indexPath.row]
+                self.presentNewViewController(for: album)
+
+            
+            }, completion: nil) }
+        )
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
@@ -96,12 +114,12 @@ extension HomeCollectionViewController: UICollectionViewDelegate, UICollectionVi
         
         //*** Hard coded...
         //        let picture = store.albums[indexPath.row].pictures[0]
-
+        
         //        DispatchQueue.main.async {
-//            let imageView = UIImageView()
-//            imageView.download(from: picture.imageURL, contentMode: .scaleAspectFit)
-//            size = imageView.image?.size
-//        }
+        //            let imageView = UIImageView()
+        //            imageView.download(from: picture.imageURL, contentMode: .scaleAspectFit)
+        //            size = imageView.image?.size
+        //        }
         size = CGSize(width: 100, height: 100)
         return size
     }
@@ -109,7 +127,7 @@ extension HomeCollectionViewController: UICollectionViewDelegate, UICollectionVi
 }
 
 // MARK: Present DetailView
-extension HomeCollectionViewController {
+extension AlbumCollectionViewController {
     
     
     // *** IS THIS EVEN CORRECT??

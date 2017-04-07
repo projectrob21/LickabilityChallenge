@@ -12,12 +12,12 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var homeViewController: HomeCollectionViewController!
+    var homeViewController: AlbumCollectionViewController!
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        homeViewController = HomeCollectionViewController()
+        homeViewController = AlbumCollectionViewController()
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = homeViewController
         window?.makeKeyAndVisible()
