@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class PictureCollectionViewController: UIViewController, CHTCollectionViewDelegateWaterfallLayout {
     
@@ -33,12 +34,8 @@ class PictureCollectionViewController: UIViewController, CHTCollectionViewDelega
     func configure() {
         guard let album = album else { print("error unwrapping album in PicVC"); return }
         print("configuring")
-        DispatchQueue.main.async {
-            for picture in album.pictures {
-//                picture.imageView.download(from: picture.thumbnailURL, contentMode: .scaleAspectFit)
-                print("async")
-            }
-        }
+
+        // Dispatch
         
         print("setting background")
         
@@ -147,6 +144,13 @@ extension PictureCollectionViewController: UICollectionViewDelegate, UICollectio
         
         let picture = album?.pictures[indexPath.row]
         
+        if let thumbnailString = picture?.thumbnailURL {
+            let url = URL(string: thumbnailString)
+            cell.imageView.sd_setImage(with: url)
+        }
+        
+        // to see if we can download or cache images earlier
+        /*
         if picture?.image == nil {
             DispatchQueue.main.async {
                 cell.imageView.download(from: picture?.thumbnailURL, contentMode: .scaleAspectFit)
@@ -156,6 +160,7 @@ extension PictureCollectionViewController: UICollectionViewDelegate, UICollectio
             cell.imageView.image = picture?.image
             print("was already downloaded!")
         }
+        */
         return cell
     }
     

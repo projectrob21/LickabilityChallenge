@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		DD38DDFA32761DD869C9C01E /* Pods_LickabilityCodingChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E291826D6B334C6644AAB41 /* Pods_LickabilityCodingChallenge.framework */; };
 		E876221E1E93FB8600651429 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E876221D1E93FB8600651429 /* AppDelegate.swift */; };
-		E87622201E93FB8600651429 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E876221F1E93FB8600651429 /* HomeCollectionViewController.swift */; };
+		E87622201E93FB8600651429 /* AlbumCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E876221F1E93FB8600651429 /* AlbumCollectionViewController.swift */; };
 		E87622251E93FB8600651429 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E87622241E93FB8600651429 /* Assets.xcassets */; };
 		E87622281E93FB8600651429 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E87622261E93FB8600651429 /* LaunchScreen.storyboard */; };
 		E87622301E93FF0B00651429 /* Picture.swift in Sources */ = {isa = PBXBuildFile; fileRef = E876222F1E93FF0B00651429 /* Picture.swift */; };
@@ -30,7 +30,7 @@
 		4AD30B9B85D35B81F35BC764 /* Pods-LickabilityCodingChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LickabilityCodingChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-LickabilityCodingChallenge/Pods-LickabilityCodingChallenge.release.xcconfig"; sourceTree = "<group>"; };
 		E876221A1E93FB8600651429 /* LickabilityCodingChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LickabilityCodingChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E876221D1E93FB8600651429 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E876221F1E93FB8600651429 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
+		E876221F1E93FB8600651429 /* AlbumCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewController.swift; sourceTree = "<group>"; };
 		E87622241E93FB8600651429 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E87622271E93FB8600651429 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E87622291E93FB8600651429 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				E876221D1E93FB8600651429 /* AppDelegate.swift */,
-				E876221F1E93FB8600651429 /* HomeCollectionViewController.swift */,
+				E876221F1E93FB8600651429 /* AlbumCollectionViewController.swift */,
 				E87622491E95692C00651429 /* PictureCollectionViewController.swift */,
 			);
 			name = Controllers;
@@ -276,7 +276,7 @@
 			files = (
 				E87622301E93FF0B00651429 /* Picture.swift in Sources */,
 				E87622481E94318900651429 /* Colors.swift in Sources */,
-				E87622201E93FB8600651429 /* HomeCollectionViewController.swift in Sources */,
+				E87622201E93FB8600651429 /* AlbumCollectionViewController.swift in Sources */,
 				E876223F1E94065F00651429 /* JSONParser.swift in Sources */,
 				E876221E1E93FB8600651429 /* AppDelegate.swift in Sources */,
 				E87622321E93FFC500651429 /* Album.swift in Sources */,
