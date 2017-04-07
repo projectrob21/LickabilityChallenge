@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PictureCollectionViewController: UIViewController {
+class PictureCollectionViewController: UIViewController, CHTCollectionViewDelegateWaterfallLayout {
     
     var album: Album?
     var parentVC: HomeCollectionViewController?
@@ -60,14 +60,10 @@ class PictureCollectionViewController: UIViewController {
         dismissBackgroundButton.addTarget(self, action: #selector(dismissPicturePictureCollectionView), for: .touchUpInside)
         
         let spacing: CGFloat = 20
-        let layout = UICollectionViewFlowLayout()
-        // default size for cells
-        layout.itemSize = CGSize(width: 60, height: 60)
-        // The minimum spacing to use between LINES (up/down) of items in the grid.
-        layout.minimumLineSpacing = spacing
-        // The minimum spacing to use between items in the same ROW (left/right).
-        layout.minimumInteritemSpacing = spacing / 2
-        // The margins used to lay out content in a section
+        let layout = CHTCollectionViewWaterfallLayout()
+        layout.minimumInteritemSpacing = spacing
+        layout.minimumColumnSpacing = spacing
+        layout.columnCount = 4
         layout.sectionInset = UIEdgeInsetsMake(spacing, spacing, spacing, spacing)
         
         self.collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
@@ -151,6 +147,21 @@ extension PictureCollectionViewController: UICollectionViewDelegate, UICollectio
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let picture = album?.pictures[indexPath.row]
         presentPictureDetailView(for: picture!)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
+        var size: CGSize!
+        
+        //*** Hard coded...
+        //        let picture = store.albums[indexPath.row].pictures[0]
+        
+        //        DispatchQueue.main.async {
+        //            let imageView = UIImageView()
+        //            imageView.download(from: picture.imageURL, contentMode: .scaleAspectFit)
+        //            size = imageView.image?.size
+        //        }
+        size = CGSize(width: 100, height: 100)
+        return size
     }
     
 }

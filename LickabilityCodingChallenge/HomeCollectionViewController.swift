@@ -14,8 +14,8 @@ class HomeCollectionViewController: UIViewController, CHTCollectionViewDelegateW
     let store = DataStore.shared
     var collectionView: UICollectionView!
     var pictureCollectionVC: PictureCollectionViewController!
-
-//    var primaryCollectionView: PrimaryCollectionView!
+    
+    //    var primaryCollectionView: PrimaryCollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,19 +24,20 @@ class HomeCollectionViewController: UIViewController, CHTCollectionViewDelegateW
         print("number of albums in store.albums = \(store.albums.count)")
         
         DispatchQueue.main.async {
-            let spacing: CGFloat = 20
-            let layout = UICollectionViewFlowLayout()
             
-            // default size for cells
-            layout.itemSize = CGSize(width: 60, height: 60)
-            // The minimum spacing to use between LINES (up/down) of items in the grid.
-            layout.minimumLineSpacing = spacing
-            // The minimum spacing to use between items in the same ROW (left/right).
-            layout.minimumInteritemSpacing = spacing / 2
-            // The margins used to lay out content in a section
+            let spacing: CGFloat = 20
+
+            let layout = CHTCollectionViewWaterfallLayout()
+            layout.minimumInteritemSpacing = spacing
+            layout.minimumColumnSpacing = spacing
+            layout.columnCount = 4
             layout.sectionInset = UIEdgeInsetsMake(spacing, spacing, spacing, spacing)
+
+            
             
             self.collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+            self.collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+            self.collectionView.alwaysBounceVertical = true
             self.collectionView.delegate = self
             self.collectionView.dataSource = self
             self.collectionView.register(PictureViewCell.self, forCellWithReuseIdentifier: "Cell")
@@ -90,6 +91,21 @@ extension HomeCollectionViewController: UICollectionViewDelegate, UICollectionVi
         presentNewViewController(for: album)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
+        var size: CGSize!
+        
+        //*** Hard coded...
+        //        let picture = store.albums[indexPath.row].pictures[0]
+
+        //        DispatchQueue.main.async {
+//            let imageView = UIImageView()
+//            imageView.download(from: picture.imageURL, contentMode: .scaleAspectFit)
+//            size = imageView.image?.size
+//        }
+        size = CGSize(width: 100, height: 100)
+        return size
+    }
+    
 }
 
 // MARK: Present DetailView
@@ -101,18 +117,18 @@ extension HomeCollectionViewController {
         pictureCollectionVC = PictureCollectionViewController()
         pictureCollectionVC.album = album
         pictureCollectionVC.parentVC = self
-
-        /*
-        pictureCollectionVC.modalPresentationStyle = .fullScreen
-        pictureCollectionVC.modalTransitionStyle = .crossDissolve
-
-        // Presenting VC
-        present(pictureCollectionVC, animated: true)
         
-        // showing VC
-//        show(pictureCollectionVC, sender: nil)
-//        showDetailViewController(pictureCollectionVC, sender: nil)
-        */
+        /*
+         pictureCollectionVC.modalPresentationStyle = .fullScreen
+         pictureCollectionVC.modalTransitionStyle = .crossDissolve
+         
+         // Presenting VC
+         present(pictureCollectionVC, animated: true)
+         
+         // showing VC
+         //        show(pictureCollectionVC, sender: nil)
+         //        showDetailViewController(pictureCollectionVC, sender: nil)
+         */
         
         view.addSubview(pictureCollectionVC.view)
         pictureCollectionVC.view.snp.makeConstraints {
@@ -120,7 +136,7 @@ extension HomeCollectionViewController {
         }
         pictureCollectionVC.didMove(toParentViewController: nil)
         view.layoutIfNeeded()
- 
+        
     }
     
     func dismissPictureVC() {
@@ -128,7 +144,7 @@ extension HomeCollectionViewController {
         willMove(toParentViewController: nil)
         pictureCollectionVC.view.removeFromSuperview()
         pictureCollectionVC = nil
-
+        
     }
     
 }
