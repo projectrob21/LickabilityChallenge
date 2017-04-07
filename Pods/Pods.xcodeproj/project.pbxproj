@@ -28,7 +28,6 @@
 		73FF79EF3BA4A8849203427CA41CF1DD /* ConstraintDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C5E923E73C25B58B8471561F174F49 /* ConstraintDSL.swift */; };
 		75E5A563487384562F808FF733FAA09D /* Pods-LickabilityCodingChallenge-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FD217E564288C0DE68C942E8D561776C /* Pods-LickabilityCodingChallenge-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		79AD1180C2FB17F61027EA1942A713CF /* Pods-LickabilityCodingChallenge-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C8BA66C391204B9BF099A32DF0C305E /* Pods-LickabilityCodingChallenge-dummy.m */; };
-		7D4258A7B8DE5B14B7B4B91D6B955029 /* CHTCollectionViewWaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFE3AF9B29FE114E202759F5A47F50C5 /* CHTCollectionViewWaterfallLayout.swift */; };
 		7FD725AD7543CD1C22DAE38402717B27 /* ConstraintRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD02ABFA1937F85388AF7CFDE87D658A /* ConstraintRelation.swift */; };
 		7FE2C610C3E11905A90D0F61E8B7329E /* LayoutConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D8A93BA3539F35D47C26144DDFF1B0 /* LayoutConstraintItem.swift */; };
 		9316CC4EC68AA0E0611A7F611415F1EB /* ConstraintDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EBC6311193C21D9F51528CA72EF43B /* ConstraintDescription.swift */; };
@@ -47,6 +46,7 @@
 		D81BB8ED9679A8C332348E5482F2FF59 /* ConstraintMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD1A1654D988C6880C1CBDD23C7E86B /* ConstraintMaker.swift */; };
 		DFB0779588B6B8ED009768E75F2C8591 /* ConstraintRelatableTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA0EEA42BC7C03832B770754CEF29E2 /* ConstraintRelatableTarget.swift */; };
 		E5A2B9801C195E454C6CA46FBF74A87D /* ConstraintLayoutSupportDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D54A27AEB6F3F812B84ACD7E5963E6 /* ConstraintLayoutSupportDSL.swift */; };
+		E88421C61E9733DE003A87A7 /* CHTCollectionViewWaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88421C51E9733DE003A87A7 /* CHTCollectionViewWaterfallLayout.swift */; };
 		EA6609300BD2B03659300E6BAD2F652D /* ConstraintMakerPriortizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E890A6801F8ABC2F8AB537D526A420B5 /* ConstraintMakerPriortizable.swift */; };
 		F6253836D6451867270F3CB63273D202 /* Debugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F85F95A3D84C46ACC04C5BC967010 /* Debugging.swift */; };
 		FED4F4428B7B68B57DE22DDACF6CAE3E /* SnapKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 339D8D1FEA4CBA6E6110D71ACC511C3D /* SnapKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -70,9 +70,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		009653C6EC9864B1DC61C966F5C90A0D /* Pods-LickabilityCodingChallenge.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-LickabilityCodingChallenge.modulemap"; sourceTree = "<group>"; };
+		009653C6EC9864B1DC61C966F5C90A0D /* Pods-LickabilityCodingChallenge.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-LickabilityCodingChallenge.modulemap"; sourceTree = "<group>"; };
 		0D321444BFF50798BF4D19DEC2EC7FC3 /* ConstraintLayoutGuide+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ConstraintLayoutGuide+Extensions.swift"; path = "Source/ConstraintLayoutGuide+Extensions.swift"; sourceTree = "<group>"; };
-		12BA2381323FC9AF192770AEB64C81E1 /* CHTCollectionViewWaterfallLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CHTCollectionViewWaterfallLayout.framework; path = CHTCollectionViewWaterfallLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		12BA2381323FC9AF192770AEB64C81E1 /* CHTCollectionViewWaterfallLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CHTCollectionViewWaterfallLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		14D8A93BA3539F35D47C26144DDFF1B0 /* LayoutConstraintItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutConstraintItem.swift; path = Source/LayoutConstraintItem.swift; sourceTree = "<group>"; };
 		189ED4DC45D0C2B71288235F880DA456 /* ConstraintConstantTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintConstantTarget.swift; path = Source/ConstraintConstantTarget.swift; sourceTree = "<group>"; };
 		207812308A729D5CC7C128EF4D98CAEF /* CHTCollectionViewWaterfallLayout-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CHTCollectionViewWaterfallLayout-prefix.pch"; sourceTree = "<group>"; };
@@ -87,7 +87,7 @@
 		4EDF6CBBB9AD7379269034875703DCB0 /* ConstraintOffsetTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintOffsetTarget.swift; path = Source/ConstraintOffsetTarget.swift; sourceTree = "<group>"; };
 		50CDCC72492E5CAB3D6B8AEF07EF2A99 /* ConstraintView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintView.swift; path = Source/ConstraintView.swift; sourceTree = "<group>"; };
 		53246DBBCA0C29410EB25264C9ABE8E6 /* SnapKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SnapKit.xcconfig; sourceTree = "<group>"; };
-		535DE9B68260D6833735D93A577E97E6 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SnapKit.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		535DE9B68260D6833735D93A577E97E6 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56440BAAAA205EC33A7580B9FC6E45D5 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6372DCEFCCD440F576B8822E3E8F52CF /* Pods-LickabilityCodingChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LickabilityCodingChallenge.debug.xcconfig"; sourceTree = "<group>"; };
 		64ECF1540E982064E4A21BFB1760EDB6 /* UILayoutSupport+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UILayoutSupport+Extensions.swift"; path = "Source/UILayoutSupport+Extensions.swift"; sourceTree = "<group>"; };
@@ -100,8 +100,8 @@
 		900915C4EA488910BA4C0A71EA918F08 /* LayoutConstraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutConstraint.swift; path = Source/LayoutConstraint.swift; sourceTree = "<group>"; };
 		916AEFBD94046E903930071EB357B74E /* CHTCollectionViewWaterfallLayout-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CHTCollectionViewWaterfallLayout-umbrella.h"; sourceTree = "<group>"; };
 		91C5ECFE5F4DFB285768E4A8DC8E3DE8 /* ConstraintPriorityTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintPriorityTarget.swift; path = Source/ConstraintPriorityTarget.swift; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		94C1B65278E95BC2D158602E5F132DB4 /* SnapKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SnapKit.modulemap; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		94C1B65278E95BC2D158602E5F132DB4 /* SnapKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SnapKit.modulemap; sourceTree = "<group>"; };
 		9CA0EEA42BC7C03832B770754CEF29E2 /* ConstraintRelatableTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintRelatableTarget.swift; path = Source/ConstraintRelatableTarget.swift; sourceTree = "<group>"; };
 		A7D98D8173F5FFFDCD4B69B53AA0D9E6 /* ConstraintItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintItem.swift; path = Source/ConstraintItem.swift; sourceTree = "<group>"; };
 		ADE0BDFB1BDE66D5AA3453727EE57975 /* ConstraintConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintConfig.swift; path = Source/ConstraintConfig.swift; sourceTree = "<group>"; };
@@ -112,20 +112,20 @@
 		BD02ABFA1937F85388AF7CFDE87D658A /* ConstraintRelation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintRelation.swift; path = Source/ConstraintRelation.swift; sourceTree = "<group>"; };
 		BD166F46304963D35322A6A4799EC16A /* ConstraintPriority.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintPriority.swift; path = Source/ConstraintPriority.swift; sourceTree = "<group>"; };
 		CF777D1DD82B67520A06B575C277D145 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CFE3AF9B29FE114E202759F5A47F50C5 /* CHTCollectionViewWaterfallLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CHTCollectionViewWaterfallLayout.swift; sourceTree = "<group>"; };
 		D50F5CEA810B2295E105D8D7024E3E34 /* ConstraintMakerRelatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerRelatable.swift; path = Source/ConstraintMakerRelatable.swift; sourceTree = "<group>"; };
 		D51DEAA6992C18044B6A378183D81064 /* Pods-LickabilityCodingChallenge-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LickabilityCodingChallenge-acknowledgements.plist"; sourceTree = "<group>"; };
 		D5377D169BE3401F7A9363038B29AD78 /* ConstraintMultiplierTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMultiplierTarget.swift; path = Source/ConstraintMultiplierTarget.swift; sourceTree = "<group>"; };
 		D82FB30934819545C1192A5ED657ED93 /* ConstraintMakerEditable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerEditable.swift; path = Source/ConstraintMakerEditable.swift; sourceTree = "<group>"; };
 		DC890FDF891DF51B7D0FE2AC09E21E7E /* Constraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constraint.swift; path = Source/Constraint.swift; sourceTree = "<group>"; };
 		DF5F002F7026A4AEC46ABCB81C764B91 /* SnapKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SnapKit-dummy.m"; sourceTree = "<group>"; };
-		E5BEC6D47F13C459B43CBFADF7C6D045 /* CHTCollectionViewWaterfallLayout.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = CHTCollectionViewWaterfallLayout.modulemap; sourceTree = "<group>"; };
+		E5BEC6D47F13C459B43CBFADF7C6D045 /* CHTCollectionViewWaterfallLayout.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = CHTCollectionViewWaterfallLayout.modulemap; sourceTree = "<group>"; };
+		E88421C51E9733DE003A87A7 /* CHTCollectionViewWaterfallLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHTCollectionViewWaterfallLayout.swift; sourceTree = "<group>"; };
 		E890A6801F8ABC2F8AB537D526A420B5 /* ConstraintMakerPriortizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerPriortizable.swift; path = Source/ConstraintMakerPriortizable.swift; sourceTree = "<group>"; };
 		F2B6A9FB87524301BBBA2C7B330DD229 /* ConstraintView+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ConstraintView+Extensions.swift"; path = "Source/ConstraintView+Extensions.swift"; sourceTree = "<group>"; };
 		F392C0017B3BCF5E86B3C51BF5D99BF5 /* CHTCollectionViewWaterfallLayout.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CHTCollectionViewWaterfallLayout.xcconfig; sourceTree = "<group>"; };
 		F39997D5A87DA150A4047E7B296F9DF3 /* CHTCollectionViewWaterfallLayout-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CHTCollectionViewWaterfallLayout-dummy.m"; sourceTree = "<group>"; };
 		F5B4994F47FA00D8C236C9378F06C470 /* ConstraintMakerFinalizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerFinalizable.swift; path = Source/ConstraintMakerFinalizable.swift; sourceTree = "<group>"; };
-		F6EB5436C67844A3C538C06E1E09F00C /* Pods_LickabilityCodingChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_LickabilityCodingChallenge.framework; path = "Pods-LickabilityCodingChallenge.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6EB5436C67844A3C538C06E1E09F00C /* Pods_LickabilityCodingChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LickabilityCodingChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F786886A6998F90384F22447F7761829 /* ConstraintLayoutSupport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutSupport.swift; path = Source/ConstraintLayoutSupport.swift; sourceTree = "<group>"; };
 		F8647A2914848E320C725AE3D5EBEF91 /* SnapKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SnapKit-prefix.pch"; sourceTree = "<group>"; };
 		F86F85F95A3D84C46ACC04C5BC967010 /* Debugging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Debugging.swift; path = Source/Debugging.swift; sourceTree = "<group>"; };
@@ -220,7 +220,6 @@
 				8DCBBA27DC90618020CF5E910770F433 /* Support Files */,
 				EBAFE0511A7B51E8A3D0D58840A63A0D /* Swift */,
 			);
-			name = CHTCollectionViewWaterfallLayout;
 			path = CHTCollectionViewWaterfallLayout;
 			sourceTree = "<group>";
 		};
@@ -276,7 +275,6 @@
 				64ECF1540E982064E4A21BFB1760EDB6 /* UILayoutSupport+Extensions.swift */,
 				5B7625C3115D5BBDB83E240F1512B887 /* Support Files */,
 			);
-			name = SnapKit;
 			path = SnapKit;
 			sourceTree = "<group>";
 		};
@@ -308,7 +306,7 @@
 		EBAFE0511A7B51E8A3D0D58840A63A0D /* Swift */ = {
 			isa = PBXGroup;
 			children = (
-				CFE3AF9B29FE114E202759F5A47F50C5 /* CHTCollectionViewWaterfallLayout.swift */,
+				E88421C51E9733DE003A87A7 /* CHTCollectionViewWaterfallLayout.swift */,
 			);
 			name = Swift;
 			sourceTree = "<group>";
@@ -479,7 +477,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD5E4D782A8BED6744F29F6D5A6C2651 /* CHTCollectionViewWaterfallLayout-dummy.m in Sources */,
-				7D4258A7B8DE5B14B7B4B91D6B955029 /* CHTCollectionViewWaterfallLayout.swift in Sources */,
+				E88421C61E9733DE003A87A7 /* CHTCollectionViewWaterfallLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

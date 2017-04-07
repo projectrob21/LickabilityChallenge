@@ -8,8 +8,9 @@
 
 import UIKit
 import CoreData
+import CHTCollectionViewWaterfallLayout
 
-class HomeCollectionViewController: UIViewController {
+class HomeCollectionViewController: UIViewController, CHTCollectionViewDelegateWaterfallLayout {
     
     let store = DataStore.shared
     var collectionView: UICollectionView!
@@ -24,6 +25,8 @@ class HomeCollectionViewController: UIViewController {
         print("number of albums in store.albums = \(store.albums.count)")
         
         DispatchQueue.main.async {
+            
+            /* OLD METHOD
             let spacing: CGFloat = 20
             let layout = UICollectionViewFlowLayout()
             
@@ -35,8 +38,16 @@ class HomeCollectionViewController: UIViewController {
             layout.minimumInteritemSpacing = spacing / 2
             // The margins used to lay out content in a section
             layout.sectionInset = UIEdgeInsetsMake(spacing, spacing, spacing, spacing)
+            */
+            
+            let layout = CHTCollectionViewWaterfallLayout()
+            layout.minimumInteritemSpacing = 1.0
+            layout.minimumColumnSpacing = 1.0
+            
             
             self.collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+            self.collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+            self.collectionView.alwaysBounceVertical = true
             self.collectionView.delegate = self
             self.collectionView.dataSource = self
             self.collectionView.register(PictureViewCell.self, forCellWithReuseIdentifier: "Cell")
@@ -88,6 +99,18 @@ extension HomeCollectionViewController: UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let album = store.albums[indexPath.row]
         presentNewViewController(for: album)
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        var size: CGSize!
+        let picture = store.albums[indexPath.row].pictures[0]
+
+        DispatchQueue.main.async {
+            let imageView = UIImageView()
+            imageView.download(from: picture.imageURL, contentMode: .scaleAspectFit)
+            size = imageView.image?.size
+        }
+        return size
     }
     
 }

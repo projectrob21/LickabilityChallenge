@@ -20,7 +20,6 @@ class PictureCollectionViewController: UIViewController {
     var albumTitleView: UIView!
     var albumLabel: UILabel!
     lazy var dismissBackgroundButton = UIButton()
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +32,7 @@ class PictureCollectionViewController: UIViewController {
     }
     
     func configure() {
+        
         view.backgroundColor = UIColor.clear
         
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.regular)
