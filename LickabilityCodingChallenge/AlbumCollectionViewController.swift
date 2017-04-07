@@ -13,43 +13,20 @@ class AlbumCollectionViewController: UIViewController, CHTCollectionViewDelegate
     
     let store = DataStore.shared
     var collectionView: UICollectionView!
+    var scrollView: UIScrollView!
+    var backgroundImageView: UIImageView!
     var pictureCollectionVC: PictureCollectionViewController!
     
     //    var primaryCollectionView: PrimaryCollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        JSONParser.populatePicturesFromDictionary()
-        print("number of pictures in store.pictures = \(store.pictures.count)")
-        print("number of albums in store.albums = \(store.albums.count)")
         
-        DispatchQueue.main.async {
-            
-            let spacing: CGFloat = 20
-            
-            let layout = CHTCollectionViewWaterfallLayout()
-            layout.minimumInteritemSpacing = spacing
-            layout.minimumColumnSpacing = spacing
-            layout.columnCount = 4
-            layout.sectionInset = UIEdgeInsetsMake(spacing, spacing, spacing, spacing)
-            
-            
-            
-            self.collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
-            self.collectionView.setCollectionViewLayout(layout, animated: true)
+        // Does not download any images
+        JSONParser.populatePicturesFromDictionary()
 
-            self.collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-            self.collectionView.alwaysBounceVertical = true
-            self.collectionView.delegate = self
-            self.collectionView.dataSource = self
-            self.collectionView.register(PictureViewCell.self, forCellWithReuseIdentifier: "Cell")
-            
-            self.view.addSubview(self.collectionView)
-            self.collectionView.snp.makeConstraints {
-                $0.leading.bottom.trailing.equalToSuperview()
-                $0.top.equalToSuperview().offset(UIApplication.shared.statusBarFrame.height)
-            }
-        }
+        configure()
+        constrain()
         
         
         // Download async in background?
@@ -64,6 +41,64 @@ class AlbumCollectionViewController: UIViewController, CHTCollectionViewDelegate
         super.didReceiveMemoryWarning()
     }
     
+    
+    func configure() {
+        let spacing: CGFloat = 20
+        
+        let layout = CHTCollectionViewWaterfallLayout()
+        layout.minimumInteritemSpacing = spacing
+        layout.minimumColumnSpacing = spacing
+        layout.columnCount = 4
+        layout.sectionInset = UIEdgeInsetsMake(spacing, spacing, spacing, spacing)
+        
+        collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
+        collectionView.setCollectionViewLayout(layout, animated: true)
+        
+        collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        collectionView.alwaysBounceVertical = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(PictureViewCell.self, forCellWithReuseIdentifier: "Cell")
+        
+        let backgroundGradient = CALayer.makeGradient(firstColor: UIColor.cyan, secondColor: UIColor.blue)
+        
+        backgroundImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height * 2))
+
+        backgroundGradient.frame = backgroundImageView.frame
+
+        backgroundImageView.backgroundColor = UIColor.clear
+        backgroundImageView.layer.insertSublayer(backgroundGradient, at: 0)
+        
+//        let backgroundView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height * 2))
+//        backgroundView.layer.insertSublayer(backgroundGradient, at: 0)
+        
+        scrollView = UIScrollView(frame: view.bounds)
+        scrollView.contentSize = backgroundImageView.bounds.size
+        scrollView.autoresizingMask = UIViewAutoresizing.flexibleHeight
+        scrollView.layer.insertSublayer(backgroundGradient, at: 0)
+        scrollView.isPagingEnabled = true
+        
+
+        
+    }
+    
+    func constrain() {
+        view.addSubview(scrollView)
+        scrollView.snp.makeConstraints {
+            $0.leading.bottom.trailing.equalToSuperview()
+            $0.top.equalToSuperview().offset(UIApplication.shared.statusBarFrame.height)
+        }
+        
+//        scrollView.addSubview(backgroundImageView)
+//        backgroundImageView.snp.makeConstraints {
+//            $0.edges.equalToSuperview()
+//        }
+//
+//        scrollView.addSubview(collectionView)
+//        collectionView.snp.makeConstraints {
+//            $0.edges.equalToSuperview()
+//        }
+    }
     
 }
 
