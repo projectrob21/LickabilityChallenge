@@ -146,21 +146,9 @@ extension PictureCollectionViewController: UICollectionViewDelegate, UICollectio
         
         if let thumbnailString = picture?.thumbnailURL {
             let url = URL(string: thumbnailString)
-            cell.imageView.sd_setImage(with: url)
+            cell.imageView.sd_setImage(with: url, placeholderImage: #imageLiteral(resourceName: "noImagePic"))
         }
-        
-        // to see if we can download or cache images earlier
-        /*
-        if picture?.image == nil {
-            DispatchQueue.main.async {
-                cell.imageView.download(from: picture?.thumbnailURL, contentMode: .scaleAspectFit)
-                print("dispatch queue downloading image")
-            }
-        } else {
-            cell.imageView.image = picture?.image
-            print("was already downloaded!")
-        }
-        */
+
         return cell
     }
     

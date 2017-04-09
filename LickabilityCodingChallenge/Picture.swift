@@ -17,11 +17,9 @@ struct Picture {
     let title: String
     let imageURL: String
     var thumbnailURL: String
-    var image: UIImage?
     
     init?(json: [String:Any]) {
         guard let albumID = json["albumId"] as? Int else { print("error: albumID"); return nil }
-        
         guard let picID = json["id"] as? Int else { print("error: picID"); return nil }
         guard let title = json["title"] as? String else { print("error: title"); return nil }
         guard let imageURL = json["url"] as? String else { print("error: url"); return nil }
@@ -58,29 +56,29 @@ extension Picture {
         case invaled(String, Any)
     }
     
-    init(altJSON: [String:Any]) throws {
+    init(errorHandlingWith jsonDictionary: [String:Any]) throws {
         // Extract albumID
-        guard let albumID = altJSON["albumID"] as? Int else {
+        guard let albumID = jsonDictionary["albumID"] as? Int else {
             throw SerializationError.missing("albumID")
         }
         
         // Extract picID
-        guard let picID = altJSON["id"] as? Int else {
+        guard let picID = jsonDictionary["id"] as? Int else {
             throw SerializationError.missing("id")
         }
         
         // Extract title
-        guard let title = altJSON["title"] as? String else {
+        guard let title = jsonDictionary["title"] as? String else {
             throw SerializationError.missing("title")
         }
         
         // Extract url string
-        guard let url = altJSON["url"] as? String else {
+        guard let url = jsonDictionary["url"] as? String else {
             throw SerializationError.missing("url")
         }
         
         // Create url
-        guard let thumbnailURL = altJSON["thumbnailUrl"] as? String else {
+        guard let thumbnailURL = jsonDictionary["thumbnailUrl"] as? String else {
             throw SerializationError.missing("thumbUrl")
         }
         
@@ -115,10 +113,10 @@ extension Picture: Equatable {
             lhs.albumID == rhs.albumID &&
             lhs.title == rhs.title &&
             lhs.imageURL == rhs.imageURL &&
-            lhs.thumbnailURL == rhs.thumbnailURL &&
-            lhs.image == rhs.image
+            lhs.thumbnailURL == rhs.thumbnailURL
     }
 }
+
 // MARK
 extension UIImageView {
     
@@ -137,7 +135,7 @@ extension UIImageView {
                         
                     } catch {
                         print("error: initializing image")
-                        self.image = nil
+                        self.image = #imageLiteral(resourceName: "noImagePic")
                         self.layoutSubviews()
                         // *** ALERT IF CONNECTION IS POOR
                         // *** could assign customized image
