@@ -23,25 +23,19 @@ class PictureCollectionViewController: UIViewController, CHTCollectionViewDelega
     lazy var dismissBackgroundButton = UIButton()
     
     var wasPresentedError = false
-
-
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-            configure()
-            constrain()
-        
+        configure()
+        constrain()
     }
     
     func configure() {
         guard let album = album else { print("error unwrapping album in PicVC"); return }
-        print("configuring")
-
-        // Dispatch
-        
-        print("setting background")
-        
+        print("configuring PicVC")
+    
         view.backgroundColor = UIColor.clear
         
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.regular)
@@ -62,7 +56,7 @@ class PictureCollectionViewController: UIViewController, CHTCollectionViewDelega
         albumLabel.font = UIFont(name: "Avenir-Light", size: 20)
         albumLabel.textAlignment = .center
         albumLabel.text = "Album \(album.albumID)"
-
+        
         
         dismissBackgroundButton = UIButton()
         dismissBackgroundButton.addTarget(self, action: #selector(dismissPicturePictureCollectionView), for: .touchUpInside)
@@ -151,7 +145,7 @@ extension PictureCollectionViewController: UICollectionViewDelegate, UICollectio
             let url = URL(string: thumbnailString)
             cell.imageView.sd_setImage(with: url, completed: { (returnedImage, error, wasCached, originalURL) in
                 if returnedImage == nil {
-                    print("\nunable to download image: \(error)")
+                    print("\nunable to download image: \(String(describing: error?.localizedDescription))")
                     cell.imageView.image = #imageLiteral(resourceName: "noImagePic")
                     if self.wasPresentedError == false {
                         self.presentErrorAlert(error: error as NSError?)
@@ -159,7 +153,7 @@ extension PictureCollectionViewController: UICollectionViewDelegate, UICollectio
                 }
             })
         }
-
+        
         return cell
     }
     
@@ -212,7 +206,7 @@ extension PictureCollectionViewController {
     func dismissPicturePictureCollectionView() {
         print("tapped")
         // if VC was presented/shown
-//        self.dismiss(animated: true)
+        //        self.dismiss(animated: true)
         wasPresentedError = false
         // if it was added to parent's view
         parentVC?.dismissPictureVC()
