@@ -21,6 +21,9 @@ class PictureCollectionViewController: UIViewController, CHTCollectionViewDelega
     var albumTitleView: UIView!
     var albumLabel: UILabel!
     lazy var dismissBackgroundButton = UIButton()
+    
+    var wasPresentedError = false
+
 
     
     override func viewDidLoad() {
@@ -146,7 +149,15 @@ extension PictureCollectionViewController: UICollectionViewDelegate, UICollectio
         
         if let thumbnailString = picture?.thumbnailURL {
             let url = URL(string: thumbnailString)
-            cell.imageView.sd_setImage(with: url, placeholderImage: #imageLiteral(resourceName: "noImagePic"))
+            cell.imageView.sd_setImage(with: url, completed: { (returnedImage, error, wasCached, originalURL) in
+                if returnedImage == nil {
+                    print("\nunable to download image: \(error)")
+                    cell.imageView.image = #imageLiteral(resourceName: "noImagePic")
+                    if self.wasPresentedError == false {
+                        self.presentErrorAlert(error: error as NSError?)
+                    }
+                }
+            })
         }
 
         return cell
@@ -174,6 +185,7 @@ extension PictureCollectionViewController: UICollectionViewDelegate, UICollectio
     
 }
 
+// MARK: Present/Dismiss views and error messages
 extension PictureCollectionViewController {
     func presentPictureDetailView(for picture: Picture) {
         // *** ANIMATE
@@ -201,10 +213,26 @@ extension PictureCollectionViewController {
         print("tapped")
         // if VC was presented/shown
 //        self.dismiss(animated: true)
-        
+        wasPresentedError = false
         // if it was added to parent's view
         parentVC?.dismissPictureVC()
         
+    }
+    
+    func presentErrorAlert(error: NSError?) {
+        
+        wasPresentedError = true
+        if let error = error {
+            let alertController = UIAlertController(
+                title: "Unable to download images.",
+                message: "\(error.localizedDescription)",
+                preferredStyle: .alert)
+            
+            let cancelAction = UIAlertAction(title: "OK", style: .cancel)
+            alertController.addAction(cancelAction)
+            
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
 }
 

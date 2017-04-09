@@ -44,6 +44,8 @@ class PictureDetailView: UIView {
         titleLabel = UILabel()
         titleLabel.text = picture.title
         titleLabel.textAlignment = .natural
+        titleLabel.lineBreakMode = .byWordWrapping
+        // *** text alignment
 //        titleLabel.adjustsFontSizeToFitWidth = true
         
         dismissButton = UIButton()
