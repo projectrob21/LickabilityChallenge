@@ -43,23 +43,24 @@ class AlbumCollectionViewController: UIViewController, CHTCollectionViewDelegate
     
     
     func configure() {
+        // Sets up layout
         let spacing: CGFloat = 20
-        
         let layout = CHTCollectionViewWaterfallLayout()
         layout.minimumInteritemSpacing = spacing
         layout.minimumColumnSpacing = spacing
         layout.columnCount = 4
         layout.sectionInset = UIEdgeInsetsMake(spacing, spacing, spacing, spacing)
-        
+        // Sets up CollectionView
         collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
         collectionView.setCollectionViewLayout(layout, animated: true)
-        
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         collectionView.alwaysBounceVertical = true
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(PictureViewCell.self, forCellWithReuseIdentifier: "Cell")
+        collectionView.backgroundColor = UIColor.clear
         
+        // Sets up background and gradient
         let backgroundGradient = CALayer.makeGradient(firstColor: UIColor.cyan, secondColor: UIColor.blue)
         
         backgroundImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height * 2))
@@ -69,9 +70,7 @@ class AlbumCollectionViewController: UIViewController, CHTCollectionViewDelegate
         backgroundImageView.backgroundColor = UIColor.clear
         backgroundImageView.layer.insertSublayer(backgroundGradient, at: 0)
         
-//        let backgroundView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height * 2))
-//        backgroundView.layer.insertSublayer(backgroundGradient, at: 0)
-        
+        // Sets up ScrollView
         scrollView = UIScrollView(frame: view.bounds)
         scrollView.contentSize = backgroundImageView.bounds.size
         scrollView.autoresizingMask = UIViewAutoresizing.flexibleHeight
@@ -89,15 +88,17 @@ class AlbumCollectionViewController: UIViewController, CHTCollectionViewDelegate
             $0.top.equalToSuperview().offset(UIApplication.shared.statusBarFrame.height)
         }
         
-//        scrollView.addSubview(backgroundImageView)
-//        backgroundImageView.snp.makeConstraints {
-//            $0.edges.equalToSuperview()
-//        }
-//
-//        scrollView.addSubview(collectionView)
-//        collectionView.snp.makeConstraints {
-//            $0.edges.equalToSuperview()
-//        }
+        scrollView.addSubview(backgroundImageView)
+        backgroundImageView.snp.makeConstraints {
+            $0.top.bottom.leading.trailing.equalToSuperview()
+            $0.width.equalTo(view.snp.width)
+            $0.height.equalTo(backgroundImageView.bounds.size)
+        }
+
+        backgroundImageView.addSubview(collectionView)
+        collectionView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
     
 }
