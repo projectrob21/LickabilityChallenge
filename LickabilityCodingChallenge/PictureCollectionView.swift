@@ -137,7 +137,8 @@ extension PictureCollectionView: UICollectionViewDelegate, UICollectionViewDataS
         if let album = album {
             return album.pictures.count
         }
-        return 0    }
+        return 0
+    }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -149,6 +150,7 @@ extension PictureCollectionView: UICollectionViewDelegate, UICollectionViewDataS
             let url = URL(string: thumbnailString)
             cell.imageView.sd_setImage(with: url, completed: { (returnedImage, error, wasCached, originalURL) in
                 
+                // Border width set here so no empty white squares before images are initialized
                 cell.layer.borderWidth = 1
                 if returnedImage == nil {
                     print("\nunable to download image: \(String(describing: error?.localizedDescription))")
@@ -156,7 +158,7 @@ extension PictureCollectionView: UICollectionViewDelegate, UICollectionViewDataS
                     if self.wasPresentedError == false {
                         
                         // error inherits from NSError... **** networking in View!!
-                        self.viewModel.errorAlertDelegate?.presentErrorAlert(error: error! as NSError)
+                        self.viewModel.errorAlertDelegate?.presentErrorAlert(error: error as NSError?)
                     }
                 }
             })

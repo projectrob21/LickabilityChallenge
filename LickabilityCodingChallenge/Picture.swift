@@ -9,8 +9,6 @@
 import Foundation
 import UIKit
 
-// *** Code Review Initializer *** //
-
 struct Picture {
     let albumID: Int
     let picID: Int
@@ -19,7 +17,7 @@ struct Picture {
     var thumbnailURL: String
     
     init?(json: [String:Any]) {
-        guard let albumID = json["albumId"] as? Int else { print("error: albumID"); return nil }
+        guard let albumID = json["albumId"] as? Int else { print("error: albumId"); return nil }
         guard let picID = json["id"] as? Int else { print("error: picID"); return nil }
         guard let title = json["title"] as? String else { print("error: title"); return nil }
         guard let imageURL = json["url"] as? String else { print("error: url"); return nil }
@@ -44,8 +42,8 @@ extension Picture {
     
     init(errorHandlingWith jsonDictionary: [String:Any]) throws {
         // Extract albumID
-        guard let albumID = jsonDictionary["albumID"] as? Int else {
-            throw SerializationError.missing("albumID")
+        guard let albumID = jsonDictionary["albumId"] as? Int else {
+            throw SerializationError.missing("albumId")
         }
         
         // Extract picID

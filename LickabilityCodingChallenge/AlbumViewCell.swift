@@ -72,9 +72,10 @@ extension AlbumViewCell.ViewModel {
         
         let attributedString = NSMutableAttributedString(string: formattedString)
         let nameRange = (formattedString as NSString).range(of: "\(album.albumID)")
-        let nameFont = UIFont.preferredFont(forTextStyle: .headline)
+        let nameFont = UIFont(name: "HelveticaNeue-Light", size: 20)
+        
         let nameColor = UIColor.white
-        attributedString.addAttributes([NSFontAttributeName: nameFont, NSForegroundColorAttributeName: nameColor], range: nameRange)
+        attributedString.addAttributes([NSFontAttributeName: nameFont as Any, NSForegroundColorAttributeName: nameColor], range: nameRange)
         return attributedString
     }
 

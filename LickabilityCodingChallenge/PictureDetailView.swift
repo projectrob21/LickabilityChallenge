@@ -64,6 +64,7 @@ class PictureDetailView: UIView {
         
         dismissButton = UIButton()
         dismissButton.setTitle("OK", for: .normal)
+        dismissButton.layer.cornerRadius = 5
         dismissButton.backgroundColor = UIColor.purple
         dismissButton.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
         
@@ -102,8 +103,9 @@ class PictureDetailView: UIView {
         addSubview(dismissButton)
         dismissButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.bottom.equalToSuperview().offset(-10)
-            $0.width.equalToSuperview().dividedBy(2)
+            $0.bottom.equalToSuperview().offset(-25)
+            $0.width.equalToSuperview().dividedBy(1.5)
+            $0.height.equalTo(dismissButton.snp.width).dividedBy(5)
         }
         
         bringSubview(toFront: imageView)
