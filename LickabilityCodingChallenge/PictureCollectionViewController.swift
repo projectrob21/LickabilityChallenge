@@ -28,6 +28,15 @@ class PictureCollectionViewController: UIViewController, CHTCollectionViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         configure()
         constrain()
     }
@@ -36,7 +45,6 @@ class PictureCollectionViewController: UIViewController, CHTCollectionViewDelega
         guard let album = album else { print("error unwrapping album in PicVC"); return }
     
         view.backgroundColor = UIColor.clear
-        
         let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.regular)
         blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
@@ -207,6 +215,7 @@ extension PictureCollectionViewController {
     }
     
     func dismissPicturePictureCollectionView() {
+        dismiss(animated: true, completion: nil)
         print("tapped")
         // if VC was presented/shown
         //        self.dismiss(animated: true)

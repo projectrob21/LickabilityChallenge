@@ -13,13 +13,12 @@ class AlbumCollectionViewController: UIViewController, CHTCollectionViewDelegate
     
     let store = DataStore.shared
     var collectionView: UICollectionView!
-    var pictureCollectionVC: PictureCollectionViewController!
     
     //    var primaryCollectionView: PrimaryCollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        JSONParser.populatePicturesFromDictionary()
+        store.populatePicturesFromDictionary()
         print("number of pictures in store.pictures = \(store.pictures.count)")
         print("number of albums in store.albums = \(store.albums.count)")
         
@@ -133,9 +132,14 @@ extension AlbumCollectionViewController {
     
     // *** IS THIS EVEN CORRECT??
     func presentNewViewController(for album: Album) {
-        pictureCollectionVC = PictureCollectionViewController()
+        let pictureCollectionVC = PictureCollectionViewController()
         pictureCollectionVC.album = album
-        pictureCollectionVC.parentVC = self
+        //pictureCollectionVC.parentVC = self
+        
+        pictureCollectionVC.modalPresentationStyle = .overFullScreen
+        pictureCollectionVC.modalTransitionStyle = .crossDissolve
+        present(pictureCollectionVC, animated: true, completion: nil)
+        
         
         /*
          pictureCollectionVC.modalPresentationStyle = .fullScreen
@@ -149,20 +153,20 @@ extension AlbumCollectionViewController {
          //        showDetailViewController(pictureCollectionVC, sender: nil)
          */
         
-        view.addSubview(pictureCollectionVC.view)
-        pictureCollectionVC.view.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
-        pictureCollectionVC.didMove(toParentViewController: nil)
-        view.layoutIfNeeded()
-        
+//        view.addSubview(pictureCollectionVC.view)
+//        pictureCollectionVC.view.snp.makeConstraints {
+//            $0.edges.equalToSuperview()
+//        }
+//        pictureCollectionVC.didMove(toParentViewController: nil)
+//        view.layoutIfNeeded()
+//        
     }
     
     func dismissPictureVC() {
         print("dismiss tapped in home VC")
         willMove(toParentViewController: nil)
-        pictureCollectionVC.view.removeFromSuperview()
-        pictureCollectionVC = nil
+//        pictureCollectionVC.view.removeFromSuperview()
+//        pictureCollectionVC = nil
         
     }
     

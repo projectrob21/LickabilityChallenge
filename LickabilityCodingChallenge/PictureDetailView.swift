@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import SnapKit
+import SDWebImage
 
 class PictureDetailView: UIView {
     
@@ -19,7 +20,10 @@ class PictureDetailView: UIView {
     var dismissButton: UIButton!
         
     
-    required init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder) }
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: .zero)
     }
@@ -36,7 +40,11 @@ class PictureDetailView: UIView {
     func configure() {
         imageView = UIImageView()
         imageView.backgroundColor = UIColor.white
-        imageView.download(from: picture.imageURL, contentMode: .scaleAspectFit)
+        
+        // *** no network calls in view
+        
+        let url = URL(string: picture.imageURL)
+        imageView.sd_setImage(with: url)
         
         textView = UIView()
         textView.backgroundColor = UIColor.lightGray

@@ -78,6 +78,7 @@ extension Picture {
     }
 }
 
+// MARK: Able to compare and equate Photos
 extension Picture: Equatable {
     static func == (lhs:Picture, rhs: Picture) -> Bool {
         return lhs.picID == rhs.picID &&
@@ -85,33 +86,6 @@ extension Picture: Equatable {
             lhs.title == rhs.title &&
             lhs.imageURL == rhs.imageURL &&
             lhs.thumbnailURL == rhs.thumbnailURL
-    }
-}
-
-// MARK: This extension has been replaced by SDWebImage framework
-extension UIImageView {
-    
-    func download(from link: String?, contentMode: UIViewContentMode)
-    {
-        if let link = link {
-            
-            if let thumbnailURL = URL(string: link) {
-                DispatchQueue.main.async {
-                    
-                    do {
-                        let urlData = try Data(contentsOf: thumbnailURL)
-                        self.image = UIImage(data: urlData)
-                        self.layoutSubviews()
-                        
-                    } catch {
-                        print("error: initializing image")
-                        self.image = #imageLiteral(resourceName: "noImagePic")
-                        self.layoutSubviews()
-                        // *** Alert via a closure if connection is poor
-                    }
-                }
-            }
-        }
     }
 }
 

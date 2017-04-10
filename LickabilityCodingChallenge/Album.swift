@@ -14,6 +14,7 @@ struct Album {
     var albumThumbnailURL: String? = nil
 }
 
+// MARK: Able to compare and equate Albums
 extension Album: Equatable {
     static func == (lhs:Album, rhs: Album) -> Bool {
         return lhs.albumID == rhs.albumID &&

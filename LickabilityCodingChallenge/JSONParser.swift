@@ -25,41 +25,4 @@ final class JSONParser {
         }
     }
     
-    static func populatePicturesFromDictionary() {
-
-        let store = DataStore.shared
-        
-        getDictionary(from: "photos") { pictureDictionary in
-            
-            // *** REFACTOR FOR LOOPS & ALBUMS, *** Error-Handling Initializer
-            
-            for pictureNode in pictureDictionary.map({ Picture(json: $0) }) {
-                if let picture = pictureNode {
-                    store.pictures.append(picture)
-                    
-                    // Boolean method checks if Album exists for each picture's AlbumID
-                    let containsAlbum = store.albums.contains(where: { (album) in
-                        if album.albumID == picture.albumID { return true }
-                        return false
-                    })
-                    
-                    // If no correlating Album is found, create a new one; otherwise add it to the corresponding Album
-                    if containsAlbum == false {
-                        let newAlbum = Album(albumID: picture.albumID, pictures: [picture], albumThumbnailURL: nil)
-                        store.albums.append(newAlbum)
-                    } else {
-                        for (index, album) in store.albums.enumerated() {
-                            if album.albumID == picture.albumID {
-                                store.albums[index].pictures.append(picture)
-                                
-                            }
-                        }
-                    }
-
-                }
-            }
-            
-        }
-    }
-    
 }
