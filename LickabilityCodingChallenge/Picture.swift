@@ -138,7 +138,6 @@ extension UIImageView {
                         self.image = #imageLiteral(resourceName: "noImagePic")
                         self.layoutSubviews()
                         // *** ALERT IF CONNECTION IS POOR
-                        // *** could assign customized image
                     }
                 }
             }

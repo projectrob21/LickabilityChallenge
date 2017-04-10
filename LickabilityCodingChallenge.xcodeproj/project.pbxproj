@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		DD38DDFA32761DD869C9C01E /* Pods_LickabilityCodingChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E291826D6B334C6644AAB41 /* Pods_LickabilityCodingChallenge.framework */; };
+		E8143C1B1E9B040000CBE3F2 /* PictureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8143C1A1E9B040000CBE3F2 /* PictureViewModel.swift */; };
+		E8143C1D1E9B103600CBE3F2 /* AlbumViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8143C1C1E9B103600CBE3F2 /* AlbumViewCell.swift */; };
 		E876221E1E93FB8600651429 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E876221D1E93FB8600651429 /* AppDelegate.swift */; };
 		E87622201E93FB8600651429 /* AlbumCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E876221F1E93FB8600651429 /* AlbumCollectionViewController.swift */; };
 		E87622251E93FB8600651429 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E87622241E93FB8600651429 /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 /* Begin PBXFileReference section */
 		2E291826D6B334C6644AAB41 /* Pods_LickabilityCodingChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LickabilityCodingChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AD30B9B85D35B81F35BC764 /* Pods-LickabilityCodingChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LickabilityCodingChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-LickabilityCodingChallenge/Pods-LickabilityCodingChallenge.release.xcconfig"; sourceTree = "<group>"; };
+		E8143C1A1E9B040000CBE3F2 /* PictureViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureViewModel.swift; sourceTree = "<group>"; };
+		E8143C1C1E9B103600CBE3F2 /* AlbumViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewCell.swift; sourceTree = "<group>"; };
 		E876221A1E93FB8600651429 /* LickabilityCodingChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LickabilityCodingChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E876221D1E93FB8600651429 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E876221F1E93FB8600651429 /* AlbumCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +102,7 @@
 		E876221C1E93FB8600651429 /* LickabilityCodingChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				E8143C1A1E9B040000CBE3F2 /* PictureViewModel.swift */,
 				E87622401E940B2900651429 /* Data */,
 				E87622341E94000200651429 /* Model */,
 				E876223B1E94005D00651429 /* View */,
@@ -117,6 +122,7 @@
 				E876221D1E93FB8600651429 /* AppDelegate.swift */,
 				E876221F1E93FB8600651429 /* AlbumCollectionViewController.swift */,
 				E87622491E95692C00651429 /* PictureCollectionViewController.swift */,
+				E8143C1C1E9B103600CBE3F2 /* AlbumViewCell.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -278,8 +284,10 @@
 				E87622481E94318900651429 /* Colors.swift in Sources */,
 				E87622201E93FB8600651429 /* AlbumCollectionViewController.swift in Sources */,
 				E876223F1E94065F00651429 /* JSONParser.swift in Sources */,
+				E8143C1D1E9B103600CBE3F2 /* AlbumViewCell.swift in Sources */,
 				E876221E1E93FB8600651429 /* AppDelegate.swift in Sources */,
 				E87622321E93FFC500651429 /* Album.swift in Sources */,
+				E8143C1B1E9B040000CBE3F2 /* PictureViewModel.swift in Sources */,
 				E876223A1E94005600651429 /* PictureDetailView.swift in Sources */,
 				E876224A1E95692D00651429 /* PictureCollectionViewController.swift in Sources */,
 				E87622361E94003B00651429 /* PrimaryCollectionView.swift in Sources */,

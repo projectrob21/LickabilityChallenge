@@ -35,24 +35,28 @@ class PictureDetailView: UIView {
     
     func configure() {
         imageView = UIImageView()
+        imageView.backgroundColor = UIColor.white
         imageView.download(from: picture.imageURL, contentMode: .scaleAspectFit)
         
         textView = UIView()
-        textView.backgroundColor = UIColor.cyan
+        textView.backgroundColor = UIColor.lightGray
         textView.layer.cornerRadius = 10
         
         titleLabel = UILabel()
         titleLabel.text = picture.title
         titleLabel.textAlignment = .natural
         titleLabel.lineBreakMode = .byWordWrapping
+        titleLabel.font = UIFont(name: "Avenir", size: 20)
+        titleLabel.textColor = UIColor.white
+
         // *** text alignment
-//        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.numberOfLines = 0
         
         dismissButton = UIButton()
         dismissButton.setTitle("OK", for: .normal)
         dismissButton.backgroundColor = UIColor.purple
         
-        backgroundColor = UIColor.blue
+        backgroundColor = UIColor.white
         
     }
     
@@ -63,7 +67,8 @@ class PictureDetailView: UIView {
         addSubview(imageView)
         imageView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.leading.top.equalToSuperview().offset(paddingLeadingTop)
+            $0.leading.equalToSuperview().offset(paddingLeadingTop)
+            $0.top.equalToSuperview().offset(paddingLeadingTop + UIApplication.shared.statusBarFrame.height)
             $0.trailing.equalToSuperview().offset(paddingTrailingBottom)
             $0.height.equalTo(imageView.snp.width)
         }
@@ -72,7 +77,7 @@ class PictureDetailView: UIView {
         titleLabel.snp.makeConstraints {
             $0.top.equalTo(imageView.snp.bottom).offset(10)
             $0.centerX.equalToSuperview()
-            $0.width.equalTo(imageView.snp.width).multipliedBy(0.85)
+            $0.width.equalTo(imageView.snp.width).multipliedBy(0.80)
         }
         
         addSubview(textView)
@@ -80,7 +85,7 @@ class PictureDetailView: UIView {
             $0.centerX.equalToSuperview()
             $0.width.equalTo(imageView.snp.width).multipliedBy(0.9)
             $0.top.equalTo(imageView.snp.bottom).offset(-10)
-            $0.height.equalTo(titleLabel.snp.height).multipliedBy(3)
+            $0.bottom.equalTo(titleLabel.snp.bottom).offset(10)
         }
         
         addSubview(dismissButton)

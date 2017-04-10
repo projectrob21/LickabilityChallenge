@@ -11,6 +11,7 @@ import Foundation
 struct Album {
     let albumID: Int
     var pictures = [Picture]()
+//    var albumThumbnailURL: String? = nil
 }
 
 extension Album: Equatable {

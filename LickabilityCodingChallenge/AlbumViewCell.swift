@@ -9,9 +9,10 @@
 import Foundation
 import UIKit
 
-class PictureViewCell: UICollectionViewCell {
+class AlbumViewCell: UICollectionViewCell {
     
     var imageView: UIImageView!
+    var titleLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,18 +26,24 @@ class PictureViewCell: UICollectionViewCell {
     
     func configure() {
         self.clipsToBounds = true
-        self.layer.cornerRadius = 15
-        self.layer.borderColor = UIColor.white.cgColor
-        self.layer.borderWidth = 1
+        self.layer.cornerRadius = 20
         
         imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
+        
+        titleLabel = UILabel()
+        
     }
     
     func constrain() {
         self.contentView.addSubview(imageView)
         imageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
+        }
+        
+        self.contentView.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints {
+            $0.centerX.centerY.equalToSuperview()
         }
     }
     

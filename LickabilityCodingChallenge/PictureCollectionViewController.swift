@@ -137,8 +137,7 @@ extension PictureCollectionViewController: UICollectionViewDelegate, UICollectio
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! PictureViewCell
-        
-        
+
         let picture = album?.pictures[indexPath.row]
         
         if let thumbnailString = picture?.thumbnailURL {
@@ -176,6 +175,7 @@ extension PictureCollectionViewController: UICollectionViewDelegate, UICollectio
         size = CGSize(width: 100, height: 100)
         return size
     }
+    
     
 }
 

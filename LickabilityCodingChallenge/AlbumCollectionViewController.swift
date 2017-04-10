@@ -42,7 +42,7 @@ class AlbumCollectionViewController: UIViewController, CHTCollectionViewDelegate
             self.collectionView.alwaysBounceVertical = true
             self.collectionView.delegate = self
             self.collectionView.dataSource = self
-            self.collectionView.register(PictureViewCell.self, forCellWithReuseIdentifier: "Cell")
+            self.collectionView.register(AlbumViewCell.self, forCellWithReuseIdentifier: "Cell")
             
             self.view.addSubview(self.collectionView)
             self.collectionView.snp.makeConstraints {
@@ -77,7 +77,7 @@ extension AlbumCollectionViewController: UICollectionViewDelegate, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! PictureViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! AlbumViewCell
 
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 5, options: [], animations: {
 
