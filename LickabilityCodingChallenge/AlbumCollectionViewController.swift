@@ -36,6 +36,8 @@ class AlbumCollectionViewController: UIViewController, CHTCollectionViewDelegate
     }
     
     func configure() {
+        UIApplication.shared.statusBarStyle = .lightContent
+        
         let spacing: CGFloat = 20
         
         let layout = CHTCollectionViewWaterfallLayout()
@@ -82,7 +84,7 @@ extension AlbumCollectionViewController: UICollectionViewDelegate, UICollectionV
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! AlbumViewCell
         let album = self.store.albums[indexPath.row]
 
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 5, options: [], animations: {
+        UIView.animate(withDuration: 2.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 5, options: [], animations: {
 
             cell.viewModel = AlbumViewCell.ViewModel(album: album)
 

@@ -143,6 +143,8 @@ extension PictureCollectionViewController: UICollectionViewDelegate, UICollectio
         if let thumbnailString = picture?.thumbnailURL {
             let url = URL(string: thumbnailString)
             cell.imageView.sd_setImage(with: url, completed: { (returnedImage, error, wasCached, originalURL) in
+                
+                cell.layer.borderWidth = 1
                 if returnedImage == nil {
                     print("\nunable to download image: \(String(describing: error?.localizedDescription))")
                     cell.imageView.image = #imageLiteral(resourceName: "noImagePic")
