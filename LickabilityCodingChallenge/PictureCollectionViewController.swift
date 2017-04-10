@@ -35,16 +35,13 @@ class PictureCollectionViewController: UIViewController {
             pictureCollectionView = PictureCollectionView(album: album!)
             pictureCollectionView.viewModel.viewControllerDelegate = self
         }
-        
     }
     
     func constrain() {
-        
         view.addSubview(pictureCollectionView)
         pictureCollectionView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-
     }
     
     
@@ -61,8 +58,6 @@ class PictureCollectionViewController: UIViewController {
 extension PictureCollectionViewController: PresentDismissVCDelegate {
     
     func presentViewController(for picture: Picture) {
-        print("presentViewController for picture tapped in PictureCollection VC")
-
         let pictureDetailViewController = PictureDetailViewController()
         pictureDetailViewController.picture = picture
         
@@ -76,7 +71,6 @@ extension PictureCollectionViewController: PresentDismissVCDelegate {
     }
     
     func dismissViewController() {
-        print("dismiss tapped in PictureCollection VC")
         dismiss(animated: true, completion: nil)
     }
     
@@ -89,7 +83,7 @@ extension PictureCollectionViewController: ErrorAlertDelegate {
         wasPresentedError = true
         if let error = error {
             let alertController = UIAlertController(
-                title: "Unable to download images.",
+                title: "Unable to download images",
                 message: "\(error.localizedDescription)",
                 preferredStyle: .alert)
             

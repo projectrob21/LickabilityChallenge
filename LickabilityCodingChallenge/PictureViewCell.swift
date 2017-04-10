@@ -27,7 +27,6 @@ final class PictureViewCell: UICollectionViewCell {
         self.clipsToBounds = true
         self.layer.cornerRadius = 15
         self.layer.borderColor = UIColor.white.cgColor
-//        self.layer.borderWidth = 1
         
         imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill

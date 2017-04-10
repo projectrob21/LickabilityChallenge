@@ -12,6 +12,7 @@
 		E8143C1D1E9B103600CBE3F2 /* AlbumViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8143C1C1E9B103600CBE3F2 /* AlbumViewCell.swift */; };
 		E8143C1F1E9BFFC700CBE3F2 /* PictureCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8143C1E1E9BFFC700CBE3F2 /* PictureCollectionView.swift */; };
 		E8143C211E9BFFEF00CBE3F2 /* PictureDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8143C201E9BFFEF00CBE3F2 /* PictureDetailViewController.swift */; };
+		E8143C261E9C341C00CBE3F2 /* ImageDownloaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8143C251E9C341C00CBE3F2 /* ImageDownloaderViewModel.swift */; };
 		E876221E1E93FB8600651429 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E876221D1E93FB8600651429 /* AppDelegate.swift */; };
 		E87622201E93FB8600651429 /* AlbumCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E876221F1E93FB8600651429 /* AlbumCollectionViewController.swift */; };
 		E87622251E93FB8600651429 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E87622241E93FB8600651429 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		E8143C1C1E9B103600CBE3F2 /* AlbumViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewCell.swift; sourceTree = "<group>"; };
 		E8143C1E1E9BFFC700CBE3F2 /* PictureCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureCollectionView.swift; sourceTree = "<group>"; };
 		E8143C201E9BFFEF00CBE3F2 /* PictureDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureDetailViewController.swift; sourceTree = "<group>"; };
+		E8143C251E9C341C00CBE3F2 /* ImageDownloaderViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloaderViewModel.swift; sourceTree = "<group>"; };
 		E876221A1E93FB8600651429 /* LickabilityCodingChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LickabilityCodingChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E876221D1E93FB8600651429 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E876221F1E93FB8600651429 /* AlbumCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				E8143C1A1E9B040000CBE3F2 /* AlbumPictureViewModel.swift */,
+				E8143C251E9C341C00CBE3F2 /* ImageDownloaderViewModel.swift */,
 			);
 			name = "View Model";
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				E876223A1E94005600651429 /* PictureDetailView.swift in Sources */,
 				E876224A1E95692D00651429 /* PictureCollectionViewController.swift in Sources */,
 				E87622361E94003B00651429 /* AlbumCollectionView.swift in Sources */,
+				E8143C261E9C341C00CBE3F2 /* ImageDownloaderViewModel.swift in Sources */,
 				E87622461E942DB900651429 /* PictureViewCell.swift in Sources */,
 				E87622421E94111200651429 /* DataStore.swift in Sources */,
 				E8143C211E9BFFEF00CBE3F2 /* PictureDetailViewController.swift in Sources */,

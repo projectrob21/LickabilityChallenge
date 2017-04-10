@@ -34,7 +34,6 @@ class PictureDetailViewController: UIViewController {
         pictureDetailView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(UIApplication.shared.statusBarFrame.height)
             $0.leading.bottom.trailing.equalToSuperview()
-            
         }
     }
     

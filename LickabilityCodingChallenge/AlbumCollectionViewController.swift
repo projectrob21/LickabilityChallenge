@@ -18,9 +18,6 @@ class AlbumCollectionViewController: UIViewController {
         super.viewDidLoad()
         store.populatePicturesFromDictionary()
         
-        print("number of pictures in store.pictures = \(store.pictures.count)")
-        print("number of albums in store.albums = \(store.albums.count)")
-        
         configure()
         constrain()
         
@@ -36,7 +33,6 @@ class AlbumCollectionViewController: UIViewController {
         albumCollectionView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(UIApplication.shared.statusBarFrame.height)
             $0.leading.bottom.trailing.equalToSuperview()
-            
         }
     }
     
