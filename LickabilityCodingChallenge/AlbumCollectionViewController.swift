@@ -23,7 +23,7 @@ class AlbumCollectionViewController: UIViewController, CHTCollectionViewDelegate
         print("number of pictures in store.pictures = \(store.pictures.count)")
         print("number of albums in store.albums = \(store.albums.count)")
         
-
+        
         configure()
         constrain()
         
@@ -59,8 +59,9 @@ class AlbumCollectionViewController: UIViewController, CHTCollectionViewDelegate
     func constrain() {
         view.addSubview(collectionView)
         collectionView.snp.makeConstraints {
-            $0.leading.bottom.trailing.equalToSuperview()
             $0.top.equalToSuperview().offset(UIApplication.shared.statusBarFrame.height)
+            $0.leading.bottom.trailing.equalToSuperview()
+            
         }
     }
     
@@ -68,12 +69,13 @@ class AlbumCollectionViewController: UIViewController, CHTCollectionViewDelegate
         super.didReceiveMemoryWarning()
     }
     
+    var albumCollectionView: AlbumCollectionView!
+
     
 }
 
 
 extension AlbumCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return store.albums.count
@@ -83,43 +85,41 @@ extension AlbumCollectionViewController: UICollectionViewDelegate, UICollectionV
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! AlbumViewCell
         let album = self.store.albums[indexPath.row]
+        
+        cell.viewModel = AlbumViewCell.ViewModel(album: album)
 
-        UIView.animate(withDuration: 2.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 5, options: [], animations: {
-
-            cell.viewModel = AlbumViewCell.ViewModel(album: album)
-
-        }, completion: nil)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
-        
-        UIView.animate(withDuration: 0.1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 5, options: [], animations: {
-                        cell!.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-                        
-        }, completion: { finished in
-            UIView.animate(withDuration: 0.15, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 5, options: .curveEaseInOut, animations: {
-                    cell!.transform = CGAffineTransform(scaleX: 1, y: 1)
-                let album = self.store.albums[indexPath.row]
-                self.presentNewViewController(for: album)
 
-            
-            }, completion: nil) }
-        )
+        albumCollectionView = AlbumCollectionView()
+        albumCollectionView.presentPictureCollectionVC = presentNewViewController(for:)
+        
+        //        let cell = collectionView.cellForItem(at: indexPath)
+//        
+//        UIView.animate(withDuration: 0.1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 5, options: [], animations: {
+//            cell!.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+//            
+//        }, completion: { finished in
+//            UIView.animate(withDuration: 0.1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 5, options: .curveEaseInOut, animations: {
+//                
+//                cell!.transform = CGAffineTransform(scaleX: 1, y: 1)
+//                
+//                
+//                let album = self.store.albums[indexPath.row]
+//                self.presentNewViewController(for: album)
+//                
+//                
+//            }, completion: nil) }
+//        )
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         var size: CGSize!
         
-        //*** Hard coded...
-        //        let picture = store.albums[indexPath.row].pictures[0]
-        
-        //        DispatchQueue.main.async {
-        //            let imageView = UIImageView()
-        //            imageView.download(from: picture.imageURL, contentMode: .scaleAspectFit)
-        //            size = imageView.image?.size
-        //        }
+        //"If you do not implement this method, the flow layout uses the values in its itemSize property to set the size of items instead."
+
         size = CGSize(width: 100, height: 100)
         return size
     }
@@ -128,6 +128,7 @@ extension AlbumCollectionViewController: UICollectionViewDelegate, UICollectionV
 
 // MARK: Present DetailView
 extension AlbumCollectionViewController {
+    
     
     
     // *** IS THIS EVEN CORRECT??

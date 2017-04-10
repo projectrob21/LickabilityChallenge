@@ -34,7 +34,6 @@ class PictureCollectionViewController: UIViewController, CHTCollectionViewDelega
     
     func configure() {
         guard let album = album else { print("error unwrapping album in PicVC"); return }
-        print("configuring PicVC")
     
         view.backgroundColor = UIColor.clear
         
@@ -68,11 +67,13 @@ class PictureCollectionViewController: UIViewController, CHTCollectionViewDelega
         layout.columnCount = 4
         layout.sectionInset = UIEdgeInsetsMake(spacing, spacing, spacing, spacing)
         
-        self.collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
-        self.collectionView.delegate = self
-        self.collectionView.dataSource = self
-        self.collectionView.register(PictureViewCell.self, forCellWithReuseIdentifier: "Cell")
-        self.collectionView.backgroundColor = UIColor.clear
+        collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+        collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        collectionView.alwaysBounceVertical = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(PictureViewCell.self, forCellWithReuseIdentifier: "Cell")
+        collectionView.backgroundColor = UIColor.clear
     }
     
     func constrain() {
