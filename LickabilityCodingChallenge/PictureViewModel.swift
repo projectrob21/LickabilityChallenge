@@ -7,11 +7,17 @@
 //
 
 import Foundation
+import UIKit
 
 struct PictureViewModel {
     
 //    func makePrimaryAlbumThumbnail(for album: Album, with picture: Picture) {
 //        album.albumThumbnailURL = picture.thumbnailURL
 //    }
+    
+    func presentViewController(for album: Album) {
+
+                
+    }
     
 }
