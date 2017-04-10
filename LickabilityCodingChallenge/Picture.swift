@@ -30,20 +30,6 @@ struct Picture {
         self.title = title
         self.imageURL = imageURL
         self.thumbnailURL = thumbnailURL
-        
-        /*
-         // *** Allows http in plist Allow Arbitrary Loads ***
-         if let thumbnailURL = URL(string: url) {
-         do {
-         let urlData = try Data(contentsOf: thumbnailURL)
-         self.image = UIImage(data: urlData)
-         } catch {
-         print("error: initializing image")
-         self.image = nil
-         // *** could assign customized image
-         }
-         }
-         */
     }
     
 }
@@ -53,7 +39,7 @@ extension Picture {
     
     enum SerializationError: Error {
         case missing(String)
-        case invaled(String, Any)
+        case invalid(String, Any)
     }
     
     init(errorHandlingWith jsonDictionary: [String:Any]) throws {
@@ -82,21 +68,6 @@ extension Picture {
             throw SerializationError.missing("thumbUrl")
         }
         
-        
-        //        var urlData: Data
-        //        do {
-        //            urlData = try Data(contentsOf: thumbnailURL)
-        //        } catch let error {
-        //            // *** could assign customized image
-        //            print("error: \(error.localizedDescription)")
-        //            throw SerializationError.invaled("image", url)
-        //        }
-        //
-        //        guard let image = UIImage(data: urlData) else {
-        //            throw SerializationError.invaled("image", url)
-        //        }
-        
-        
         // Initialize remaining properties
         self.albumID = albumID
         self.picID = picID
@@ -117,12 +88,11 @@ extension Picture: Equatable {
     }
 }
 
-// MARK
+// MARK: This extension has been replaced by SDWebImage framework
 extension UIImageView {
     
     func download(from link: String?, contentMode: UIViewContentMode)
     {
-        print("downloading!")
         if let link = link {
             
             if let thumbnailURL = URL(string: link) {
@@ -137,7 +107,7 @@ extension UIImageView {
                         print("error: initializing image")
                         self.image = #imageLiteral(resourceName: "noImagePic")
                         self.layoutSubviews()
-                        // *** ALERT IF CONNECTION IS POOR
+                        // *** Alert via a closure if connection is poor
                     }
                 }
             }

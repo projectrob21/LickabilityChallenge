@@ -23,34 +23,9 @@ class AlbumCollectionViewController: UIViewController, CHTCollectionViewDelegate
         print("number of pictures in store.pictures = \(store.pictures.count)")
         print("number of albums in store.albums = \(store.albums.count)")
         
-        DispatchQueue.main.async {
-            
-            let spacing: CGFloat = 20
-            
-            let layout = CHTCollectionViewWaterfallLayout()
-            layout.minimumInteritemSpacing = spacing
-            layout.minimumColumnSpacing = spacing
-            layout.columnCount = 4
-            layout.sectionInset = UIEdgeInsetsMake(spacing, spacing, spacing, spacing)
-            
-            
-            
-            self.collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
-            self.collectionView.setCollectionViewLayout(layout, animated: true)
 
-            self.collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-            self.collectionView.alwaysBounceVertical = true
-            self.collectionView.delegate = self
-            self.collectionView.dataSource = self
-            self.collectionView.register(AlbumViewCell.self, forCellWithReuseIdentifier: "Cell")
-            
-            self.view.addSubview(self.collectionView)
-            self.collectionView.snp.makeConstraints {
-                $0.leading.bottom.trailing.equalToSuperview()
-                $0.top.equalToSuperview().offset(UIApplication.shared.statusBarFrame.height)
-            }
-        }
-        
+        configure()
+        constrain()
         
         // Download async in background?
         // Only intialize parts of json?
@@ -58,6 +33,33 @@ class AlbumCollectionViewController: UIViewController, CHTCollectionViewDelegate
         
         
         
+    }
+    
+    func configure() {
+        let spacing: CGFloat = 20
+        
+        let layout = CHTCollectionViewWaterfallLayout()
+        layout.minimumInteritemSpacing = spacing
+        layout.minimumColumnSpacing = spacing
+        layout.columnCount = 4
+        layout.sectionInset = UIEdgeInsetsMake(spacing, spacing, spacing, spacing)
+        
+        collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+        collectionView.setCollectionViewLayout(layout, animated: true)
+        
+        collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        collectionView.alwaysBounceVertical = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(AlbumViewCell.self, forCellWithReuseIdentifier: "Cell")
+    }
+    
+    func constrain() {
+        view.addSubview(collectionView)
+        collectionView.snp.makeConstraints {
+            $0.leading.bottom.trailing.equalToSuperview()
+            $0.top.equalToSuperview().offset(UIApplication.shared.statusBarFrame.height)
+        }
     }
     
     override func didReceiveMemoryWarning() {

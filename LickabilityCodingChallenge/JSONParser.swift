@@ -31,7 +31,7 @@ final class JSONParser {
         
         getDictionary(from: "photos") { pictureDictionary in
             
-            // *** REFACTOR FOR LOOPS & ALBUMS
+            // *** REFACTOR FOR LOOPS & ALBUMS, *** Error-Handling Initializer
             
             for pictureNode in pictureDictionary.map({ Picture(json: $0) }) {
                 if let picture = pictureNode {
