@@ -19,7 +19,7 @@ class PictureDetailView: UIView {
     var titleLabel: UILabel!
     var dismissButton: UIButton!
     
-    var viewModel = PictureViewModel()
+    var viewModel = AlbumPictureViewModel()
         
     
     required init?(coder aDecoder: NSCoder) {

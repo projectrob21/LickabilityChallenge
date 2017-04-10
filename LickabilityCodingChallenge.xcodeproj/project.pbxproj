@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DD38DDFA32761DD869C9C01E /* Pods_LickabilityCodingChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E291826D6B334C6644AAB41 /* Pods_LickabilityCodingChallenge.framework */; };
-		E8143C1B1E9B040000CBE3F2 /* PictureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8143C1A1E9B040000CBE3F2 /* PictureViewModel.swift */; };
+		E8143C1B1E9B040000CBE3F2 /* AlbumPictureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8143C1A1E9B040000CBE3F2 /* AlbumPictureViewModel.swift */; };
 		E8143C1D1E9B103600CBE3F2 /* AlbumViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8143C1C1E9B103600CBE3F2 /* AlbumViewCell.swift */; };
 		E8143C1F1E9BFFC700CBE3F2 /* PictureCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8143C1E1E9BFFC700CBE3F2 /* PictureCollectionView.swift */; };
 		E8143C211E9BFFEF00CBE3F2 /* PictureDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8143C201E9BFFEF00CBE3F2 /* PictureDetailViewController.swift */; };
@@ -32,7 +32,7 @@
 /* Begin PBXFileReference section */
 		2E291826D6B334C6644AAB41 /* Pods_LickabilityCodingChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LickabilityCodingChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AD30B9B85D35B81F35BC764 /* Pods-LickabilityCodingChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LickabilityCodingChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-LickabilityCodingChallenge/Pods-LickabilityCodingChallenge.release.xcconfig"; sourceTree = "<group>"; };
-		E8143C1A1E9B040000CBE3F2 /* PictureViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureViewModel.swift; sourceTree = "<group>"; };
+		E8143C1A1E9B040000CBE3F2 /* AlbumPictureViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumPictureViewModel.swift; sourceTree = "<group>"; };
 		E8143C1C1E9B103600CBE3F2 /* AlbumViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewCell.swift; sourceTree = "<group>"; };
 		E8143C1E1E9BFFC700CBE3F2 /* PictureCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureCollectionView.swift; sourceTree = "<group>"; };
 		E8143C201E9BFFEF00CBE3F2 /* PictureDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureDetailViewController.swift; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 		E8143C221E9C037300CBE3F2 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
-				E8143C1A1E9B040000CBE3F2 /* PictureViewModel.swift */,
+				E8143C1A1E9B040000CBE3F2 /* AlbumPictureViewModel.swift */,
 			);
 			name = "View Model";
 			sourceTree = "<group>";
@@ -302,7 +302,7 @@
 				E8143C1D1E9B103600CBE3F2 /* AlbumViewCell.swift in Sources */,
 				E876221E1E93FB8600651429 /* AppDelegate.swift in Sources */,
 				E87622321E93FFC500651429 /* Album.swift in Sources */,
-				E8143C1B1E9B040000CBE3F2 /* PictureViewModel.swift in Sources */,
+				E8143C1B1E9B040000CBE3F2 /* AlbumPictureViewModel.swift in Sources */,
 				E876223A1E94005600651429 /* PictureDetailView.swift in Sources */,
 				E876224A1E95692D00651429 /* PictureCollectionViewController.swift in Sources */,
 				E87622361E94003B00651429 /* AlbumCollectionView.swift in Sources */,

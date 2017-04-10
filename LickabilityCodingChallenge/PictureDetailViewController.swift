@@ -44,7 +44,7 @@ class PictureDetailViewController: UIViewController {
     
 }
 
-extension PictureDetailViewController: NewViewControllerDelegate {
+extension PictureDetailViewController: PresentDismissVCDelegate {
     
     func presentViewController(for album: Album) {
         

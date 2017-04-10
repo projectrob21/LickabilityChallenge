@@ -14,7 +14,7 @@ class PictureCollectionView: UIView {
     
     let store = DataStore.shared
     var album: Album?
-    var viewModel = PictureViewModel()
+    var viewModel = AlbumPictureViewModel()
     
     var collectionView: UICollectionView!
     var blurEffectView: UIVisualEffectView!

@@ -59,7 +59,7 @@ class PictureCollectionViewController: UIViewController {
 
 
 // MARK: Present/Dismiss views and error messages
-extension PictureCollectionViewController: NewViewControllerDelegate {
+extension PictureCollectionViewController: PresentDismissVCDelegate {
     
     func presentViewController(for picture: Picture) {
         print("presentViewController for picture tapped in PictureCollection VC")

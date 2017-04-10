@@ -48,7 +48,7 @@ class AlbumCollectionViewController: UIViewController {
 
 
 // MARK: Present ViewControllers
-extension AlbumCollectionViewController: NewViewControllerDelegate {
+extension AlbumCollectionViewController: PresentDismissVCDelegate {
     
     func presentViewController(for picture: Picture) {
         

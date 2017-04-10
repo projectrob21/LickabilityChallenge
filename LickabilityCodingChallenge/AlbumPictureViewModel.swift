@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-struct PictureViewModel {
+struct AlbumPictureViewModel {
     
-    var viewControllerDelegate: NewViewControllerDelegate?
+    var viewControllerDelegate: PresentDismissVCDelegate?
     
 //    func makePrimaryAlbumThumbnail(for album: Album, with picture: Picture) {
 //        album.albumThumbnailURL = picture.thumbnailURL
@@ -20,7 +20,7 @@ struct PictureViewModel {
 }
 
 
-protocol NewViewControllerDelegate {
+protocol PresentDismissVCDelegate {
     
     func presentViewController(for album: Album)
     

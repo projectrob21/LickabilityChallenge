@@ -14,7 +14,7 @@ class AlbumCollectionView: UIView {
     
     let store = DataStore.shared
     var collectionView: UICollectionView!
-    var viewModel = PictureViewModel()
+    var viewModel = AlbumPictureViewModel()
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder) }
