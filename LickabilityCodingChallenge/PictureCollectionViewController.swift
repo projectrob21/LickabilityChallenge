@@ -18,7 +18,8 @@ class PictureCollectionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        configure()
+        constrain()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,8 +28,6 @@ class PictureCollectionViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        configure()
-        constrain()
     }
     
     func configure() {
@@ -67,13 +66,13 @@ extension PictureCollectionViewController: PresentDismissVCDelegate {
         let pictureDetailViewController = PictureDetailViewController()
         pictureDetailViewController.picture = picture
         
-        pictureDetailViewController.modalPresentationStyle = .overFullScreen
-        pictureDetailViewController.modalTransitionStyle = .crossDissolve
+        pictureDetailViewController.modalPresentationStyle = .fullScreen
         present(pictureDetailViewController, animated: true, completion: nil)
     }
     
     func presentViewController(for album: Album) {
-        print("")
+        // *** this method should never get called
+        fatalError()
     }
     
     func dismissViewController() {
@@ -84,9 +83,9 @@ extension PictureCollectionViewController: PresentDismissVCDelegate {
 }
 
 // MARK: Error handles for if no internet connection
-extension PictureCollectionViewController {
+extension PictureCollectionViewController: ErrorAlertDelegate {
     func presentErrorAlert(error: NSError?) {
-        
+    
         wasPresentedError = true
         if let error = error {
             let alertController = UIAlertController(

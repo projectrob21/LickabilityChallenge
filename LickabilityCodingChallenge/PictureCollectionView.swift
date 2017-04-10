@@ -154,7 +154,9 @@ extension PictureCollectionView: UICollectionViewDelegate, UICollectionViewDataS
                     print("\nunable to download image: \(String(describing: error?.localizedDescription))")
                     cell.imageView.image = #imageLiteral(resourceName: "noImagePic")
                     if self.wasPresentedError == false {
-                        //     ***                  self.presentErrorAlert(error: error as NSError?)
+                        
+                        // error inherits from NSError... **** networking in View!!
+                        self.viewModel.errorAlertDelegate?.presentErrorAlert(error: error! as NSError)
                     }
                 }
             })

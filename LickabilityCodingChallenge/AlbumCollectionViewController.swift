@@ -51,11 +51,11 @@ class AlbumCollectionViewController: UIViewController {
 extension AlbumCollectionViewController: PresentDismissVCDelegate {
     
     func presentViewController(for picture: Picture) {
-        
+        // *** This function will never be called in this VC
+        fatalError()
     }
 
     func presentViewController(for album: Album) {
-        print("presentVC in AlbumVC")
         let pictureCollectionVC = PictureCollectionViewController()
         pictureCollectionVC.album = album
         
@@ -65,7 +65,6 @@ extension AlbumCollectionViewController: PresentDismissVCDelegate {
     }
     
     func dismissViewController() {
-        print("dismiss tapped in AlbumCollection VC")
         dismiss(animated: true, completion: nil)
     }
     

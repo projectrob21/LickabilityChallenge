@@ -82,7 +82,7 @@ extension AlbumCollectionView: UICollectionViewDelegate, UICollectionViewDataSou
                 cell.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
                 
             }, completion: { finished in
-                UIView.animate(withDuration: 0.1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 5, options: .curveEaseInOut, animations: {
+                UIView.animate(withDuration: 0.01, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 5, options: .curveEaseInOut, animations: {
                     
                     cell.transform = CGAffineTransform(scaleX: 1, y: 1)
                     
