@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class PictureViewCell: UICollectionViewCell {
+final class PictureViewCell: UICollectionViewCell {
     
     var imageView: UIImageView!
     

@@ -122,7 +122,6 @@
 				E876221D1E93FB8600651429 /* AppDelegate.swift */,
 				E876221F1E93FB8600651429 /* AlbumCollectionViewController.swift */,
 				E87622491E95692C00651429 /* PictureCollectionViewController.swift */,
-				E8143C1C1E9B103600CBE3F2 /* AlbumViewCell.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -140,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				E87622451E942DB900651429 /* PictureViewCell.swift */,
+				E8143C1C1E9B103600CBE3F2 /* AlbumViewCell.swift */,
 				E87622391E94005600651429 /* PictureDetailView.swift */,
 				E87622351E94003B00651429 /* PrimaryCollectionView.swift */,
 			);

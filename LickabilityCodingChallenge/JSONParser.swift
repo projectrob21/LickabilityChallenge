@@ -45,7 +45,7 @@ final class JSONParser {
                     
                     // If no correlating Album is found, create a new one; otherwise add it to the corresponding Album
                     if containsAlbum == false {
-                        let newAlbum = Album(albumID: picture.albumID, pictures: [picture])
+                        let newAlbum = Album(albumID: picture.albumID, pictures: [picture], albumThumbnailURL: nil)
                         store.albums.append(newAlbum)
                     } else {
                         for (index, album) in store.albums.enumerated() {

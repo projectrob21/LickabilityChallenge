@@ -80,16 +80,12 @@ extension AlbumCollectionViewController: UICollectionViewDelegate, UICollectionV
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! AlbumViewCell
+        let album = self.store.albums[indexPath.row]
 
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 5, options: [], animations: {
 
-            let album = self.store.albums[indexPath.row]
-            cell.backgroundColor = UIColor().generateRandomColor()
-            cell.titleLabel.text = "\(album.albumID)"
-            //        let picture = store.pictures[indexPath.row]
-            //        DispatchQueue.main.async {
-            //            cell.imageView.download(from: picture.thumbnailURL, contentMode: .center)
-            //        }
+            cell.viewModel = AlbumViewCell.ViewModel(album: album)
+
         }, completion: nil)
         return cell
     }
