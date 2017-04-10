@@ -43,7 +43,7 @@ class PictureDetailView: UIView {
         imageView = UIImageView()
         imageView.backgroundColor = UIColor.white
         
-        // *** no network calls in view
+        // TODO no network calls in view
         
         let url = URL(string: picture.imageURL)
         imageView.sd_setImage(with: url)
@@ -59,7 +59,6 @@ class PictureDetailView: UIView {
         titleLabel.font = UIFont(name: "Avenir", size: 20)
         titleLabel.textColor = UIColor.white
 
-        // *** text alignment
         titleLabel.numberOfLines = 0
         
         dismissButton = UIButton()

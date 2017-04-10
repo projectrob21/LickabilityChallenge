@@ -157,7 +157,8 @@ extension PictureCollectionView: UICollectionViewDelegate, UICollectionViewDataS
                     cell.imageView.image = #imageLiteral(resourceName: "noImagePic")
                     if self.wasPresentedError == false {
                         
-                        // error inherits from NSError... **** networking in View!!
+                        // error inherits from NSError, so is safe to case
+                        // TODO networking in View!!
                         self.viewModel.errorAlertDelegate?.presentErrorAlert(error: error as NSError?)
                     }
                 }

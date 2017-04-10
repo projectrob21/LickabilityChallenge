@@ -32,7 +32,7 @@ struct Picture {
     
 }
 
-// MARK: *** https://developer.apple.com/swift/blog/?id=37 for Error handling
+// MARK: Initializer with Error Handling ( https://developer.apple.com/swift/blog/?id=37 )
 extension Picture {
     
     enum SerializationError: Error {

@@ -13,9 +13,6 @@ struct AlbumPictureViewModel {
     
     var viewControllerDelegate: PresentDismissVCDelegate?
     var errorAlertDelegate: ErrorAlertDelegate?
-//    func makePrimaryAlbumThumbnail(for album: Album, with picture: Picture) {
-//        album.albumThumbnailURL = picture.thumbnailURL
-//    }
         
 }
 

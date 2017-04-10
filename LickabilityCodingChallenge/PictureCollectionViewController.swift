@@ -71,7 +71,7 @@ extension PictureCollectionViewController: PresentDismissVCDelegate {
     }
     
     func presentViewController(for album: Album) {
-        // *** this method should never get called
+        // TODO this method should never get called
         fatalError()
     }
     

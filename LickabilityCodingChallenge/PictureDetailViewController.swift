@@ -47,12 +47,11 @@ class PictureDetailViewController: UIViewController {
 extension PictureDetailViewController: PresentDismissVCDelegate {
     
     func presentViewController(for album: Album) {
-        
-        
+        fatalError()
     }
     
     func presentViewController(for picture: Picture) {
-        
+        fatalError()
     }
     
     func dismissViewController() {
