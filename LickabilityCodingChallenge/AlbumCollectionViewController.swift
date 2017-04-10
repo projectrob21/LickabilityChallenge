@@ -69,7 +69,7 @@ class AlbumCollectionViewController: UIViewController, CHTCollectionViewDelegate
         super.didReceiveMemoryWarning()
     }
     
-    var albumCollectionView: AlbumCollectionView!
+//    var albumCollectionView: AlbumCollectionView!
 
     
 }
@@ -93,26 +93,26 @@ extension AlbumCollectionViewController: UICollectionViewDelegate, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
-        albumCollectionView = AlbumCollectionView()
-        albumCollectionView.presentPictureCollectionVC = presentNewViewController(for:)
+//        albumCollectionView = AlbumCollectionView()
+//        albumCollectionView.presentPictureCollectionVC = presentNewViewController(_:)
         
-        //        let cell = collectionView.cellForItem(at: indexPath)
-//        
-//        UIView.animate(withDuration: 0.1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 5, options: [], animations: {
-//            cell!.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-//            
-//        }, completion: { finished in
-//            UIView.animate(withDuration: 0.1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 5, options: .curveEaseInOut, animations: {
-//                
-//                cell!.transform = CGAffineTransform(scaleX: 1, y: 1)
-//                
-//                
-//                let album = self.store.albums[indexPath.row]
-//                self.presentNewViewController(for: album)
-//                
-//                
-//            }, completion: nil) }
-//        )
+                let cell = collectionView.cellForItem(at: indexPath)
+        
+        UIView.animate(withDuration: 0.1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 5, options: [], animations: {
+            cell!.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+            
+        }, completion: { finished in
+            UIView.animate(withDuration: 0.1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 5, options: .curveEaseInOut, animations: {
+                
+                cell!.transform = CGAffineTransform(scaleX: 1, y: 1)
+                
+                
+                let album = self.store.albums[indexPath.row]
+                self.presentNewViewController(for: album)
+                
+                
+            }, completion: nil) }
+        )
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
