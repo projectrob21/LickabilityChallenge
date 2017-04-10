@@ -11,13 +11,19 @@ import UIKit
 
 struct PictureViewModel {
     
+    var newViewControllerDelegate: NewViewControllerDelegate?
+    
 //    func makePrimaryAlbumThumbnail(for album: Album, with picture: Picture) {
 //        album.albumThumbnailURL = picture.thumbnailURL
 //    }
-    
-    func presentViewController(for album: Album) {
+        
+}
 
-                
-    }
+
+protocol NewViewControllerDelegate {
+    
+    func presentViewController(for album: Album)
+    
+    func dismissViewController()
     
 }

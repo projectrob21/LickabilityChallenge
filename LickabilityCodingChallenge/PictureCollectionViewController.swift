@@ -221,7 +221,7 @@ extension PictureCollectionViewController {
         //        self.dismiss(animated: true)
         wasPresentedError = false
         // if it was added to parent's view
-        parentVC?.dismissPictureVC()
+
         
     }
     

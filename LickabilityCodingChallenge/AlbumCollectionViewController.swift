@@ -12,7 +12,7 @@ import CoreData
 class AlbumCollectionViewController: UIViewController {
     
     let store = DataStore.shared
-    let albumCollectionView = AlbumCollectionView()
+    var albumCollectionView: AlbumCollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +21,14 @@ class AlbumCollectionViewController: UIViewController {
         print("number of pictures in store.pictures = \(store.pictures.count)")
         print("number of albums in store.albums = \(store.albums.count)")
         
+        configure()
         constrain()
         
+    }
+    
+    func configure() {
+        albumCollectionView = AlbumCollectionView()
+        albumCollectionView.viewModel.newViewControllerDelegate = self
     }
     
     func constrain() {
@@ -42,9 +48,10 @@ class AlbumCollectionViewController: UIViewController {
 
 
 // MARK: Present ViewControllers
-extension AlbumCollectionViewController {
+extension AlbumCollectionViewController: NewViewControllerDelegate {
     
-    func presentNewViewController(for album: Album) {
+    func presentViewController(for album: Album) {
+        print("presentVC in AlbumVC")
         let pictureCollectionVC = PictureCollectionViewController()
         pictureCollectionVC.album = album
         
@@ -54,7 +61,7 @@ extension AlbumCollectionViewController {
         
     }
     
-    func dismissPictureVC() {
+    func dismissViewController() {
         print("dismiss tapped in home VC")
         dismiss(animated: true, completion: nil)
 //        willMove(toParentViewController: nil)

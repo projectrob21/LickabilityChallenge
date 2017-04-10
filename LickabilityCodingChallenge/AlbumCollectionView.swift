@@ -14,7 +14,7 @@ class AlbumCollectionView: UIView {
     
     let store = DataStore.shared
     var collectionView: UICollectionView!
-    let pictureViewModel = PictureViewModel()
+    var viewModel = PictureViewModel()
     
     
     //    var presentPictureCollectionVC: (Album) -> ()
@@ -26,16 +26,18 @@ class AlbumCollectionView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-    }
-    
-    convenience init() {
-        self.init()
-        // method: @escaping (Album) -> ()
-        //        presentPictureCollectionVC = method
         configure()
         constrain()
     }
     
+//    convenience init() {
+//        self.init()
+//        // method: @escaping (Album) -> ()
+//        //        presentPictureCollectionVC = method
+//        configure()
+//        constrain()
+//    }
+//    
     func configure() {
         UIApplication.shared.statusBarStyle = .lightContent
         
@@ -97,7 +99,8 @@ extension AlbumCollectionView: UICollectionViewDelegate, UICollectionViewDataSou
                     
                     cell.transform = CGAffineTransform(scaleX: 1, y: 1)
                     
-                    self.pictureViewModel.presentViewController(for: album)
+                    
+                    self.viewModel.newViewControllerDelegate?.presentViewController(for: album)
                     
                 }, completion: nil) }
             )
