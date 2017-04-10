@@ -12,6 +12,8 @@ import UIKit
 final class PictureViewCell: UICollectionViewCell {
     
     var imageView: UIImageView!
+   
+    // TODO: Add explanation for following code and extension
     
     /*
     struct ImageDownloadManager {

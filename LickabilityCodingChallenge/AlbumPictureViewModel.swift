@@ -18,7 +18,7 @@ struct AlbumPictureViewModel {
         
 }
 
-
+// TODO: Separate out delegates
 protocol PresentDismissVCDelegate {
     
     func presentViewController(for album: Album)

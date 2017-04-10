@@ -26,7 +26,7 @@ final class AlbumViewCell: UICollectionViewCell {
             if viewModel?.album.albumThumbnailURL == nil {
                 self.backgroundColor = UIColor().generateRandomColor()
             } else {
-// TODO               self.imageView.image = viewModel?.albumImageView
+                // TODO: If album has a designated thumbnail, load
             }
         }
     }
@@ -81,7 +81,7 @@ extension AlbumViewCell.ViewModel {
     }
 
     
-    // TODO ViewModel not for downloading images / internet calls
+    // TODO: ViewModel not necesssarily for downloading images / internet calls
     
     var albumImageView: UIImageView? {
         var coverImageView: UIImageView?

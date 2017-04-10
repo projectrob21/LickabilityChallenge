@@ -43,7 +43,7 @@ class PictureDetailView: UIView {
         imageView = UIImageView()
         imageView.backgroundColor = UIColor.white
         
-        // TODO no network calls in view
+        // TODO: no network calls in view
         
         let url = URL(string: picture.imageURL)
         imageView.sd_setImage(with: url)
