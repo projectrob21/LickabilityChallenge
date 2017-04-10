@@ -15,7 +15,7 @@ class PictureCollectionViewController: UIViewController {
     var pictureCollectionView: PictureCollectionView!
     
     var wasPresentedError = false
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
@@ -32,8 +32,10 @@ class PictureCollectionViewController: UIViewController {
     
     func configure() {
         if album != nil {
-            pictureCollectionView = PictureCollectionView(album: album!)
+            pictureCollectionView = PictureCollectionView()
+            pictureCollectionView.album = album
             pictureCollectionView.viewModel.viewControllerDelegate = self
+            pictureCollectionView.viewModel.errorAlertDelegate = self
         }
     }
     
@@ -79,18 +81,21 @@ extension PictureCollectionViewController: PresentDismissVCDelegate {
 // MARK: Error handles for if no internet connection
 extension PictureCollectionViewController: ErrorAlertDelegate {
     func presentErrorAlert(error: NSError?) {
-    
-        wasPresentedError = true
-        if let error = error {
-            let alertController = UIAlertController(
-                title: "Unable to download images",
-                message: "\(error.localizedDescription)",
-                preferredStyle: .alert)
-            
-            let cancelAction = UIAlertAction(title: "OK", style: .cancel)
-            alertController.addAction(cancelAction)
-            
-            self.present(alertController, animated: true, completion: nil)
+        
+        if wasPresentedError == false {
+            if let error = error {
+                let alertController = UIAlertController(
+                    title: "Unable to download images",
+                    message: "\(error.localizedDescription)",
+                    preferredStyle: .alert)
+                
+                let cancelAction = UIAlertAction(title: "OK", style: .cancel)
+                alertController.addAction(cancelAction)
+                
+                self.present(alertController, animated: true, completion: {
+                    self.wasPresentedError = true
+                })
+            }
         }
     }
 }

@@ -11,6 +11,8 @@ import UIKit
 
 struct AlbumPictureViewModel {
     
+    let store = DataStore.shared
+    
     var viewControllerDelegate: PresentDismissVCDelegate?
     var errorAlertDelegate: ErrorAlertDelegate?
         

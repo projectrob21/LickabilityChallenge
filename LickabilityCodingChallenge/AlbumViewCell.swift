@@ -25,6 +25,8 @@ final class AlbumViewCell: UICollectionViewCell {
             titleLabel.attributedText = viewModel?.albumIDLabel
             if viewModel?.album.albumThumbnailURL == nil {
                 self.backgroundColor = UIColor().generateRandomColor()
+            } else {
+// TODO               self.imageView.image = viewModel?.albumImageView
             }
         }
     }
@@ -79,19 +81,19 @@ extension AlbumViewCell.ViewModel {
     }
 
     
-    // ViewModel not for downloading images / internet calls
+    // TODO ViewModel not for downloading images / internet calls
     
-//    var albumImageView: UIImageView? {
-//        var coverImageView: UIImageView?
-//        
-//        if let thumbnailString = album.albumThumbnailURL {
-//            let url = URL(string: thumbnailString)
-//            coverImageView = UIImageView()
-//            coverImageView?.contentMode = .scaleAspectFill
-//            coverImageView?.sd_setImage(with: url)
-//            return coverImageView
-//        }
-//        return coverImageView
-//    }
+    var albumImageView: UIImageView? {
+        var coverImageView: UIImageView?
+        
+        if let thumbnailString = album.albumThumbnailURL {
+            let url = URL(string: thumbnailString)
+            coverImageView = UIImageView()
+            coverImageView?.contentMode = .scaleAspectFill
+            coverImageView?.sd_setImage(with: url)
+            return coverImageView
+        }
+        return coverImageView
+    }
     
 }

@@ -12,9 +12,13 @@ import SnapKit
 
 class PictureCollectionView: UIView {
     
-    let store = DataStore.shared
-    var album: Album?
-    var viewModel = AlbumPictureViewModel()
+    var album: Album! {
+        didSet{
+            albumLabel.text = "Album \(album.albumID)"
+        }
+    }
+    
+    var viewModel = AlbumViewModel()
     
     var collectionView: UICollectionView!
     var blurEffectView: UIVisualEffectView!
@@ -33,18 +37,12 @@ class PictureCollectionView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-    }
-    
-    convenience init(album: Album) {
-        self.init(frame: CGRect.zero)
-        self.album = album
         configure()
         constrain()
     }
     
     
     func configure() {
-        guard let album = album else { print("error unwrapping album in PicVC"); return }
         
         backgroundColor = UIColor.clear
         
@@ -65,7 +63,6 @@ class PictureCollectionView: UIView {
         albumLabel.textColor = UIColor.white
         albumLabel.font = UIFont(name: "Avenir-Light", size: 20)
         albumLabel.textAlignment = .center
-        albumLabel.text = "Album \(album.albumID)"
         
         
         dismissBackgroundButton = UIButton()
@@ -128,14 +125,13 @@ class PictureCollectionView: UIView {
         }
     }
     
-    
 }
 
 extension PictureCollectionView: UICollectionViewDelegate, UICollectionViewDataSource, CHTCollectionViewDelegateWaterfallLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let album = album {
-            return album.pictures.count
+        if let albumPics = album?.pictures {
+            return albumPics.count
         }
         return 0
     }
@@ -144,9 +140,17 @@ extension PictureCollectionView: UICollectionViewDelegate, UICollectionViewDataS
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! PictureViewCell
         
-        let picture = album?.pictures[indexPath.row]
         
-        if let thumbnailString = picture?.thumbnailURL {
+        /*
+         guard let picture = album?.pictures[indexPath.row] else {return cell}
+         
+         let downloadManager = PictureViewCell.ImageDownloadManager(picture: picture, errorAlertDelegate: viewModel.errorAlertDelegate)
+         
+         cell.imageDownloadManager = downloadManager
+         */
+        
+        
+        let thumbnailString = album.pictures[indexPath.row].thumbnailURL
             let url = URL(string: thumbnailString)
             cell.imageView.sd_setImage(with: url, completed: { (returnedImage, error, wasCached, originalURL) in
                 
@@ -163,8 +167,6 @@ extension PictureCollectionView: UICollectionViewDelegate, UICollectionViewDataS
                     }
                 }
             })
-        }
-        
         return cell
     }
     
@@ -191,4 +193,5 @@ extension PictureCollectionView {
     func dismissViewControllerFromDelegate() {
         viewModel.viewControllerDelegate?.dismissViewController()
     }
+    
 }

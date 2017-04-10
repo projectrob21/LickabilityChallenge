@@ -45,6 +45,7 @@ class PictureDetailViewController: UIViewController {
 
 extension PictureDetailViewController: PresentDismissVCDelegate {
     
+    // TODO leave better comment or make 2 delegate methods
     func presentViewController(for album: Album) {
         fatalError()
     }
