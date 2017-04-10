@@ -28,7 +28,7 @@ class AlbumCollectionViewController: UIViewController {
     
     func configure() {
         albumCollectionView = AlbumCollectionView()
-        albumCollectionView.viewModel.newViewControllerDelegate = self
+        albumCollectionView.viewModel.viewControllerDelegate = self
     }
     
     func constrain() {
@@ -50,6 +50,10 @@ class AlbumCollectionViewController: UIViewController {
 // MARK: Present ViewControllers
 extension AlbumCollectionViewController: NewViewControllerDelegate {
     
+    func presentViewController(for picture: Picture) {
+        
+    }
+
     func presentViewController(for album: Album) {
         print("presentVC in AlbumVC")
         let pictureCollectionVC = PictureCollectionViewController()
@@ -58,16 +62,11 @@ extension AlbumCollectionViewController: NewViewControllerDelegate {
         pictureCollectionVC.modalPresentationStyle = .overFullScreen
         pictureCollectionVC.modalTransitionStyle = .crossDissolve
         present(pictureCollectionVC, animated: true, completion: nil)
-        
     }
     
     func dismissViewController() {
-        print("dismiss tapped in home VC")
+        print("dismiss tapped in AlbumCollection VC")
         dismiss(animated: true, completion: nil)
-//        willMove(toParentViewController: nil)
-//        pictureCollectionVC.view.removeFromSuperview()
-//        pictureCollectionVC = nil
-        
     }
     
 }

@@ -18,6 +18,8 @@ class PictureDetailView: UIView {
     var textView: UIView!
     var titleLabel: UILabel!
     var dismissButton: UIButton!
+    
+    var viewModel = PictureViewModel()
         
     
     required init?(coder aDecoder: NSCoder) {
@@ -63,6 +65,7 @@ class PictureDetailView: UIView {
         dismissButton = UIButton()
         dismissButton.setTitle("OK", for: .normal)
         dismissButton.backgroundColor = UIColor.purple
+        dismissButton.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
         
         backgroundColor = UIColor.white
         
@@ -107,5 +110,8 @@ class PictureDetailView: UIView {
         bringSubview(toFront: titleLabel)
     }
     
+    func dismissView() {
+        viewModel.viewControllerDelegate?.dismissViewController()
+    }
     
 }

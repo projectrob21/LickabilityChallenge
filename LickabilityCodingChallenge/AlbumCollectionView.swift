@@ -16,11 +16,6 @@ class AlbumCollectionView: UIView {
     var collectionView: UICollectionView!
     var viewModel = PictureViewModel()
     
-    
-    //    var presentPictureCollectionVC: (Album) -> ()
-    
-    // Add ScrollView behind CollectionView to enhance movements and depth
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder) }
     
@@ -29,15 +24,7 @@ class AlbumCollectionView: UIView {
         configure()
         constrain()
     }
-    
-//    convenience init() {
-//        self.init()
-//        // method: @escaping (Album) -> ()
-//        //        presentPictureCollectionVC = method
-//        configure()
-//        constrain()
-//    }
-//    
+
     func configure() {
         UIApplication.shared.statusBarStyle = .lightContent
         
@@ -100,7 +87,7 @@ extension AlbumCollectionView: UICollectionViewDelegate, UICollectionViewDataSou
                     cell.transform = CGAffineTransform(scaleX: 1, y: 1)
                     
                     
-                    self.viewModel.newViewControllerDelegate?.presentViewController(for: album)
+                    self.viewModel.viewControllerDelegate?.presentViewController(for: album)
                     
                 }, completion: nil) }
             )
@@ -115,44 +102,5 @@ extension AlbumCollectionView: UICollectionViewDelegate, UICollectionViewDataSou
         size = CGSize(width: 100, height: 100)
         return size
     }
-    
-}
-
-// MARK: Present DetailView
-extension AlbumCollectionView {
-    
-    //    // *** IS THIS EVEN CORRECT??
-    //    func presentNewViewController(for album: Album) {
-    //        pictureCollectionVC = PictureCollectionViewController()
-    //        pictureCollectionVC.album = album
-    //        pictureCollectionVC.parentVC = self
-    //
-    //        /*
-    //         pictureCollectionVC.modalPresentationStyle = .fullScreen
-    //         pictureCollectionVC.modalTransitionStyle = .crossDissolve
-    //
-    //         // Presenting VC
-    //         present(pictureCollectionVC, animated: true)
-    //
-    //         // showing VC
-    //         //        show(pictureCollectionVC, sender: nil)
-    //         //        showDetailViewController(pictureCollectionVC, sender: nil)
-    //         */
-    //
-    //        view.addSubview(pictureCollectionVC.view)
-    //        pictureCollectionVC.view.snp.makeConstraints {
-    //            $0.edges.equalToSuperview()
-    //        }
-    //        pictureCollectionVC.didMove(toParentViewController: nil)
-    //        view.layoutIfNeeded()
-    //
-    //    }
-    //
-    //    func dismissPictureVC() {
-    //        print("dismiss tapped in home VC")
-    //        willMove(toParentViewController: nil)
-    //        pictureCollectionVC.view.removeFromSuperview()
-    //        pictureCollectionVC = nil
-    //    }
     
 }
