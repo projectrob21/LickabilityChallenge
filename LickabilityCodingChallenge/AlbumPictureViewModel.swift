@@ -15,5 +15,7 @@ struct AlbumPictureViewModel {
     
     var viewControllerDelegate: PresentDismissVCDelegate?
     var errorAlertDelegate: ErrorAlertDelegate?
-        
+    var reloadDataDelegate: ReloadDataDelegate?
+
+    
 }

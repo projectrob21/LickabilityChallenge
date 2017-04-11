@@ -17,9 +17,3 @@ protocol PresentDismissVCDelegate {
     func dismissViewController()
     
 }
-
-protocol ErrorAlertDelegate {
-    
-    func presentErrorAlert(error: NSError?)
-    
-}

@@ -32,6 +32,7 @@
 		E89E2C281E9C92CA00D57502 /* ViewControllerDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89E2C271E9C92CA00D57502 /* ViewControllerDelegates.swift */; };
 		E89E2C2A1E9D30FB00D57502 /* CustomAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89E2C291E9D30FB00D57502 /* CustomAnimationController.swift */; };
 		E89E2C2C1E9D3BD700D57502 /* CustomDismissAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89E2C2B1E9D3BD700D57502 /* CustomDismissAnimationController.swift */; };
+		E89E2C2F1E9D467000D57502 /* WebCallDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89E2C2E1E9D467000D57502 /* WebCallDelegates.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		E89E2C271E9C92CA00D57502 /* ViewControllerDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerDelegates.swift; sourceTree = "<group>"; };
 		E89E2C291E9D30FB00D57502 /* CustomAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnimationController.swift; sourceTree = "<group>"; };
 		E89E2C2B1E9D3BD700D57502 /* CustomDismissAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDismissAnimationController.swift; sourceTree = "<group>"; };
+		E89E2C2E1E9D467000D57502 /* WebCallDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebCallDelegates.swift; sourceTree = "<group>"; };
 		F2F370D831F367A981D527F3 /* Pods-LickabilityCodingChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LickabilityCodingChallenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LickabilityCodingChallenge/Pods-LickabilityCodingChallenge.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,6 +121,7 @@
 			children = (
 				E8143C1A1E9B040000CBE3F2 /* AlbumPictureViewModel.swift */,
 				E89E2C271E9C92CA00D57502 /* ViewControllerDelegates.swift */,
+				E89E2C2E1E9D467000D57502 /* WebCallDelegates.swift */,
 			);
 			name = "View Model / Delegates";
 			sourceTree = "<group>";
@@ -173,9 +176,8 @@
 		E87622331E93FFF800651429 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E89E2C2D1E9D462300D57502 /* AnimationControllers */,
 				E876221D1E93FB8600651429 /* AppDelegate.swift */,
-				E89E2C291E9D30FB00D57502 /* CustomAnimationController.swift */,
-				E89E2C2B1E9D3BD700D57502 /* CustomDismissAnimationController.swift */,
 				E876221F1E93FB8600651429 /* AlbumViewController.swift */,
 				E87622491E95692C00651429 /* PictureViewController.swift */,
 				E8143C201E9BFFEF00CBE3F2 /* PictureDetailViewController.swift */,
@@ -212,6 +214,15 @@
 				E87622411E94111200651429 /* DataStore.swift */,
 			);
 			name = Data;
+			sourceTree = "<group>";
+		};
+		E89E2C2D1E9D462300D57502 /* AnimationControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E89E2C291E9D30FB00D57502 /* CustomAnimationController.swift */,
+				E89E2C2B1E9D3BD700D57502 /* CustomDismissAnimationController.swift */,
+			);
+			name = AnimationControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -391,6 +402,7 @@
 				E8143C1B1E9B040000CBE3F2 /* AlbumPictureViewModel.swift in Sources */,
 				E876223A1E94005600651429 /* PictureDetailView.swift in Sources */,
 				E876224A1E95692D00651429 /* PictureViewController.swift in Sources */,
+				E89E2C2F1E9D467000D57502 /* WebCallDelegates.swift in Sources */,
 				E87622361E94003B00651429 /* AlbumCollectionView.swift in Sources */,
 				E87622461E942DB900651429 /* PictureViewCell.swift in Sources */,
 				E87622421E94111200651429 /* DataStore.swift in Sources */,

@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SDWebImage
 
 class AlbumViewController: UIViewController {
     
@@ -28,6 +29,7 @@ class AlbumViewController: UIViewController {
     func configure() {
         albumCollectionView = AlbumCollectionView()
         albumCollectionView.viewModel.viewControllerDelegate = self
+        albumCollectionView.viewModel.reloadDataDelegate = self
     }
     
     func constrain() {
@@ -83,4 +85,12 @@ extension AlbumViewController: UIViewControllerTransitioningDelegate {
         return customDismissAnimationController
     }
     
+}
+
+extension AlbumViewController: ReloadDataDelegate {
+    
+    func reloadData() {
+        SDImageCache.shared().clearMemory()
+        SDImageCache.shared().clearDisk()
+    }
 }
