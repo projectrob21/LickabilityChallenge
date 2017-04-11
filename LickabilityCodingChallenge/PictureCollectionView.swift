@@ -18,7 +18,7 @@ class PictureCollectionView: UIView {
         }
     }
     
-    var viewModel = AlbumViewModel()
+    var viewModel = AlbumPictureViewModel()
     
     var collectionView: UICollectionView!
     var blurEffectView: UIVisualEffectView!
@@ -152,6 +152,7 @@ extension PictureCollectionView: UICollectionViewDelegate, UICollectionViewDataS
         
         let thumbnailString = album.pictures[indexPath.row].thumbnailURL
             let url = URL(string: thumbnailString)
+        // TODO: networking in View...
             cell.imageView.sd_setImage(with: url, completed: { (returnedImage, error, wasCached, originalURL) in
                 
                 // Border width set here so no empty white squares before images are initialized
@@ -162,7 +163,6 @@ extension PictureCollectionView: UICollectionViewDelegate, UICollectionViewDataS
                     if self.wasPresentedError == false {
                         
                         // error inherits from NSError, so is safe to case
-                        // TODO networking in View!!
                         self.viewModel.errorAlertDelegate?.presentErrorAlert(error: error as NSError?)
                     }
                 }

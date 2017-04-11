@@ -11,7 +11,6 @@
 		E8143C1B1E9B040000CBE3F2 /* AlbumPictureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8143C1A1E9B040000CBE3F2 /* AlbumPictureViewModel.swift */; };
 		E8143C1F1E9BFFC700CBE3F2 /* PictureCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8143C1E1E9BFFC700CBE3F2 /* PictureCollectionView.swift */; };
 		E8143C211E9BFFEF00CBE3F2 /* PictureDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8143C201E9BFFEF00CBE3F2 /* PictureDetailViewController.swift */; };
-		E8143C281E9C3BC500CBE3F2 /* AlbumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8143C271E9C3BC500CBE3F2 /* AlbumViewModel.swift */; };
 		E8143C301E9C70EB00CBE3F2 /* PictureInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8143C2F1E9C70EB00CBE3F2 /* PictureInitTests.swift */; };
 		E8143C381E9C793200CBE3F2 /* DataStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8143C371E9C793200CBE3F2 /* DataStoreTests.swift */; };
 		E876221E1E93FB8600651429 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E876221D1E93FB8600651429 /* AppDelegate.swift */; };
@@ -30,6 +29,10 @@
 		E876224A1E95692D00651429 /* PictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87622491E95692C00651429 /* PictureViewController.swift */; };
 		E88421C81E9737A9003A87A7 /* CHTCollectionViewWaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88421C71E9737A9003A87A7 /* CHTCollectionViewWaterfallLayout.swift */; };
 		E89E2C241E9C899400D57502 /* AlbumViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8143C1C1E9B103600CBE3F2 /* AlbumViewCell.swift */; };
+		E89E2C281E9C92CA00D57502 /* ViewControllerDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89E2C271E9C92CA00D57502 /* ViewControllerDelegates.swift */; };
+		E89E2C2A1E9D30FB00D57502 /* CustomAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89E2C291E9D30FB00D57502 /* CustomAnimationController.swift */; };
+		E89E2C2C1E9D3BD700D57502 /* CustomDismissAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89E2C2B1E9D3BD700D57502 /* CustomDismissAnimationController.swift */; };
+		E89E2C2F1E9D467000D57502 /* WebCallDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89E2C2E1E9D467000D57502 /* WebCallDelegates.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +52,6 @@
 		E8143C1C1E9B103600CBE3F2 /* AlbumViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewCell.swift; sourceTree = "<group>"; };
 		E8143C1E1E9BFFC700CBE3F2 /* PictureCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureCollectionView.swift; sourceTree = "<group>"; };
 		E8143C201E9BFFEF00CBE3F2 /* PictureDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureDetailViewController.swift; sourceTree = "<group>"; };
-		E8143C271E9C3BC500CBE3F2 /* AlbumViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewModel.swift; sourceTree = "<group>"; };
 		E8143C2D1E9C70EB00CBE3F2 /* LickabilityCodingChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LickabilityCodingChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8143C2F1E9C70EB00CBE3F2 /* PictureInitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureInitTests.swift; sourceTree = "<group>"; };
 		E8143C311E9C70EB00CBE3F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -71,6 +73,10 @@
 		E87622471E94318900651429 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E87622491E95692C00651429 /* PictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureViewController.swift; sourceTree = "<group>"; };
 		E88421C71E9737A9003A87A7 /* CHTCollectionViewWaterfallLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHTCollectionViewWaterfallLayout.swift; sourceTree = "<group>"; };
+		E89E2C271E9C92CA00D57502 /* ViewControllerDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerDelegates.swift; sourceTree = "<group>"; };
+		E89E2C291E9D30FB00D57502 /* CustomAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnimationController.swift; sourceTree = "<group>"; };
+		E89E2C2B1E9D3BD700D57502 /* CustomDismissAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomDismissAnimationController.swift; sourceTree = "<group>"; };
+		E89E2C2E1E9D467000D57502 /* WebCallDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebCallDelegates.swift; sourceTree = "<group>"; };
 		F2F370D831F367A981D527F3 /* Pods-LickabilityCodingChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LickabilityCodingChallenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LickabilityCodingChallenge/Pods-LickabilityCodingChallenge.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,13 +116,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E8143C221E9C037300CBE3F2 /* View Model */ = {
+		E8143C221E9C037300CBE3F2 /* View Model / Delegates */ = {
 			isa = PBXGroup;
 			children = (
 				E8143C1A1E9B040000CBE3F2 /* AlbumPictureViewModel.swift */,
-				E8143C271E9C3BC500CBE3F2 /* AlbumViewModel.swift */,
+				E89E2C271E9C92CA00D57502 /* ViewControllerDelegates.swift */,
+				E89E2C2E1E9D467000D57502 /* WebCallDelegates.swift */,
 			);
-			name = "View Model";
+			name = "View Model / Delegates";
 			sourceTree = "<group>";
 		};
 		E8143C2E1E9C70EB00CBE3F2 /* LickabilityCodingChallengeTests */ = {
@@ -155,7 +162,7 @@
 				E87622401E940B2900651429 /* Data */,
 				E87622341E94000200651429 /* Model */,
 				E876223B1E94005D00651429 /* View */,
-				E8143C221E9C037300CBE3F2 /* View Model */,
+				E8143C221E9C037300CBE3F2 /* View Model / Delegates */,
 				E87622331E93FFF800651429 /* Controllers */,
 				E87622241E93FB8600651429 /* Assets.xcassets */,
 				E87622471E94318900651429 /* Colors.swift */,
@@ -169,6 +176,7 @@
 		E87622331E93FFF800651429 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E89E2C2D1E9D462300D57502 /* AnimationControllers */,
 				E876221D1E93FB8600651429 /* AppDelegate.swift */,
 				E876221F1E93FB8600651429 /* AlbumViewController.swift */,
 				E87622491E95692C00651429 /* PictureViewController.swift */,
@@ -206,6 +214,15 @@
 				E87622411E94111200651429 /* DataStore.swift */,
 			);
 			name = Data;
+			sourceTree = "<group>";
+		};
+		E89E2C2D1E9D462300D57502 /* AnimationControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E89E2C291E9D30FB00D57502 /* CustomAnimationController.swift */,
+				E89E2C2B1E9D3BD700D57502 /* CustomDismissAnimationController.swift */,
+			);
+			name = AnimationControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -372,23 +389,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8143C281E9C3BC500CBE3F2 /* AlbumViewModel.swift in Sources */,
 				E87622301E93FF0B00651429 /* Picture.swift in Sources */,
 				E87622481E94318900651429 /* Colors.swift in Sources */,
 				E89E2C241E9C899400D57502 /* AlbumViewCell.swift in Sources */,
 				E87622201E93FB8600651429 /* AlbumViewController.swift in Sources */,
 				E8143C1F1E9BFFC700CBE3F2 /* PictureCollectionView.swift in Sources */,
+				E89E2C2A1E9D30FB00D57502 /* CustomAnimationController.swift in Sources */,
 				E876223F1E94065F00651429 /* JSONParser.swift in Sources */,
 				E876221E1E93FB8600651429 /* AppDelegate.swift in Sources */,
 				E87622321E93FFC500651429 /* Album.swift in Sources */,
+				E89E2C2C1E9D3BD700D57502 /* CustomDismissAnimationController.swift in Sources */,
 				E8143C1B1E9B040000CBE3F2 /* AlbumPictureViewModel.swift in Sources */,
 				E876223A1E94005600651429 /* PictureDetailView.swift in Sources */,
 				E876224A1E95692D00651429 /* PictureViewController.swift in Sources */,
+				E89E2C2F1E9D467000D57502 /* WebCallDelegates.swift in Sources */,
 				E87622361E94003B00651429 /* AlbumCollectionView.swift in Sources */,
 				E87622461E942DB900651429 /* PictureViewCell.swift in Sources */,
 				E87622421E94111200651429 /* DataStore.swift in Sources */,
 				E8143C211E9BFFEF00CBE3F2 /* PictureDetailViewController.swift in Sources */,
 				E88421C81E9737A9003A87A7 /* CHTCollectionViewWaterfallLayout.swift in Sources */,
+				E89E2C281E9C92CA00D57502 /* ViewControllerDelegates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

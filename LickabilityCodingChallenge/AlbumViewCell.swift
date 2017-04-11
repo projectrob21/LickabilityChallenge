@@ -26,7 +26,7 @@ final class AlbumViewCell: UICollectionViewCell {
             if viewModel?.album.albumThumbnailURL == nil {
                 self.backgroundColor = UIColor().generateRandomColor()
             } else {
-                // TODO: If album has a designated thumbnail, load
+                // TODO: If album has a designated thumbnail, load that image; otherwise assign a random UIColor
             }
         }
     }

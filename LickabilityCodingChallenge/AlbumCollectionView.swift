@@ -14,8 +14,10 @@ class AlbumCollectionView: UIView {
     
     let store = DataStore.shared
     var collectionView: UICollectionView!
-    var viewModel = AlbumPictureViewModel()
+    var refreshControl: UIRefreshControl!
     
+    var viewModel = AlbumPictureViewModel()
+        
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder) }
     
@@ -44,6 +46,11 @@ class AlbumCollectionView: UIView {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(AlbumViewCell.self, forCellWithReuseIdentifier: "Cell")
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(reloadData), for: .valueChanged)
+        collectionView.refreshControl = refreshControl
+    
     }
     
     func constrain() {
@@ -86,11 +93,11 @@ extension AlbumCollectionView: UICollectionViewDelegate, UICollectionViewDataSou
                     
                     cell.transform = CGAffineTransform(scaleX: 1, y: 1)
                     
-                    
                     self.viewModel.viewControllerDelegate?.presentViewController(for: album)
                     
                 }, completion: nil) }
             )
+            
         }
     }
     
@@ -103,4 +110,12 @@ extension AlbumCollectionView: UICollectionViewDelegate, UICollectionViewDataSou
         return size
     }
     
+}
+
+extension AlbumCollectionView {
+    
+    func reloadData() {
+        viewModel.reloadDataDelegate?.reloadData()
+        refreshControl.endRefreshing()
+    }
 }

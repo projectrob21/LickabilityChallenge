@@ -41,13 +41,13 @@ final class DataStore {
                         }
                     }
                 } catch {
-                    // TODO: how do I catch this?
+                    // TODO: catch this!
                 }
             }
             
             /*
  
-             // Older initialization without error handling
+            // Older initialization without error handling
              
             for pictureNode in pictureDictionary.map({ Picture(json: $0) }) {
                 if let picture = pictureNode {

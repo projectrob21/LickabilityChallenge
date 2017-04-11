@@ -15,22 +15,7 @@ struct AlbumPictureViewModel {
     
     var viewControllerDelegate: PresentDismissVCDelegate?
     var errorAlertDelegate: ErrorAlertDelegate?
-        
-}
+    var reloadDataDelegate: ReloadDataDelegate?
 
-// TODO: Separate out delegates
-protocol PresentDismissVCDelegate {
-    
-    func presentViewController(for album: Album)
-    
-    func presentViewController(for picture: Picture)
-    
-    func dismissViewController()
-    
-}
-
-protocol ErrorAlertDelegate {
-    
-    func presentErrorAlert(error: NSError?)
     
 }

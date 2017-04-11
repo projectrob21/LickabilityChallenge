@@ -51,6 +51,11 @@
                BlueprintName = "LickabilityCodingChallengeTests"
                ReferencedContainer = "container:LickabilityCodingChallenge.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "AlbumCollectionViewTests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>
