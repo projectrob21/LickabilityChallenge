@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		DD38DDFA32761DD869C9C01E /* Pods_LickabilityCodingChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E291826D6B334C6644AAB41 /* Pods_LickabilityCodingChallenge.framework */; };
 		E8143C1B1E9B040000CBE3F2 /* AlbumPictureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8143C1A1E9B040000CBE3F2 /* AlbumPictureViewModel.swift */; };
-		E8143C1D1E9B103600CBE3F2 /* AlbumViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8143C1C1E9B103600CBE3F2 /* AlbumViewCell.swift */; };
 		E8143C1F1E9BFFC700CBE3F2 /* PictureCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8143C1E1E9BFFC700CBE3F2 /* PictureCollectionView.swift */; };
 		E8143C211E9BFFEF00CBE3F2 /* PictureDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8143C201E9BFFEF00CBE3F2 /* PictureDetailViewController.swift */; };
 		E8143C281E9C3BC500CBE3F2 /* AlbumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8143C271E9C3BC500CBE3F2 /* AlbumViewModel.swift */; };
-		E8143C301E9C70EB00CBE3F2 /* PictureInitializationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8143C2F1E9C70EB00CBE3F2 /* PictureInitializationTests.swift */; };
+		E8143C301E9C70EB00CBE3F2 /* PictureInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8143C2F1E9C70EB00CBE3F2 /* PictureInitTests.swift */; };
+		E8143C381E9C793200CBE3F2 /* DataStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8143C371E9C793200CBE3F2 /* DataStoreTests.swift */; };
 		E876221E1E93FB8600651429 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E876221D1E93FB8600651429 /* AppDelegate.swift */; };
 		E87622201E93FB8600651429 /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E876221F1E93FB8600651429 /* AlbumViewController.swift */; };
 		E87622251E93FB8600651429 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E87622241E93FB8600651429 /* Assets.xcassets */; };
@@ -29,6 +29,7 @@
 		E87622481E94318900651429 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87622471E94318900651429 /* Colors.swift */; };
 		E876224A1E95692D00651429 /* PictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87622491E95692C00651429 /* PictureViewController.swift */; };
 		E88421C81E9737A9003A87A7 /* CHTCollectionViewWaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88421C71E9737A9003A87A7 /* CHTCollectionViewWaterfallLayout.swift */; };
+		E89E2C241E9C899400D57502 /* AlbumViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8143C1C1E9B103600CBE3F2 /* AlbumViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,8 +51,9 @@
 		E8143C201E9BFFEF00CBE3F2 /* PictureDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureDetailViewController.swift; sourceTree = "<group>"; };
 		E8143C271E9C3BC500CBE3F2 /* AlbumViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewModel.swift; sourceTree = "<group>"; };
 		E8143C2D1E9C70EB00CBE3F2 /* LickabilityCodingChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LickabilityCodingChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E8143C2F1E9C70EB00CBE3F2 /* PictureInitializationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureInitializationTests.swift; sourceTree = "<group>"; };
+		E8143C2F1E9C70EB00CBE3F2 /* PictureInitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureInitTests.swift; sourceTree = "<group>"; };
 		E8143C311E9C70EB00CBE3F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8143C371E9C793200CBE3F2 /* DataStoreTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStoreTests.swift; sourceTree = "<group>"; };
 		E876221A1E93FB8600651429 /* LickabilityCodingChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LickabilityCodingChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E876221D1E93FB8600651429 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E876221F1E93FB8600651429 /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
@@ -120,7 +122,8 @@
 		E8143C2E1E9C70EB00CBE3F2 /* LickabilityCodingChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
-				E8143C2F1E9C70EB00CBE3F2 /* PictureInitializationTests.swift */,
+				E8143C2F1E9C70EB00CBE3F2 /* PictureInitTests.swift */,
+				E8143C371E9C793200CBE3F2 /* DataStoreTests.swift */,
 				E8143C311E9C70EB00CBE3F2 /* Info.plist */,
 			);
 			path = LickabilityCodingChallengeTests;
@@ -360,7 +363,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8143C301E9C70EB00CBE3F2 /* PictureInitializationTests.swift in Sources */,
+				E8143C301E9C70EB00CBE3F2 /* PictureInitTests.swift in Sources */,
+				E8143C381E9C793200CBE3F2 /* DataStoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,10 +375,10 @@
 				E8143C281E9C3BC500CBE3F2 /* AlbumViewModel.swift in Sources */,
 				E87622301E93FF0B00651429 /* Picture.swift in Sources */,
 				E87622481E94318900651429 /* Colors.swift in Sources */,
+				E89E2C241E9C899400D57502 /* AlbumViewCell.swift in Sources */,
 				E87622201E93FB8600651429 /* AlbumViewController.swift in Sources */,
 				E8143C1F1E9BFFC700CBE3F2 /* PictureCollectionView.swift in Sources */,
 				E876223F1E94065F00651429 /* JSONParser.swift in Sources */,
-				E8143C1D1E9B103600CBE3F2 /* AlbumViewCell.swift in Sources */,
 				E876221E1E93FB8600651429 /* AppDelegate.swift in Sources */,
 				E87622321E93FFC500651429 /* Album.swift in Sources */,
 				E8143C1B1E9B040000CBE3F2 /* AlbumPictureViewModel.swift in Sources */,
@@ -464,6 +468,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -513,6 +518,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -569,6 +575,7 @@
 				E8143C351E9C70EB00CBE3F2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E87622151E93FB8600651429 /* Build configuration list for PBXProject "LickabilityCodingChallenge" */ = {
 			isa = XCConfigurationList;

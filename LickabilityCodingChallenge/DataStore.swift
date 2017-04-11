@@ -16,17 +16,15 @@ final class DataStore {
     var albums = [Album]()
     
     func populatePicturesFromDictionary() {
-        
-        let store = DataStore.shared
-        
+                
         JSONParser.getDictionary(from: "photos") { pictureDictionary in
             
             for pictureNode in pictureDictionary {
                 do {
                     let picture = try Picture(errorHandlingWith: pictureNode)
-                    store.pictures.append(picture)
+                    self.pictures.append(picture)
                     // Boolean method checks if Album exists for each picture's AlbumID
-                    let containsAlbum = store.albums.contains(where: { (album) in
+                    let containsAlbum = self.albums.contains(where: { (album) in
                         if album.albumID == picture.albumID { return true }
                         return false
                     })
@@ -34,11 +32,11 @@ final class DataStore {
                     // If no correlating Album is found, create a new one; otherwise add it to the corresponding Album
                     if containsAlbum == false {
                         let newAlbum = Album(albumID: picture.albumID, pictures: [picture], albumThumbnailURL: nil)
-                        store.albums.append(newAlbum)
+                        self.albums.append(newAlbum)
                     } else {
-                        for (index, album) in store.albums.enumerated() {
+                        for (index, album) in self.albums.enumerated() {
                             if album.albumID == picture.albumID {
-                                store.albums[index].pictures.append(picture)
+                                self.albums[index].pictures.append(picture)
                             }
                         }
                     }

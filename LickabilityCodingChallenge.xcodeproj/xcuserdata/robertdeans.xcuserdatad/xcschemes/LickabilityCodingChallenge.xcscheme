@@ -20,6 +20,20 @@
                ReferencedContainer = "container:LickabilityCodingChallenge.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E8143C2C1E9C70EB00CBE3F2"
+               BuildableName = "LickabilityCodingChallengeTests.xctest"
+               BlueprintName = "LickabilityCodingChallengeTests"
+               ReferencedContainer = "container:LickabilityCodingChallenge.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

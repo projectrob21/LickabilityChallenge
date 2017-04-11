@@ -9,7 +9,7 @@
 import XCTest
 @testable import LickabilityCodingChallenge
 
-class PictureInitializationTests: XCTestCase {
+class PictureInitTests: XCTestCase {
     let jsonDictionary = ["albumId": 1,
                           "id": 1,
                           "title": "accusamus beatae ad facilis cum similique qui sunt",
