@@ -28,6 +28,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E8143C2C1E9C70EB00CBE3F2"
+               BuildableName = "LickabilityCodingChallengeTests.xctest"
+               BlueprintName = "LickabilityCodingChallengeTests"
+               ReferencedContainer = "container:LickabilityCodingChallenge.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

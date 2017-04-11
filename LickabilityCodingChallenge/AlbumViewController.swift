@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class AlbumCollectionViewController: UIViewController {
+class AlbumViewController: UIViewController {
     
     let store = DataStore.shared
     var albumCollectionView: AlbumCollectionView!
@@ -44,7 +44,7 @@ class AlbumCollectionViewController: UIViewController {
 
 
 // MARK: Present ViewControllers
-extension AlbumCollectionViewController: PresentDismissVCDelegate {
+extension AlbumViewController: PresentDismissVCDelegate {
     
     // TODO This function will never be called in this VC
 
@@ -53,12 +53,12 @@ extension AlbumCollectionViewController: PresentDismissVCDelegate {
     }
 
     func presentViewController(for album: Album) {
-        let pictureCollectionVC = PictureCollectionViewController()
-        pictureCollectionVC.album = album
+        let pictureVC = PictureViewController()
+        pictureVC.album = album
         
-        pictureCollectionVC.modalPresentationStyle = .overFullScreen
-        pictureCollectionVC.modalTransitionStyle = .crossDissolve
-        present(pictureCollectionVC, animated: true, completion: nil)
+        pictureVC.modalPresentationStyle = .overFullScreen
+        pictureVC.modalTransitionStyle = .crossDissolve
+        present(pictureVC, animated: true, completion: nil)
     }
     
     func dismissViewController() {

@@ -1,5 +1,5 @@
 //
-//  PictureCollectionViewController.swift
+//  PictureViewController.swift
 //  LickabilityCodingChallenge
 //
 //  Created by Robert Deans on 4/5/17.
@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-class PictureCollectionViewController: UIViewController {
+class PictureViewController: UIViewController {
     
     var album: Album?
     var pictureCollectionView: PictureCollectionView!
@@ -57,7 +57,7 @@ class PictureCollectionViewController: UIViewController {
 
 
 // MARK: Present/Dismiss views and error messages
-extension PictureCollectionViewController: PresentDismissVCDelegate {
+extension PictureViewController: PresentDismissVCDelegate {
     
     func presentViewController(for picture: Picture) {
         let pictureDetailViewController = PictureDetailViewController()
@@ -79,7 +79,7 @@ extension PictureCollectionViewController: PresentDismissVCDelegate {
 }
 
 // MARK: Error handles for if no internet connection
-extension PictureCollectionViewController: ErrorAlertDelegate {
+extension PictureViewController: ErrorAlertDelegate {
     func presentErrorAlert(error: NSError?) {
         
         if wasPresentedError == false {
