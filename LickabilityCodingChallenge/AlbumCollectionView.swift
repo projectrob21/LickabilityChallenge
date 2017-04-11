@@ -116,6 +116,10 @@ extension AlbumCollectionView {
     
     func reloadData() {
         viewModel.reloadDataDelegate?.reloadData()
-        refreshControl.endRefreshing()
+        let when = DispatchTime.now() + 0.5
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            self.refreshControl.endRefreshing()
+        }
+
     }
 }
