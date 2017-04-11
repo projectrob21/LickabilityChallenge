@@ -46,7 +46,7 @@ class AlbumViewController: UIViewController {
 // MARK: Present ViewControllers
 extension AlbumViewController: PresentDismissVCDelegate {
     
-    // TODO This function will never be called in this VC
+    // TODO: This function will never be called in this VC
 
     func presentViewController(for picture: Picture) {
         fatalError()

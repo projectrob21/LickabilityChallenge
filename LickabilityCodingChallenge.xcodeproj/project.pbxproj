@@ -30,6 +30,8 @@
 		E876224A1E95692D00651429 /* PictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87622491E95692C00651429 /* PictureViewController.swift */; };
 		E88421C81E9737A9003A87A7 /* CHTCollectionViewWaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88421C71E9737A9003A87A7 /* CHTCollectionViewWaterfallLayout.swift */; };
 		E89E2C241E9C899400D57502 /* AlbumViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8143C1C1E9B103600CBE3F2 /* AlbumViewCell.swift */; };
+		E89E2C261E9C8E9500D57502 /* AlbumCollectionViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89E2C251E9C8E9500D57502 /* AlbumCollectionViewTests.swift */; };
+		E89E2C281E9C92CA00D57502 /* ViewControllerDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89E2C271E9C92CA00D57502 /* ViewControllerDelegates.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		E87622471E94318900651429 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E87622491E95692C00651429 /* PictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PictureViewController.swift; sourceTree = "<group>"; };
 		E88421C71E9737A9003A87A7 /* CHTCollectionViewWaterfallLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHTCollectionViewWaterfallLayout.swift; sourceTree = "<group>"; };
+		E89E2C251E9C8E9500D57502 /* AlbumCollectionViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewTests.swift; sourceTree = "<group>"; };
+		E89E2C271E9C92CA00D57502 /* ViewControllerDelegates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerDelegates.swift; sourceTree = "<group>"; };
 		F2F370D831F367A981D527F3 /* Pods-LickabilityCodingChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LickabilityCodingChallenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LickabilityCodingChallenge/Pods-LickabilityCodingChallenge.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,18 +114,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E8143C221E9C037300CBE3F2 /* View Model */ = {
+		E8143C221E9C037300CBE3F2 /* View Model / Delegates */ = {
 			isa = PBXGroup;
 			children = (
 				E8143C1A1E9B040000CBE3F2 /* AlbumPictureViewModel.swift */,
 				E8143C271E9C3BC500CBE3F2 /* AlbumViewModel.swift */,
+				E89E2C271E9C92CA00D57502 /* ViewControllerDelegates.swift */,
 			);
-			name = "View Model";
+			name = "View Model / Delegates";
 			sourceTree = "<group>";
 		};
 		E8143C2E1E9C70EB00CBE3F2 /* LickabilityCodingChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
+				E89E2C251E9C8E9500D57502 /* AlbumCollectionViewTests.swift */,
 				E8143C2F1E9C70EB00CBE3F2 /* PictureInitTests.swift */,
 				E8143C371E9C793200CBE3F2 /* DataStoreTests.swift */,
 				E8143C311E9C70EB00CBE3F2 /* Info.plist */,
@@ -155,7 +161,7 @@
 				E87622401E940B2900651429 /* Data */,
 				E87622341E94000200651429 /* Model */,
 				E876223B1E94005D00651429 /* View */,
-				E8143C221E9C037300CBE3F2 /* View Model */,
+				E8143C221E9C037300CBE3F2 /* View Model / Delegates */,
 				E87622331E93FFF800651429 /* Controllers */,
 				E87622241E93FB8600651429 /* Assets.xcassets */,
 				E87622471E94318900651429 /* Colors.swift */,
@@ -365,6 +371,7 @@
 			files = (
 				E8143C301E9C70EB00CBE3F2 /* PictureInitTests.swift in Sources */,
 				E8143C381E9C793200CBE3F2 /* DataStoreTests.swift in Sources */,
+				E89E2C261E9C8E9500D57502 /* AlbumCollectionViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +396,7 @@
 				E87622421E94111200651429 /* DataStore.swift in Sources */,
 				E8143C211E9BFFEF00CBE3F2 /* PictureDetailViewController.swift in Sources */,
 				E88421C81E9737A9003A87A7 /* CHTCollectionViewWaterfallLayout.swift in Sources */,
+				E89E2C281E9C92CA00D57502 /* ViewControllerDelegates.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

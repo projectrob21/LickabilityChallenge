@@ -66,9 +66,9 @@ extension PictureViewController: PresentDismissVCDelegate {
         pictureDetailViewController.modalPresentationStyle = .fullScreen
         present(pictureDetailViewController, animated: true, completion: nil)
     }
-    
+
+    // TODO: method should never get called from this VD
     func presentViewController(for album: Album) {
-        // TODO this method should never get called
         fatalError()
     }
     
