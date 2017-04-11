@@ -22,14 +22,6 @@ class PictureViewController: UIViewController {
         constrain()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
     func configure() {
         if album != nil {
             pictureCollectionView = PictureCollectionView()
@@ -66,7 +58,7 @@ extension PictureViewController: PresentDismissVCDelegate {
         pictureDetailViewController.modalPresentationStyle = .fullScreen
         present(pictureDetailViewController, animated: true, completion: nil)
     }
-
+    
     // TODO: method should never get called from this VD
     func presentViewController(for album: Album) {
         fatalError()

@@ -18,7 +18,7 @@ class PictureCollectionView: UIView {
         }
     }
     
-    var viewModel = AlbumViewModel()
+    var viewModel = AlbumPictureViewModel()
     
     var collectionView: UICollectionView!
     var blurEffectView: UIVisualEffectView!

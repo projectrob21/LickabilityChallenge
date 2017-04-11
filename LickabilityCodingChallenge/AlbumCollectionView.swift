@@ -86,11 +86,11 @@ extension AlbumCollectionView: UICollectionViewDelegate, UICollectionViewDataSou
                     
                     cell.transform = CGAffineTransform(scaleX: 1, y: 1)
                     
-                    
                     self.viewModel.viewControllerDelegate?.presentViewController(for: album)
                     
                 }, completion: nil) }
             )
+            
         }
     }
     

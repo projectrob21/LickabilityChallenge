@@ -13,6 +13,8 @@ class AlbumViewController: UIViewController {
     
     let store = DataStore.shared
     var albumCollectionView: AlbumCollectionView!
+    let customAnimationController = CustomAnimationController()
+    let customDismissAnimationController = CustomDismissAnimationController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,13 +58,29 @@ extension AlbumViewController: PresentDismissVCDelegate {
         let pictureVC = PictureViewController()
         pictureVC.album = album
         
+        pictureVC.providesPresentationContextTransitionStyle = true
+        pictureVC.definesPresentationContext = true
         pictureVC.modalPresentationStyle = .overFullScreen
-        pictureVC.modalTransitionStyle = .crossDissolve
-        present(pictureVC, animated: true, completion: nil)
+        pictureVC.transitioningDelegate = self
+//        pictureVC.modalTransitionStyle = .crossDissolve
+        self.present(pictureVC, animated: true, completion: nil)
+        
     }
     
     func dismissViewController() {
         dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+extension AlbumViewController: UIViewControllerTransitioningDelegate {
+ 
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return customAnimationController
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return customDismissAnimationController
     }
     
 }
