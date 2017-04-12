@@ -14,7 +14,7 @@ import SDWebImage
 class PictureDetailView: UIView {
     
     var picture: Picture! {
-        // TODO: no network calls in view
+        // TODO: fix network calls in view
         didSet {
             let url = URL(string: picture.imageURL)
             imageView.sd_setImage(with: url)
@@ -28,8 +28,8 @@ class PictureDetailView: UIView {
     var titleLabel: UILabel!
     var dismissButton: UIButton!
     
-    var viewModel = AlbumPictureViewModel()
-        
+    var viewModel = PictureViewModel()
+    
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -43,8 +43,6 @@ class PictureDetailView: UIView {
     
     func configure() {
         imageView = UIImageView()
-        imageView.backgroundColor = UIColor.white
-        
         
         textView = UIView()
         textView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.3)
@@ -54,14 +52,14 @@ class PictureDetailView: UIView {
         titleLabel.textAlignment = .natural
         titleLabel.lineBreakMode = .byWordWrapping
         titleLabel.font = UIFont(name: "Avenir", size: 20)
-        titleLabel.textColor = UIColor.white
+        titleLabel.textColor = UIColor.titleFont
 
         titleLabel.numberOfLines = 0
         
         dismissButton = UIButton()
         dismissButton.setTitle("OK", for: .normal)
         dismissButton.layer.cornerRadius = 5
-        dismissButton.backgroundColor = UIColor.purple
+        dismissButton.backgroundColor = UIColor.buttonColor
         dismissButton.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
         
         backgroundColor = UIColor.clear

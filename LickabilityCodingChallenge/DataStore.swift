@@ -40,8 +40,8 @@ final class DataStore {
                             }
                         }
                     }
-                } catch {
-                    // TODO: catch this!
+                } catch let error {
+                    print("error initializing DataStore: \(error)")                    
                 }
             }
             

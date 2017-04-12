@@ -29,8 +29,8 @@ class PictureDetailViewController: UIViewController {
             pictureDetailView.viewModel.viewControllerDelegate = self
         }
         
-        let color1 = UIColor.darkGray
-        let color2 = UIColor.lightGray
+        let color1 = UIColor.backgroundDark
+        let color2 = UIColor.backgroundLight
         
         let backgroundGradient = CAGradientLayer()
         backgroundGradient.colors = [color1.cgColor, color2.cgColor, color1.cgColor]

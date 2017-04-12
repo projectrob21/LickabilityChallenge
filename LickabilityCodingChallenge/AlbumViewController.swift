@@ -51,7 +51,6 @@ class AlbumViewController: UIViewController {
 extension AlbumViewController: PresentDismissVCDelegate {
     
     // TODO: This function will never be called in this VC
-
     func presentViewController(for picture: Picture) {
         fatalError()
     }
@@ -64,7 +63,6 @@ extension AlbumViewController: PresentDismissVCDelegate {
         pictureVC.definesPresentationContext = true
         pictureVC.modalPresentationStyle = .overFullScreen
         pictureVC.transitioningDelegate = self
-//        pictureVC.modalTransitionStyle = .crossDissolve
         self.present(pictureVC, animated: true, completion: nil)
         
     }
