@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct AlbumPictureViewModel {
+struct AlbumViewModel {
     
     let store = DataStore.shared
     

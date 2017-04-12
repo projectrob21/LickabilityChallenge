@@ -12,11 +12,10 @@ import SnapKit
 
 class AlbumCollectionView: UIView {
     
-    let store = DataStore.shared
     var collectionView: UICollectionView!
     var refreshControl: UIRefreshControl!
     
-    var viewModel = AlbumPictureViewModel()
+    var viewModel = AlbumViewModel()
         
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder) }
@@ -66,13 +65,13 @@ class AlbumCollectionView: UIView {
 extension AlbumCollectionView: UICollectionViewDelegate, UICollectionViewDataSource, CHTCollectionViewDelegateWaterfallLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return store.albums.count
+        return viewModel.store.albums.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! AlbumViewCell
-        let album = self.store.albums[indexPath.row]
+        let album = self.viewModel.store.albums[indexPath.row]
         
         cell.viewModel = AlbumViewCell.ViewModel(album: album)
         
@@ -81,7 +80,7 @@ extension AlbumCollectionView: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let album = self.store.albums[indexPath.row]
+        let album = self.viewModel.store.albums[indexPath.row]
         
         if let cell = collectionView.cellForItem(at: indexPath) {
             
@@ -116,6 +115,10 @@ extension AlbumCollectionView {
     
     func reloadData() {
         viewModel.reloadDataDelegate?.reloadData()
-        refreshControl.endRefreshing()
+        let when = DispatchTime.now() + 0.5
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            self.refreshControl.endRefreshing()
+        }
+
     }
 }

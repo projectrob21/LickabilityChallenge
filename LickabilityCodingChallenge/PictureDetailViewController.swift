@@ -24,9 +24,22 @@ class PictureDetailViewController: UIViewController {
     
     func configure() {
         if let picture = picture {
-            pictureDetailView = PictureDetailView(picture: picture)
+            pictureDetailView = PictureDetailView()
+            pictureDetailView.picture = picture
             pictureDetailView.viewModel.viewControllerDelegate = self
         }
+        
+        let color1 = UIColor.backgroundDark
+        let color2 = UIColor.backgroundLight
+        
+        let backgroundGradient = CAGradientLayer()
+        backgroundGradient.colors = [color1.cgColor, color2.cgColor, color1.cgColor]
+        backgroundGradient.locations = [0, 0.5, 1]
+        backgroundGradient.startPoint = CGPoint(x: 0, y: 0)
+        backgroundGradient.endPoint = CGPoint(x: 1, y: 0)
+        backgroundGradient.frame = view.frame
+        view.layer.insertSublayer(backgroundGradient, at: 0)
+        
     }
     
     func constrain() {

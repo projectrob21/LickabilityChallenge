@@ -13,7 +13,7 @@ final class PictureViewCell: UICollectionViewCell {
     
     var imageView: UIImageView!
    
-    // TODO: Add explanation for following code and extension
+    // TODO: Externalize internet calls and image downloading to a separate ViewModel
     
     /*
     struct ImageDownloadManager {

@@ -18,7 +18,7 @@ class PictureCollectionView: UIView {
         }
     }
     
-    var viewModel = AlbumPictureViewModel()
+    var viewModel = PictureViewModel()
     
     var collectionView: UICollectionView!
     var blurEffectView: UIVisualEffectView!
@@ -141,6 +141,7 @@ extension PictureCollectionView: UICollectionViewDelegate, UICollectionViewDataS
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! PictureViewCell
         
         
+        // TODO: Attempting to removing network calls from View...
         /*
          guard let picture = album?.pictures[indexPath.row] else {return cell}
          
@@ -152,7 +153,6 @@ extension PictureCollectionView: UICollectionViewDelegate, UICollectionViewDataS
         
         let thumbnailString = album.pictures[indexPath.row].thumbnailURL
             let url = URL(string: thumbnailString)
-        // TODO: networking in View...
             cell.imageView.sd_setImage(with: url, completed: { (returnedImage, error, wasCached, originalURL) in
                 
                 // Border width set here so no empty white squares before images are initialized
